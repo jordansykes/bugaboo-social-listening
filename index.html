@@ -230,6 +230,8 @@
   <div class="tab" onclick="showPage('joolz',event)">Joolz</div>
   <div class="tab" onclick="showPage('artipoppe',event)">Artipoppe</div>
   <div class="tab" onclick="showPage('compare',event)">Compare</div>
+  <div class="tab" onclick="showPage('comp-strollers',event)">Competitors · Strollers</div>
+  <div class="tab" onclick="showPage('comp-carriers',event)">Competitors · Carriers</div>
   <div class="tab" onclick="showPage('recalls',event)"><span class="recall-dot"></span> Recalls</div>
 </div>
 
@@ -702,6 +704,471 @@
   </div>
 </div>
 
+<!-- ─────────────────── COMPETITORS · STROLLERS ──────────────────── -->
+<div class="page" id="page-comp-strollers">
+  <div class="section-header">
+    Competitors · Strollers <span class="brand-badge" style="background:#f0f9ff;color:#0369a1;">UPPAbaby · Cybex · Nuna · BabyZen/Stokke</span>
+  </div>
+
+  <div class="info-banner">
+    <span>ℹ️</span>
+    <div><span class="bold">Context:</span> These four brands are Bugaboo's primary premium stroller competitors in the US and European markets. Sentiment scores and insights are assessed relative to Bugaboo's current +0.72 / 4.0★ baseline. Recall issues at competitors are noted where relevant.</div>
+  </div>
+
+  <!-- Competitor scorecard -->
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">Competitor Scorecard — Week of 3 Jun 2026</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Sentiment</th>
+          <th>Trustpilot</th>
+          <th>Key Product Buzz</th>
+          <th>Top Risk</th>
+          <th>vs Bugaboo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold" style="color:#0ea5e9;">UPPAbaby</td>
+          <td><span class="sentiment-pill s-pos">+0.65</span></td>
+          <td class="amber">~51 reviews</td>
+          <td>Vista V3 · Cruz V3 (new)</td>
+          <td class="red">Car seat class action active</td>
+          <td class="amber">Close competitor · slightly lower sentiment</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:#7c3aed;">Cybex</td>
+          <td><span class="sentiment-pill s-mix">+0.42</span></td>
+          <td class="amber">Mixed</td>
+          <td>Gazelle S · e-Priam (electric)</td>
+          <td class="amber">CS failures dominate reviews</td>
+          <td class="green">Bugaboo leads on service satisfaction</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:#059669;">Nuna</td>
+          <td><span class="sentiment-pill s-mix">+0.45</span></td>
+          <td class="amber">Mixed</td>
+          <td>TRVL · SWIV · Swiv Reach</td>
+          <td class="red">RAVA car seat recall 600K units + class action</td>
+          <td class="green">Bugaboo unaffected by car seat recall risk</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:#d97706;">BabyZen / Stokke</td>
+          <td><span class="sentiment-pill s-pos">+0.60</span></td>
+          <td class="text-sm">N/A</td>
+          <td>YOYO3 (under Stokke) · vs Butterfly TikTok</td>
+          <td class="amber">Rebrand confusion YOYO2→YOYO3</td>
+          <td class="amber">Direct Butterfly 2 competitor in travel</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Competitor sentiment chart -->
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Sentiment Comparison — Bugaboo vs Competitors</div>
+      <div class="chart-wrap" style="height:260px;">
+        <canvas id="compStrollerChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Hot Topics Across Competitors This Week</div>
+      <table>
+        <thead><tr><th>Topic</th><th>Brand</th><th>Sentiment</th></tr></thead>
+        <tbody>
+          <tr><td>Vista V3 vs Cruz V3 — which UPPAbaby?</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="green">Positive</td></tr>
+          <tr><td>UPPAbaby car seat class action (Mesa/Aria)</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="red">Negative</td></tr>
+          <tr><td>Cybex e-Priam electric pram content</td><td class="bold" style="color:#7c3aed;">Cybex</td><td class="green">Positive</td></tr>
+          <tr><td>Cybex CS failures — delivery/refund</td><td class="bold" style="color:#7c3aed;">Cybex</td><td class="red">Negative</td></tr>
+          <tr><td>Nuna RAVA recall class action ongoing</td><td class="bold" style="color:#059669;">Nuna</td><td class="red">Negative</td></tr>
+          <tr><td>Stokke YOYO3 vs YOYO2 — what changed?</td><td class="bold" style="color:#d97706;">BabyZen/Stokke</td><td class="green">Positive</td></tr>
+          <tr><td>Stokke YOYO3 vs Bugaboo Butterfly TikTok</td><td class="bold" style="color:#d97706;">BabyZen/Stokke</td><td class="amber">Mixed</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Individual competitor deep-dives -->
+  <!-- UPPAbaby -->
+  <div class="card">
+    <div class="card-title" style="color:#0ea5e9;">UPPAbaby · Sentiment +0.65 · Positive</div>
+    <div class="two-col" style="margin-bottom:0;">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
+        <div class="topic-tags">
+          <span class="topic-tag trending">Vista V3 — best-in-class storage (30 lbs basket)</span>
+          <span class="topic-tag trending">Cruz V3 — newborn-from-birth seat mode</span>
+          <span class="topic-tag trending">Vista V3 vs Cruz V3 comparison content</span>
+          <span class="topic-tag alert">Car seat class action — Mesa Max / Mesa V2 / Aria</span>
+          <span class="topic-tag alert">Amazon counterfeit alert (active campaign)</span>
+          <span class="topic-tag info">Nuna vs UPPAbaby — ongoing category debate</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
+        <a class="post-link" href="https://www.babyenroute.com/blogs/blog/nuna-vs-uppababy-the-ultimate-stroller-showdown-for-2026" target="_blank">
+          Nuna vs UPPAbaby: The Ultimate Stroller Showdown for 2026
+          <div class="post-platform">🌐 Baby enRoute</div>
+        </a>
+        <a class="post-link" href="https://strolleria.com/blogs/news/uppababy-cruz-v3-vs-uppababy-vista-v3" target="_blank">
+          UPPAbaby Cruz V3 vs Vista V3 — full comparison
+          <div class="post-platform">🌐 Strolleria</div>
+        </a>
+        <a class="post-link" href="https://www.classaction.org/news/class-action-lawsuit-alleges-uppababy-knowingly-sold-defective-car-seats" target="_blank">
+          UPPAbaby car seat class action — Mesa/Aria asphyxiation risk
+          <div class="post-platform">⚖️ classaction.org</div>
+        </a>
+      </div>
+    </div>
+    <div class="insight-item" style="margin-top:14px;">
+      <div class="insight-dot" style="background:#0ea5e9;"></div>
+      <div>UPPAbaby's strongest asset is the Vista V3's storage (30 lb basket, king of class) and multi-config flexibility. Cruz V3's from-birth seat mode (Fall 2025 launch) closes a gap vs Bugaboo Butterfly 2 and Joolz Aer2 on newborn-readiness.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div>The car seat class action (Mesa Max / Mesa V2 / Aria — alleged asphyxiation risk, filed May 2025) is the significant reputational risk. Unlike Bugaboo's highchair recall, this is in UPPAbaby's core stroller-adjacent product range. Ongoing in 2026.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Bugaboo opportunity:</span> UPPAbaby has only 51 Trustpilot reviews — its CX reputation lives entirely on retailer and word-of-mouth channels. Bugaboo's 4.0★ on ~3,000 reviews is a more credible social proof signal at scale. Lean into this in comparison contexts.</div>
+    </div>
+  </div>
+
+  <!-- Cybex -->
+  <div class="card">
+    <div class="card-title" style="color:#7c3aed;">Cybex · Sentiment +0.42 · Mixed</div>
+    <div class="two-col" style="margin-bottom:0;">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
+        <div class="topic-tags">
+          <span class="topic-tag trending">e-Priam electric pram — new category</span>
+          <span class="topic-tag trending">Gazelle S single-to-double content</span>
+          <span class="topic-tag trending">Cybex Gazelle S vs Priam comparison</span>
+          <span class="topic-tag alert">Customer service failures — delivery/refunds</span>
+          <span class="topic-tag alert">Brake failure complaint (no loan buggy)</span>
+          <span class="topic-tag info">Fashion collaborations (Virgil Abloh legacy)</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
+        <a class="post-link" href="https://orbitbaby.com/blogs/news/cybex-gazelle-s-stroller-review" target="_blank">
+          Cybex Gazelle S Stroller: Expert &amp; Parent Review 2026
+          <div class="post-platform">🌐 Orbit Baby</div>
+        </a>
+        <a class="post-link" href="https://www.tiktok.com/discover/cybex-gazelle-vs-priam" target="_blank">
+          Cybex Gazelle vs Priam — TikTok comparison content
+          <div class="post-platform">🎵 TikTok</div>
+        </a>
+        <a class="post-link" href="https://www.trustpilot.com/review/cybex-online.com" target="_blank">
+          Cybex on Trustpilot — CS complaints pattern
+          <div class="post-platform">⭐ Trustpilot</div>
+        </a>
+      </div>
+    </div>
+    <div class="insight-item" style="margin-top:14px;">
+      <div class="insight-dot" style="background:#7c3aed;"></div>
+      <div>Cybex's e-Priam (electric-assisted pram) is the most novel product in the premium stroller space right now — generating genuine curiosity content on Instagram and TikTok. This is new category territory that no other premium brand has entered at scale.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div>Cybex's recurring CS complaints (delayed/missing deliveries, refusal to honour warranties, long chat wait times) are structurally similar to Joolz's problems. The pattern is widespread across Trustpilot pages. At this price point, CS failure is a brand-defining risk.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Bugaboo opportunity:</span> Cybex's design-forward positioning is its strongest asset — but it's being undercut by its own CS experience. Bugaboo's rising 4.0★ Trustpilot score with a CS-positive narrative is a direct competitive advantage in any Cybex-adjacent consideration context.</div>
+    </div>
+  </div>
+
+  <!-- Nuna -->
+  <div class="card">
+    <div class="card-title" style="color:#059669;">Nuna · Sentiment +0.45 · Mixed</div>
+    <div class="alert-banner" style="margin-bottom:12px;">
+      <span>⚠️</span>
+      <div><span class="bold">Active recall risk:</span> Nuna RAVA convertible car seat — 600,000+ units recalled December 2024 (harness defect). Class action ongoing. Nuna not offering monetary compensation, only repair. Reputational risk ongoing into 2026.</div>
+    </div>
+    <div class="two-col" style="margin-bottom:0;">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
+        <div class="topic-tags">
+          <span class="topic-tag trending">Nuna TRVL travel stroller comparisons</span>
+          <span class="topic-tag trending">Nuna vs UPPAbaby Vista V3</span>
+          <span class="topic-tag trending">SWIV Reach rotating seat</span>
+          <span class="topic-tag alert">RAVA car seat recall — 600K+ units</span>
+          <span class="topic-tag alert">CS failures — zero help complaints</span>
+          <span class="topic-tag info">Consumer Reports Nuna Swiv score 81/100</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
+        <a class="post-link" href="https://www.babyenroute.com/blogs/blog/nuna-vs-uppababy-the-ultimate-stroller-showdown-for-2026" target="_blank">
+          Nuna vs UPPAbaby: Ultimate Stroller Showdown 2026
+          <div class="post-platform">🌐 Baby enRoute</div>
+        </a>
+        <a class="post-link" href="https://topclassactions.com/lawsuit-settlements/lawsuit-news/recent-recalls-class-actions-against-evenflo-nuna-chicco-and-others-reveal-widespread-car-seat-safety-concerns/" target="_blank">
+          Nuna RAVA recall class action — widespread car seat safety concerns
+          <div class="post-platform">⚖️ TopClassActions</div>
+        </a>
+        <a class="post-link" href="https://www.trustpilot.com/review/www.nunababy.com" target="_blank">
+          Nuna on Trustpilot — CS complaint pattern
+          <div class="post-platform">⭐ Trustpilot</div>
+        </a>
+      </div>
+    </div>
+    <div class="insight-item" style="margin-top:14px;">
+      <div class="insight-dot" style="background:#059669;"></div>
+      <div>Nuna's products (especially TRVL and SWIV) earn strong design and quality praise. However, the 600,000+ RAVA car seat recall and associated class action is dominating the brand's reputation in search and forum conversations going into mid-2026.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Bugaboo opportunity:</span> In any Nuna vs Bugaboo comparison, Bugaboo's lack of a core stroller recall is a credibility asset. The Giraffe highchair recall is highchair-only and separate from the stroller range — important to keep this narrative clear in comparison content.</div>
+    </div>
+  </div>
+
+  <!-- BabyZen / Stokke YOYO3 -->
+  <div class="card">
+    <div class="card-title" style="color:#d97706;">BabyZen / Stokke YOYO3 · Sentiment +0.60 · Positive</div>
+    <div class="two-col" style="margin-bottom:0;">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
+        <div class="topic-tags">
+          <span class="topic-tag trending">YOYO3 vs YOYO2 — what changed?</span>
+          <span class="topic-tag trending">Stokke YOYO3 vs Bugaboo Butterfly 2 (TikTok)</span>
+          <span class="topic-tag trending">YOYO3 overhead bin fits / travel hack content</span>
+          <span class="topic-tag trending">4-wheel suspension + Soft Drive upgrade</span>
+          <span class="topic-tag alert">Canopy coverage complaints (smaller than rivals)</span>
+          <span class="topic-tag alert">Leg rest is $40 paid add-on — backlash</span>
+          <span class="topic-tag info">Rebrand from BabyZen → Stokke (Aug 2024)</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
+        <a class="post-link" href="https://www.wanderlustchloe.com/yoyo3-review/" target="_blank">
+          Stokke YOYO3 Stroller Review — Real Mum Review 2026
+          <div class="post-platform">🌐 Wanderlust Chloe</div>
+        </a>
+        <a class="post-link" href="https://www.tiktok.com/discover/stokke-yoyo3-vs-butterfly" target="_blank">
+          Stokke YOYO3 vs Butterfly — TikTok comparison
+          <div class="post-platform">🎵 TikTok · Active</div>
+        </a>
+        <a class="post-link" href="https://littlelovinglife.com/best-travel-strollers-2026/" target="_blank">
+          Best Travel Strollers 2026 — YOYO3 featured
+          <div class="post-platform">🌐 Little Loving Life</div>
+        </a>
+      </div>
+    </div>
+    <div class="insight-item" style="margin-top:14px;">
+      <div class="insight-dot" style="background:#d97706;"></div>
+      <div>The Stokke YOYO3 (relaunched August 2024 after BabyZen acquisition) is the most direct single-brand competitor to the Bugaboo Butterfly 2 in the travel stroller category. The "YOYO3 vs Butterfly" TikTok comparison loop is highly active and is the battleground for Bugaboo to win.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div>The YOYO3's paid leg rest add-on ($40) is a recurring irritant in reviews — reviewers consistently call it out as penny-pinching at this price point. Bugaboo's Butterfly 2 includes a leg rest by default. This is a specific talking point to win in head-to-head content.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div>The BabyZen→Stokke rebrand creates some SEO and brand-recall confusion in the short term. Some reviews still reference "BabyZen" — indicating a portion of the audience hasn't fully registered the ownership change. Stokke's premium brand halo (high chair, Tripp Trapp) is a positive long-term asset for the YOYO3.</div>
+    </div>
+    <div class="action-banner">
+      <span>💡</span>
+      <div><span class="bold">Recommended action:</span> Create explicit Butterfly 2 vs YOYO3 content that highlights: (1) leg rest included, not an add-on; (2) bigger basket; (3) Bugaboo's 4.0★ Trustpilot vs no comparable Stokke YOYO score. Own the TikTok comparison loop currently driving the consideration decision.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── COMPETITORS · CARRIERS ────────────────────── -->
+<div class="page" id="page-comp-carriers">
+  <div class="section-header">
+    Competitors · Carriers <span class="brand-badge" style="background:#fdf4ff;color:#9333ea;">Wildbird · Mabe · Sakura Bloom · Ergobaby · Tula</span>
+  </div>
+
+  <div class="info-banner">
+    <span>ℹ️</span>
+    <div><span class="bold">Context:</span> These brands are Artipoppe's direct competitors in the premium/luxury baby carrier space — all overlap with Bugaboo's core customer. Wildbird and Mabe are the two brands most actively being positioned as Artipoppe alternatives on TikTok right now. Monitoring this space informs Bugaboo's "is luxury worth it?" counter-narrative opportunity.</div>
+  </div>
+
+  <!-- Carrier scorecard -->
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">Carrier Competitor Scorecard — Week of 3 Jun 2026</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Price Range</th>
+          <th>Sentiment</th>
+          <th>TikTok Positioning</th>
+          <th>Artipoppe Threat Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold" style="color:#10b981;">Wildbird</td>
+          <td>$75–$150</td>
+          <td><span class="sentiment-pill s-pos">+0.75</span></td>
+          <td>"Beautiful AND affordable" — #artipoppedupe anchor</td>
+          <td class="red bold">High — dominant in comparison content</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:#f43f5e;">Mabe</td>
+          <td>$120–$160</td>
+          <td><span class="sentiment-pill s-mix">+0.52</span></td>
+          <td>"Viral Artipoppe alternative" — postpartum-friendly</td>
+          <td class="red bold">High — fastest growing in the dupe conversation</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:#8b5cf6;">Sakura Bloom</td>
+          <td>$100–$200</td>
+          <td><span class="sentiment-pill s-pos">+0.65</span></td>
+          <td>"Softer, wrap-inspired luxury" — quieter presence</td>
+          <td class="amber">Medium — loyal niche, less viral</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:#0891b2;">Ergobaby</td>
+          <td>$70–$180</td>
+          <td><span class="sentiment-pill s-pos">+0.70</span></td>
+          <td>"Function over form" — mass market floor</td>
+          <td class="text-sm">Low — different positioning</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:#ca8a04;">Tula</td>
+          <td>$80–$150</td>
+          <td><span class="sentiment-pill s-pos">+0.68</span></td>
+          <td>Feature-rich, slim, stylish mid-tier</td>
+          <td class="amber">Medium — competes on aesthetics</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TikTok comparison triangle -->
+  <div class="alert-banner" style="background:#fdf4ff;border-color:#d8b4fe;color:#6b21a8;">
+    <span>🎵</span>
+    <div><span class="bold">The dominant TikTok triangle:</span> The "Artipoppe vs Wildbird vs Mabe" comparison is the most-searched carrier content cluster on TikTok right now. This three-way battle is reshaping how premium parents evaluate carrier value — and it puts pressure on Artipoppe's pricing while lifting both Wildbird and Mabe.</div>
+  </div>
+
+  <!-- Carrier sentiment chart -->
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">Sentiment — Carrier Competitors vs Artipoppe</div>
+    <div class="chart-wrap" style="height:240px;">
+      <canvas id="compCarrierChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Individual brand deep dives -->
+  <!-- Wildbird -->
+  <div class="card">
+    <div class="card-title" style="color:#10b981;">Wildbird · Sentiment +0.75 · Positive · HIGH Artipoppe threat</div>
+    <div class="two-col" style="margin-bottom:0;">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
+        <div class="topic-tags">
+          <span class="topic-tag trending">Wildbird Aerial vs Artipoppe Zeitgeist</span>
+          <span class="topic-tag trending">Ring sling for summer — linen breathability</span>
+          <span class="topic-tag trending">Hip Dysplasia Institute approval content</span>
+          <span class="topic-tag trending">Wildbird vs Artipoppe vs Mabe — the triangle</span>
+          <span class="topic-tag info">"Beautiful AND affordable" positioning locked in</span>
+          <span class="topic-tag alert">Aerial snap broke on day 1 — minor complaints</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
+        <a class="post-link" href="https://www.tiktok.com/discover/wildbird-vs-artipoppe" target="_blank">
+          Wildbird vs Artipoppe — TikTok comparison hub
+          <div class="post-platform">🎵 TikTok · Very active</div>
+        </a>
+        <a class="post-link" href="https://itsmommode.com/blog/wildbird-aerial-baby-carrier-review" target="_blank">
+          Wildbird Aerial Baby Carrier Review: Is It Worth the Hype?
+          <div class="post-platform">🌐 Mom Mode</div>
+        </a>
+        <a class="post-link" href="https://wildbird.co/" target="_blank">
+          Wildbird official — ring slings &amp; Aerial carrier
+          <div class="post-platform">🌐 Wildbird.co</div>
+        </a>
+      </div>
+    </div>
+    <div class="insight-item" style="margin-top:14px;">
+      <div class="insight-dot" style="background:#10b981;"></div>
+      <div>Wildbird is the single most effective challenger to Artipoppe's premium positioning. Its linen quality, aesthetics, and price ($75–$150 vs $370–$1K+) land perfectly in the "is Artipoppe worth it?" conversation. The Aerial carrier specifically is being positioned as a direct Zeitgeist alternative.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div>Wildbird's ring sling positioning (not a structured carrier) means it doesn't fully replace Artipoppe's Zeitgeist use case — but the Aerial buckle carrier does, and it's where Wildbird's growth momentum is concentrated right now.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Bugaboo relevance:</span> Wildbird's audience — premium parents who care about aesthetics, sustainability, and value — is identical to Bugaboo's target. Content that positions Bugaboo's "premium that lasts" story alongside Wildbird-adjacent moments captures consideration at the right time.</div>
+    </div>
+  </div>
+
+  <!-- Mabe -->
+  <div class="card">
+    <div class="card-title" style="color:#f43f5e;">Mabe · Sentiment +0.52 · Mixed · HIGH Artipoppe threat</div>
+    <div class="two-col" style="margin-bottom:0;">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
+        <div class="topic-tags">
+          <span class="topic-tag trending">Mabe Monarch — the viral "Artipoppe dupe"</span>
+          <span class="topic-tag trending">Soft waistband — postpartum belly friendly</span>
+          <span class="topic-tag trending">Mabe vs Artipoppe vs Wildbird triangle</span>
+          <span class="topic-tag alert">Support fades after 20–25 lbs</span>
+          <span class="topic-tag alert">Not ideal for newborns — panel too large</span>
+          <span class="topic-tag info">TikTok Shop sales driving awareness</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
+        <a class="post-link" href="https://www.babylist.com/hello-baby/mabe-monarch-carrier-review" target="_blank">
+          Mabe Monarch Carrier Review — Babylist
+          <div class="post-platform">🌐 Babylist</div>
+        </a>
+        <a class="post-link" href="https://thingtesting.com/brands/mabe" target="_blank">
+          Mabe Reviews 2026 — Read Before You Buy
+          <div class="post-platform">🌐 Thingtesting</div>
+        </a>
+        <a class="post-link" href="https://shop.tiktok.com/us/k/mabe-baby-carrier-reviews" target="_blank">
+          Mabe — TikTok Shop reviews &amp; content
+          <div class="post-platform">🎵 TikTok Shop · High volume</div>
+        </a>
+      </div>
+    </div>
+    <div class="insight-item" style="margin-top:14px;">
+      <div class="insight-dot" style="background:#f43f5e;"></div>
+      <div>Mabe is the fastest-growing Artipoppe challenger on TikTok. Its "viral Artipoppe dupe" positioning is working — the soft waistband story (postpartum-belly-friendly) gives it a specific functional hook beyond just price. TikTok Shop distribution is accelerating discovery.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div>Mabe has real functional limitations: support deteriorates at 20–25 lbs, not ideal for newborns, no chest clip for smaller babies. These are genuine long-term usage gaps that Artipoppe (and Wildbird's Aerial) don't share. The "dupe" positioning may have ceiling effects as babies grow.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Bugaboo relevance:</span> Mabe's limitations mirror a broader "buy cheap, replace sooner" dynamic that plays directly into Bugaboo's "built to last" brand story. Mabe is winning the short-term TikTok moment; Bugaboo can own the long-term value narrative.</div>
+    </div>
+  </div>
+
+  <!-- Sakura Bloom + Ergobaby + Tula -->
+  <div class="card">
+    <div class="card-title">Other Key Carriers — Sakura Bloom · Ergobaby · Tula</div>
+    <div class="insight-item">
+      <div class="insight-dot" style="background:#8b5cf6;"></div>
+      <div><span class="bold">Sakura Bloom</span> — premium positioning (~$100–$200), softer and more wrap-inspired than Artipoppe. Carves a loyal niche among babywearers who want luxury aesthetics without Artipoppe's price or controversy. Quiet but credible. Stokke also makes a Limas carrier at a lower price point that competes in this space.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot" style="background:#0891b2;"></div>
+      <div><span class="bold">Ergobaby</span> — the functional floor of the premium carrier market (~$70–$180). Positioned on ergonomics, safety credentials, and utility rather than aesthetics. Often used as the "sensible baseline" in Artipoppe comparison reviews ("does Artipoppe perform 3× better than an Ergobaby?"). High sentiment (+0.70) but different audience to Artipoppe.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot" style="background:#ca8a04;"></div>
+      <div><span class="bold">Tula</span> — sits between Ergobaby and Artipoppe on aesthetics. Slim profile, feature-rich, competitively priced (~$80–$150). Increasingly appears in "I bought Tula instead of Artipoppe" narratives on momtok as parents downgrade from the Artipoppe consideration tier.</div>
+    </div>
+    <div class="action-banner">
+      <span>💡</span>
+      <div><span class="bold">Strategic insight for Bugaboo:</span> The carrier competitor landscape is fracturing Artipoppe's premium positioning from below (Mabe, Wildbird) and alongside (Sakura Bloom, Tula). The shared audience — style-conscious premium parents — is actively questioning luxury value. Bugaboo's content should be present in this moment: "premium that lasts, proven by 4.0★ across 3,000 reviews."</div>
+    </div>
+  </div>
+</div>
+
 <!-- ────────────────────────── RECALLS ───────────────────────────── -->
 <div class="page" id="page-recalls">
 
@@ -881,7 +1348,7 @@
 </div><!-- /main -->
 
 <div class="footer">
-  Data sources: Trustpilot · TikTok · Instagram · YouTube · Strolleria · Bambi Baby · Mother&amp;Baby · MacroBaby · Babesta · TopClassActions · Thingtesting · GOV.UK · CPSC · Joolz Support · OPSS · classaction.org &nbsp;·&nbsp; Last updated: 3 Jun 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
+  Data sources: Trustpilot · TikTok · Instagram · YouTube · Strolleria · Bambi Baby · Mother&amp;Baby · MacroBaby · Babesta · TopClassActions · Thingtesting · GOV.UK · CPSC · Joolz Support · OPSS · classaction.org · Baby enRoute · Orbit Baby · Babylist · Wanderlust Chloe · Wildbird.co &nbsp;·&nbsp; Last updated: 3 Jun 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
 </div>
 
 <script>
@@ -897,6 +1364,8 @@ function showPage(id, evt) {
   if (target) target.classList.add('active');
   if (id === 'compare') drawCompareChart();
   if (id === 'overview') { drawWoWChart(); }
+  if (id === 'comp-strollers') drawCompStrollerChart();
+  if (id === 'comp-carriers') drawCompCarrierChart();
 }
 
 // ── Week-on-week chart ───────────────────────────────────────────────
@@ -996,6 +1465,70 @@ function drawCompareChart() {
         y1: { position: 'left', min: 0, max: 5, title: { display: true, text: 'Trustpilot (/5)', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { color: '#f0f0f0' } },
         y2: { position: 'right', min: -1, max: 1, title: { display: true, text: 'Sentiment', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { display: false } },
         x: { ticks: { font: { size: 12 } }, grid: { display: false } }
+      }
+    }
+  });
+}
+
+// ── Competitor stroller chart ───────────────────────────────────────
+function drawCompStrollerChart() {
+  const ctx = document.getElementById('compStrollerChart');
+  if (!ctx || charts.compStroller) return;
+  charts.compStroller = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Bugaboo', 'UPPAbaby', 'BabyZen/Stokke', 'Nuna', 'Cybex'],
+      datasets: [{
+        label: 'Sentiment Score',
+        data: [0.72, 0.65, 0.60, 0.45, 0.42],
+        backgroundColor: ['#e63946cc', '#0ea5e9cc', '#d97706cc', '#059669cc', '#7c3aedcc'],
+        borderColor: ['#e63946', '#0ea5e9', '#d97706', '#059669', '#7c3aed'],
+        borderWidth: 2, borderRadius: 6,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` Sentiment: +${ctx.raw.toFixed(2)}` } }
+      },
+      scales: {
+        x: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0 to +1.0)', font: { size: 11 }, color: '#888' } },
+        y: { ticks: { font: { size: 12 } }, grid: { display: false } }
+      }
+    }
+  });
+}
+
+// ── Competitor carrier chart ────────────────────────────────────────
+function drawCompCarrierChart() {
+  const ctx = document.getElementById('compCarrierChart');
+  if (!ctx || charts.compCarrier) return;
+  charts.compCarrier = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Wildbird', 'Ergobaby', 'Tula', 'Sakura Bloom', 'Mabe', 'Artipoppe'],
+      datasets: [{
+        label: 'Sentiment Score',
+        data: [0.75, 0.70, 0.68, 0.65, 0.52, 0.23],
+        backgroundColor: ['#10b981cc', '#0891b2cc', '#ca8a04cc', '#8b5cf6cc', '#f43f5ecc', '#f59e0bcc'],
+        borderColor: ['#10b981', '#0891b2', '#ca8a04', '#8b5cf6', '#f43f5e', '#f59e0b'],
+        borderWidth: 2, borderRadius: 6,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` Sentiment: +${ctx.raw.toFixed(2)}` } }
+      },
+      scales: {
+        x: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0 to +1.0)', font: { size: 11 }, color: '#888' } },
+        y: { ticks: { font: { size: 12 } }, grid: { display: false } }
       }
     }
   });

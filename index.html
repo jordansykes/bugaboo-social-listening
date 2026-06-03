@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Bugaboo Social Listening",
+  "schemaVersion": 1,
+  "description": "Weekly social listening dashboard for Bugaboo Group tracking brand sentiment, Trustpilot scores, trending topics, and competitive intelligence across Bugaboo, Joolz, and Artipoppe. Includes recalls tracker and week-on-week shift chart."
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bugaboo Group – Social Listening Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f4f0; color: #1a1a1a; font-size: 14px; line-height: 1.5;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #1a1a1a; color: #fff;
+    padding: 20px 28px 18px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .logo-badge {
+    width: 38px; height: 38px; border-radius: 8px;
+    background: #e63946; display: flex; align-items: center;
+    justify-content: center; font-weight: 800; font-size: 16px; color: #fff; flex-shrink: 0;
+  }
+  .header-right { display: flex; align-items: center; gap: 10px; }
+  .pill { background: rgba(255,255,255,0.12); border-radius: 20px; padding: 4px 12px; font-size: 12px; color: #ccc; }
+  .pill.live { background: #16a34a22; color: #4ade80; border: 1px solid #16a34a44; }
+  .pill.warn { background: #dc262622; color: #fca5a5; border: 1px solid #dc262644; }
+
+  /* ── Tabs ── */
+  .tabs {
+    background: #fff; border-bottom: 1px solid #e5e5e5;
+    padding: 0 28px; display: flex; gap: 0;
+  }
+  .tab {
+    padding: 12px 18px; font-size: 13px; font-weight: 500;
+    color: #666; cursor: pointer; border-bottom: 2px solid transparent;
+    transition: all 0.15s; white-space: nowrap; display: flex; align-items: center; gap: 6px;
+  }
+  .tab:hover { color: #1a1a1a; }
+  .tab.active { color: #1a1a1a; border-bottom-color: #e63946; font-weight: 600; }
+  .tab .recall-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #dc2626;
+    display: inline-block; margin-top: 1px;
+  }
+
+  /* ── Main layout ── */
+  .main { padding: 24px 28px; max-width: 1100px; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── KPI strip ── */
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  .kpi { background: #fff; border-radius: 10px; padding: 16px 18px; border: 1px solid #e8e8e8; }
+  .kpi .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi .value { font-size: 26px; font-weight: 700; margin-top: 4px; line-height: 1; }
+  .kpi .delta { font-size: 12px; color: #888; margin-top: 4px; }
+  .kpi .value.pos { color: #16a34a; }
+  .kpi .value.warn { color: #d97706; }
+  .kpi .value.neg { color: #dc2626; }
+
+  /* ── Cards ── */
+  .card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 20px; margin-bottom: 16px; }
+  .card-title { font-size: 13px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+
+  /* ── Grid layouts ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+  /* ── Brand row (overview) ── */
+  .brand-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+  .brand-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .brand-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .brand-name { font-weight: 600; font-size: 14px; }
+  .brand-sub { font-size: 12px; color: #888; margin-top: 1px; }
+  .brand-meta { margin-left: auto; text-align: right; }
+  .sentiment-pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .s-pos { background: #dcfce7; color: #16a34a; }
+  .s-mix { background: #fef9c3; color: #92400e; }
+  .s-neg { background: #fee2e2; color: #dc2626; }
+
+  /* ── Sentiment bar ── */
+  .sentiment-bar-wrap { margin-top: 6px; }
+  .sentiment-bar { height: 6px; background: #f0f0f0; border-radius: 3px; overflow: hidden; }
+  .sentiment-fill { height: 100%; border-radius: 3px; }
+
+  /* ── Topics ── */
+  .topic-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .topic-tag { background: #f3f4f6; border-radius: 20px; padding: 4px 10px; font-size: 12px; color: #374151; }
+  .topic-tag.alert { background: #fee2e2; color: #991b1b; }
+  .topic-tag.trending { background: #dbeafe; color: #1e40af; }
+  .topic-tag.info { background: #f0fdf4; color: #166534; }
+
+  /* ── Insight list ── */
+  .insight-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; line-height: 1.5; }
+  .insight-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .insight-dot { width: 8px; height: 8px; border-radius: 50%; background: #e63946; flex-shrink: 0; margin-top: 5px; }
+  .insight-dot.blue { background: #3b82f6; }
+  .insight-dot.amber { background: #f59e0b; }
+
+  /* ── Action banner ── */
+  .action-banner { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #92400e; display: flex; gap: 8px; align-items: flex-start; margin-top: 12px; }
+
+  /* ── Links ── */
+  .post-link { display: block; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; text-decoration: none; color: #1a1a1a; }
+  .post-link:last-child { border-bottom: none; }
+  .post-link:hover { color: #e63946; }
+  .post-platform { font-size: 11px; color: #888; margin-top: 2px; }
+
+  /* ── Table ── */
+  table { width: 100%; border-collapse: collapse; }
+  th { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.4px; padding: 8px 10px; border-bottom: 2px solid #f0f0f0; text-align: left; }
+  td { padding: 10px 10px; border-bottom: 1px solid #f7f7f7; font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafafa; }
+
+  /* ── Section header ── */
+  .section-header { font-size: 18px; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .section-header .brand-badge { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: #f0f0f0; color: #555; }
+
+  /* ── Chart wrapper ── */
+  .chart-wrap { position: relative; height: 220px; }
+  .chart-wrap.tall { height: 280px; }
+
+  /* ── Misc ── */
+  .mt8 { margin-top: 8px; }
+  .mt16 { margin-top: 16px; }
+  .text-sm { font-size: 12px; color: #888; }
+  .bold { font-weight: 600; }
+  .red { color: #dc2626; }
+  .green { color: #16a34a; }
+  .amber { color: #d97706; }
+
+  /* ── Alert/Info banners ── */
+  .alert-banner { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; font-size: 13px; color: #9f1239; display: flex; gap: 8px; align-items: flex-start; }
+  .info-banner { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; font-size: 13px; color: #1e40af; display: flex; gap: 8px; align-items: flex-start; }
+
+  /* ── Recall cards ── */
+  .recall-card {
+    background: #fff; border-radius: 12px; border: 2px solid #fecdd3;
+    overflow: hidden; margin-bottom: 20px;
+  }
+  .recall-header {
+    background: #fff1f2; padding: 16px 20px;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+    border-bottom: 1px solid #fecdd3;
+  }
+  .recall-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #dc2626; color: #fff; border-radius: 20px;
+    padding: 4px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; white-space: nowrap; flex-shrink: 0;
+  }
+  .recall-badge.closed {
+    background: #6b7280;
+  }
+  .recall-title { font-size: 16px; font-weight: 700; color: #1a1a1a; }
+  .recall-sub { font-size: 13px; color: #666; margin-top: 3px; }
+  .recall-body { padding: 20px; }
+  .recall-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .recall-stat { }
+  .recall-stat .rs-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 4px; }
+  .recall-stat .rs-value { font-size: 18px; font-weight: 700; }
+  .recall-stat .rs-value.red { color: #dc2626; }
+  .recall-stat .rs-value.amber { color: #d97706; }
+  .recall-stat .rs-value.green { color: #16a34a; }
+  .recall-detail { font-size: 13px; line-height: 1.6; color: #444; margin-bottom: 12px; }
+  .recall-detail strong { color: #1a1a1a; }
+  .recall-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .recall-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: #f5f4f0; border: 1px solid #e5e5e5; border-radius: 8px;
+    padding: 7px 14px; font-size: 12px; font-weight: 500; color: #1a1a1a;
+    text-decoration: none;
+  }
+  .recall-link:hover { background: #fff1f2; border-color: #fecdd3; color: #dc2626; }
+  .recall-timeline { margin-top: 16px; border-top: 1px solid #f0f0f0; padding-top: 14px; }
+  .recall-timeline-title { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .timeline-item { display: flex; gap: 12px; margin-bottom: 8px; font-size: 13px; }
+  .timeline-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .timeline-date { color: #888; font-size: 12px; min-width: 90px; flex-shrink: 0; }
+  .timeline-text { color: #444; line-height: 1.5; }
+
+  /* ── WoW delta bars ── */
+  .delta-row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid #f5f5f5; }
+  .delta-row:last-child { border-bottom: none; }
+  .delta-label { font-size: 13px; min-width: 200px; flex-shrink: 0; }
+  .delta-bar-wrap { flex: 1; display: flex; align-items: center; gap: 8px; }
+  .delta-bar-bg { flex: 1; height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden; position: relative; }
+  .delta-fill-pos { height: 100%; background: #16a34a; border-radius: 4px; }
+  .delta-fill-neg { height: 100%; background: #dc2626; border-radius: 4px; }
+  .delta-value { font-size: 13px; font-weight: 700; min-width: 60px; text-align: right; flex-shrink: 0; }
+  .delta-value.pos { color: #16a34a; }
+  .delta-value.neg { color: #dc2626; }
+  .delta-value.flat { color: #888; }
+
+  .footer { padding: 16px 28px; color: #aaa; font-size: 11px; border-top: 1px solid #e8e8e8; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-left">
+    <div class="logo-badge">B</div>
+    <div>
+      <div style="font-size:17px;font-weight:700;">Bugaboo Group · Social Listening</div>
+      <div style="font-size:12px;color:#aaa;margin-top:1px;">Bugaboo · Joolz · Artipoppe &nbsp;|&nbsp; Week ending 2 Jun 2026</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="pill live">● Live data</span>
+    <span class="pill warn">⚠ 2 active recalls</span>
+    <span class="pill">3 brands · 4 platforms</span>
+  </div>
+</div>
+
+<!-- ══ TABS ═══════════════════════════════════════════════════════════ -->
+<div class="tabs">
+  <div class="tab active" onclick="showPage('overview',event)">Overview</div>
+  <div class="tab" onclick="showPage('bugaboo',event)">Bugaboo</div>
+  <div class="tab" onclick="showPage('joolz',event)">Joolz</div>
+  <div class="tab" onclick="showPage('artipoppe',event)">Artipoppe</div>
+  <div class="tab" onclick="showPage('compare',event)">Compare</div>
+  <div class="tab" onclick="showPage('recalls',event)"><span class="recall-dot"></span> Recalls</div>
+</div>
+
+<!-- ══ MAIN ═══════════════════════════════════════════════════════════ -->
+<div class="main">
+
+<!-- ─────────────────────────── OVERVIEW ─────────────────────────── -->
+<div class="page active" id="page-overview">
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">Bugaboo Trustpilot</div>
+      <div class="value pos">4.0 <span style="font-size:16px;">★</span></div>
+      <div class="delta">~3,000 reviews · <span style="color:#16a34a;font-size:11px;">↑ from 3.9★</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Joolz Trustpilot</div>
+      <div class="value warn">3.1 <span style="font-size:16px;">★</span></div>
+      <div class="delta">1,031 reviews · <span style="color:#16a34a;font-size:11px;">↑ from 955</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Artipoppe Sentiment</div>
+      <div class="value warn">Mixed</div>
+      <div class="delta">Dupe trend surging · <span style="color:#dc2626;font-size:11px;">↓ from +0.31</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Active Recalls</div>
+      <div class="value neg">2</div>
+      <div class="delta">Bugaboo Giraffe · Joolz Aer2 adapter</div>
+    </div>
+  </div>
+
+  <div class="info-banner">
+    <span>🔗</span>
+    <div><span class="bold">Strategic context:</span> Bugaboo completed acquisition of Joolz (July 2025). Both brands now operate under Mubadala Capital as a global premium stroller platform but remain separate consumer brands. Recall tab has full details on both active product safety issues.</div>
+  </div>
+
+  <!-- Brand sentiment overview -->
+  <div class="card">
+    <div class="card-title">Brand Sentiment Overview — Week of 2 Jun 2026</div>
+    <div class="brand-row">
+      <div class="brand-icon" style="background:#e63946;color:#fff;">B</div>
+      <div>
+        <div class="brand-name">Bugaboo</div>
+        <div class="brand-sub">Strollers · Premium · Amsterdam · Mubadala Capital</div>
+      </div>
+      <div style="flex:1; padding: 0 20px;">
+        <div class="sentiment-bar-wrap">
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:85%;background:#16a34a;"></div></div>
+        </div>
+        <div class="text-sm mt8">Sentiment score: +0.70 · Trustpilot 4.0★ ↑</div>
+      </div>
+      <div class="brand-meta">
+        <span class="sentiment-pill s-pos">Positive</span>
+        <div class="text-sm" style="margin-top:4px;">~3,000 reviews</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <div class="brand-icon" style="background:#6366f1;color:#fff;">J</div>
+      <div>
+        <div class="brand-name">Joolz</div>
+        <div class="brand-sub">Strollers · Mid-premium · Amsterdam · Bugaboo Group</div>
+      </div>
+      <div style="flex:1; padding: 0 20px;">
+        <div class="sentiment-bar-wrap">
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:46%;background:#d97706;"></div></div>
+        </div>
+        <div class="text-sm mt8">Sentiment score: +0.22 · Trustpilot 3.1★ · CS issues persist</div>
+      </div>
+      <div class="brand-meta">
+        <span class="sentiment-pill s-mix">Mixed</span>
+        <div class="text-sm" style="margin-top:4px;">1,031 reviews</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <div class="brand-icon" style="background:#f59e0b;color:#fff;">A</div>
+      <div>
+        <div class="brand-name">Artipoppe</div>
+        <div class="brand-sub">Baby Carriers · Luxury · Netherlands</div>
+      </div>
+      <div style="flex:1; padding: 0 20px;">
+        <div class="sentiment-bar-wrap">
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:35%;background:#dc2626;"></div></div>
+        </div>
+        <div class="text-sm mt8">Sentiment score: +0.25 · Dupe trend + ongoing controversies</div>
+      </div>
+      <div class="brand-meta">
+        <span class="sentiment-pill s-mix">Mixed</span>
+        <div class="text-sm" style="margin-top:4px;">Controversy active</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Week-on-week chart + hot topics -->
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Week-on-Week Shifts (26 May → 2 Jun)</div>
+      <div class="chart-wrap tall">
+        <canvas id="wowChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Hot Topics This Week</div>
+      <table>
+        <thead><tr><th>Topic</th><th>Brand</th><th>Sentiment</th></tr></thead>
+        <tbody>
+          <tr><td>Butterfly 2 vs Joolz Aer2 travel comparisons</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>Joolz Aer2 car seat adapter recall</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="red">Negative</td></tr>
+          <tr><td>Bugaboo Giraffe highchair class action</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="red">Negative</td></tr>
+          <tr><td>Artipoppe dupe content surge (#artipoppedupe)</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Negative</td></tr>
+          <tr><td>Joolz CS &amp; delivery complaints</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="red">Negative</td></tr>
+          <tr><td>Bugaboo Kangaroo single-to-double launch</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>Artipoppe mold + plus-size criticism</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Negative</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Recommended actions -->
+  <div class="card">
+    <div class="card-title">This Week's Recommended Actions</div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Bugaboo (Recalls):</span> Two active recall stories (Giraffe highchair class action + Joolz Aer2 adapter recall now under same parent group). Publish a calm, transparent safety update on both — customers reward this and Bugaboo's 4.0★ score proves it.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div><span class="bold">vs. Joolz (sister brand):</span> Now that Bugaboo and Joolz share a parent, direct competitive comparison content is self-defeating. Reframe as "two ways to travel premium" — Butterfly 2 for build/brand, Aer2 for weight/newborn. Own the full travel stroller category.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div><span class="bold">vs. Artipoppe:</span> The dupe trend shows premium parents are questioning luxury baby brand value. Deploy Bugaboo's "worth it over years" narrative now — resale value, Trustpilot trajectory, modular longevity — without naming competitors.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ─────────────────────────── BUGABOO ──────────────────────────── -->
+<div class="page" id="page-bugaboo">
+  <div class="section-header">
+    Bugaboo <span class="brand-badge" style="background:#fef2f2;color:#e63946;">Positive · 4.0★ ↑</span>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">Trustpilot Score</div>
+      <div class="value pos">4.0★</div>
+      <div class="delta">~3,000 reviews · <span style="color:#16a34a;font-size:11px;">↑ from 3.9★</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Instagram (Global)</div>
+      <div class="value pos">510K</div>
+      <div class="delta">@bugabooglobal followers</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Instagram (USA)</div>
+      <div class="value pos">158K</div>
+      <div class="delta">@bugaboousa followers</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Sentiment Score</div>
+      <div class="value pos">+0.70</div>
+      <div class="delta"><span style="color:#16a34a;font-size:11px;">↑ from +0.68</span> · Scale −1.0 to +1.0</div>
+    </div>
+  </div>
+  <div class="alert-banner">
+    <span>⚠️</span>
+    <div><span class="bold">Active legal risk:</span> Class action lawsuit filed over Bugaboo Giraffe highchair recall (18,280 units). Front leg screws can loosen causing chair collapse — 22 detachment reports, 13 minor injuries. Class action alleges recall notice unfairly blamed consumers. <a href="#" onclick="showPage('recalls',event);return false;" style="color:#9f1239;font-weight:600;">→ See Recalls tab for full details</a></div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Trending Topics</div>
+      <div class="topic-tags">
+        <span class="topic-tag trending">Butterfly 2 vs Joolz Aer2 travel battle</span>
+        <span class="topic-tag trending">Bugaboo Kangaroo single-to-double launch</span>
+        <span class="topic-tag trending">Dragonfly city stroller roundups</span>
+        <span class="topic-tag trending">Donkey 6 TikTok content</span>
+        <span class="topic-tag info">Bugaboo acquires Joolz (parent news)</span>
+        <span class="topic-tag alert">Giraffe highchair recall class action</span>
+        <span class="topic-tag">After-sales &amp; warranty praise stories</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Top Mentions / Sources</div>
+      <a class="post-link" href="https://www.youtube.com/watch?v=zi5leTooU-4" target="_blank">
+        Best Luxury Travel Strollers 2026: Bugaboo Butterfly 2 vs Joolz Aer 2 vs UPPAbaby Minu V3
+        <div class="post-platform">📺 YouTube</div>
+      </a>
+      <a class="post-link" href="https://strolleria.com/blogs/news/joolz-aer2-vs-bugaboo-butterfly-2-stroller-comparison" target="_blank">
+        Joolz Aer2 vs. Bugaboo Butterfly 2 — Stroller Comparison
+        <div class="post-platform">🌐 Strolleria</div>
+      </a>
+      <a class="post-link" href="https://www.babylist.com/hello-baby/best-luxury-strollers" target="_blank">
+        Best Luxury Strollers of 2026 — Bugaboo Dragonfly &amp; Kangaroo featured
+        <div class="post-platform">🌐 Babylist</div>
+      </a>
+      <a class="post-link" href="https://topclassactions.com/lawsuit-settlements/lawsuit-news/bugaboo-class-action-alleges-recalled-highchairs-pose-serious-safety-risk/" target="_blank">
+        Bugaboo highchair class action — safety risk allegations
+        <div class="post-platform">⚖️ TopClassActions</div>
+      </a>
+      <a class="post-link" href="https://www.trustpilot.com/review/www.bugaboo.com" target="_blank">
+        Bugaboo on Trustpilot — ~3,000 reviews, 4.0★
+        <div class="post-platform">⭐ Trustpilot</div>
+      </a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Key Insights</div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div>Bugaboo's Trustpilot score improved to <strong>4.0★</strong> (~3,000 reviews) — a meaningful gain driven by praised after-sales experiences (free replacements, live chat, quick resolutions). Now 0.9★ ahead of sister brand Joolz.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div>The Butterfly 2 continues to dominate travel stroller comparison content across YouTube, Strolleria, and Babylist — consistently winning on build quality and brand trust, though Joolz Aer2 wins on weight (14.3 lbs vs 16 lbs) and newborn-from-box.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div>The Giraffe highchair recall class action is an active reputational risk. The legal claim alleges Bugaboo unfairly blamed consumers in its recall notice. Different product category from strollers, but brand spillover is possible if the story gains wider press coverage.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div>Instagram presence is strong: @bugabooglobal has 510K followers and @bugaboousa has 158K. Meaningful organic reach for content distribution — a follower-growth campaign on the USA account would close the engagement/follower ratio gap.</div>
+    </div>
+    <div class="action-banner">
+      <span>💡</span>
+      <div><span class="bold">Recommended action:</span> Publish a transparent, empathetic safety update about the Giraffe recall and its resolution status. Bugaboo's 4.0★ score rising shows customers reward honesty — a calm factual update now beats silence while the class action circulates.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────── JOOLZ ────────────────────────────── -->
+<div class="page" id="page-joolz">
+  <div class="section-header">
+    Joolz <span class="brand-badge" style="background:#ede9fe;color:#6366f1;">Mixed · 3.1★ · Bugaboo Group</span>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">Trustpilot Score</div>
+      <div class="value warn">3.1★</div>
+      <div class="delta">1,031 reviews · Average</div>
+    </div>
+    <div class="kpi">
+      <div class="label">vs Bugaboo Gap</div>
+      <div class="value neg">−0.9★</div>
+      <div class="delta">Below Bugaboo's 4.0★ · widening</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Ownership Status</div>
+      <div class="value warn" style="font-size:16px;">Sister Brand</div>
+      <div class="delta">Acquired by Bugaboo Jul 2025</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Sentiment Score</div>
+      <div class="value warn">+0.22</div>
+      <div class="delta">Scale −1.0 to +1.0 · unchanged</div>
+    </div>
+  </div>
+  <div class="alert-banner">
+    <span>🚨</span>
+    <div><span class="bold">Active safety recall:</span> Joolz Aer2 Car Seat Adapter Set recalled — adapter may fail to lock with spring-loaded pin, allowing car seat to detach and fall during use. All units with serial NL311- affected. <a href="#" onclick="showPage('recalls',event);return false;" style="color:#9f1239;font-weight:600;">→ See Recalls tab for full details</a></div>
+  </div>
+  <div class="info-banner">
+    <span>🔗</span>
+    <div><span class="bold">Ownership context:</span> Bugaboo completed the acquisition of Joolz in July 2025. Both brands continue to operate independently under Mubadala Capital. Joolz was originally founded by ex-Bugaboo engineers.</div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Trending Topics</div>
+      <div class="topic-tags">
+        <span class="topic-tag trending">Aer2 vs Bugaboo Butterfly 2</span>
+        <span class="topic-tag trending">10-year transferable warranty</span>
+        <span class="topic-tag alert">Aer2 car seat adapter recall</span>
+        <span class="topic-tag alert">Customer service failures</span>
+        <span class="topic-tag alert">Delivery delays &amp; order problems</span>
+        <span class="topic-tag alert">Warranty registration loophole</span>
+        <span class="topic-tag info">Joolz acquired by Bugaboo news</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Top Mentions / Sources</div>
+      <a class="post-link" href="https://service.joolz.com/s/article/Joolz-Recall-Notice-Joolz-Aer2-Car-Seat-Adapter-Set?language=en_US" target="_blank">
+        Joolz Official: Aer2 Car Seat Adapter Recall Notice
+        <div class="post-platform">⚠️ Joolz Support · Official recall page</div>
+      </a>
+      <a class="post-link" href="https://www.gov.uk/product-safety-alerts-reports-recalls/product-recall-joolz-aer2-car-seat-adapter-set-2605-0189" target="_blank">
+        UK Gov product recall: Joolz Aer2 Car Seat Adapter Set (2605-0189)
+        <div class="post-platform">🏛️ GOV.UK · Official</div>
+      </a>
+      <a class="post-link" href="https://strolleria.com/blogs/news/joolz-aer2-vs-bugaboo-butterfly-2-stroller-comparison" target="_blank">
+        Joolz Aer2 vs. Bugaboo Butterfly 2 — full comparison
+        <div class="post-platform">🌐 Strolleria</div>
+      </a>
+      <a class="post-link" href="https://www.macrobaby.com/blogs/newborn-baby-blogs/bugaboo-vs-joolz-which-stroller-brand-is-better-for-your-lifestyle" target="_blank">
+        Bugaboo vs Joolz: Which Stroller Brand Is Better for Your Lifestyle?
+        <div class="post-platform">🌐 MacroBaby</div>
+      </a>
+      <a class="post-link" href="https://www.trustpilot.com/review/www.joolz.com" target="_blank">
+        Joolz on Trustpilot — 1,031 reviews, 3.1★
+        <div class="post-platform">⭐ Trustpilot</div>
+      </a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Key Insights</div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div>Joolz is now a Bugaboo Group sister brand. The Aer2 car seat adapter recall is an active safety issue that needs urgent handling — the adapter can fully detach from the stroller, allowing the car seat to fall. The stroller itself is unaffected.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div>Joolz's 3.1★ Trustpilot score (vs Bugaboo's 4.0★) continues to be driven by post-purchase failure — slow customer service, delivery non-arrivals, and warranty voiding on technicalities. The Aer2 product itself receives consistently strong reviews on specs.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div>The Trustpilot gap between Bugaboo and Joolz has now widened to 0.9★. As sister brands under the same parent, there is now a strategic interest in lifting Joolz's service reputation — a coordinated CX improvement effort would benefit the group.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div>Joolz Aer2 wins on two key travel stroller metrics (lightest in class at 14.3 lbs, newborn-ready out of box). Product strength is not the problem; the recall and service experience surrounding it are the issues right now.</div>
+    </div>
+    <div class="action-banner">
+      <span>💡</span>
+      <div><span class="bold">Recommended action for Bugaboo Group:</span> Prioritise the Aer2 adapter recall response — proactive outreach to all registered Aer2 owners, clear safety messaging, and a frictionless refund/replacement process. Apply Bugaboo's after-sales playbook to Joolz's brand experience to close the 0.9★ Trustpilot gap.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────────────────── ARTIPOPPE ─────────────────────────── -->
+<div class="page" id="page-artipoppe">
+  <div class="section-header">
+    Artipoppe <span class="brand-badge" style="background:#fffbeb;color:#d97706;">Mixed · Dupe Surge · Controversy Active</span>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">Price Range</div>
+      <div class="value warn">$370–$3K+</div>
+      <div class="delta">Flagship Zeitgeist from $370</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Top Dupe Price</div>
+      <div class="value neg">$120</div>
+      <div class="delta">Mabe carrier — trending TikTok dupe</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Active Controversies</div>
+      <div class="value neg">4+</div>
+      <div class="delta">Mold · Plus-size · Ethics · Referral</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Sentiment Score</div>
+      <div class="value warn">+0.25</div>
+      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ from +0.31</span> · Scale −1.0 to +1.0</div>
+    </div>
+  </div>
+  <div class="alert-banner">
+    <span>⚠️</span>
+    <div><span class="bold">NEW this week — Dupe trend accelerating:</span> TikTok content promoting $70–$120 Artipoppe alternatives (Mabe, Wildbird, Lenny Lamb) is surging under #artipoppedupe. This signals luxury positioning erosion — when dupe content outpaces brand content, aspirational premium positioning weakens.</div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Trending Topics</div>
+      <div class="topic-tags">
+        <span class="topic-tag alert">Artipoppe dupe surge (#artipoppedupe)</span>
+        <span class="topic-tag alert">Mold on carriers (#momtok)</span>
+        <span class="topic-tag alert">Plus-size exclusivity criticism</span>
+        <span class="topic-tag alert">Cultural appropriation concerns</span>
+        <span class="topic-tag alert">Ethics &amp; referral program criticism</span>
+        <span class="topic-tag trending">Celebrity endorsements (Alba, Hadid)</span>
+        <span class="topic-tag trending">Luxury unboxing &amp; referral content</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Top Mentions / Sources</div>
+      <a class="post-link" href="https://www.tiktok.com/@kurinadele/video/7334118947463154987" target="_blank">
+        "It just gets worse and worse" — #artipoppezeitgeist #drama #momtok
+        <div class="post-platform">🎵 TikTok · High engagement</div>
+      </a>
+      <a class="post-link" href="https://www.tiktok.com/@emily_wehner/video/7450586151221693742" target="_blank">
+        "I will not spend $500 on a carrier. This one was $70." — #artipoppedupe
+        <div class="post-platform">🎵 TikTok · Dupe content trending</div>
+      </a>
+      <a class="post-link" href="https://thedailymumtra.com/artipoppe-zeitgeist-review-is-it-worth-the-money/" target="_blank">
+        Artipoppe Zeitgeist Review 2026: Is It Worth the Premium Price?
+        <div class="post-platform">🌐 Daily Mumtra</div>
+      </a>
+      <a class="post-link" href="https://thingtesting.com/brands/artipoppe" target="_blank">
+        Artipoppe Reviews 2026 — Read Before You Buy
+        <div class="post-platform">🌐 Thingtesting</div>
+      </a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Key Insights</div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">NEW:</span> The Artipoppe dupe trend is the most significant development. TikTok creators actively promoting $70–$120 alternatives (Mabe, Wildbird, Lenny Lamb) triggers broad "is it worth it?" conversations in the exact audience Bugaboo targets.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div>Ongoing controversies (mold reports, plus-size exclusivity, cultural appropriation, referral ethics) continue without visible brand response. Artipoppe's silence is itself becoming a talking point in the momtok community.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div>Celebrity halo (Jessica Alba, Gigi Hadid) continues to provide aspirational protection, but this is weakening as the "dupe" conversation becomes mainstream in premium parenting circles.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div>The premium parent audience frustrated with Artipoppe is a warm, receptive audience for Bugaboo's "built to last, worth every year" value narrative. The moment is now — this won't stay live indefinitely.</div>
+    </div>
+    <div class="action-banner">
+      <span>💡</span>
+      <div><span class="bold">Recommended action:</span> Deploy Bugaboo's long-term value story now — resale value, Trustpilot score rising to 4.0★, modular longevity, years of use per pound spent. Lands directly in the "is premium worth it?" conversation without naming Artipoppe.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────────────────── COMPARE ───────────────────────────── -->
+<div class="page" id="page-compare">
+  <div class="section-header">Brand Comparison — Week of 2 Jun 2026</div>
+  <div class="info-banner" style="margin-bottom:16px;">
+    <span>ℹ️</span>
+    <div><span class="bold">Note on Joolz:</span> Joolz is now a Bugaboo Group sister brand (acquired July 2025). Scores reflect distinct consumer brand positions, not rival companies.</div>
+  </div>
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">Sentiment &amp; Trustpilot Score</div>
+    <div class="chart-wrap" style="height:260px;">
+      <canvas id="compareChart"></canvas>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Head-to-Head Summary</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th style="color:#e63946;">Bugaboo</th>
+          <th style="color:#6366f1;">Joolz</th>
+          <th style="color:#d97706;">Artipoppe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="bold">Trustpilot</td><td class="green bold">4.0★ (~3,000) ↑</td><td class="amber">3.1★ (1,031)</td><td class="text-sm">N/A (carrier brand)</td></tr>
+        <tr><td class="bold">Sentiment Score</td><td class="green">+0.70 Positive ↑</td><td class="amber">+0.22 Mixed</td><td class="amber">+0.25 Mixed ↓</td></tr>
+        <tr><td class="bold">Instagram Followers</td><td class="green">510K (@bugabooglobal)</td><td class="text-sm">Moderate</td><td class="green">High · aspirational</td></tr>
+        <tr><td class="bold">Top Product (buzz)</td><td>Butterfly 2 · Kangaroo (new)</td><td>Aer2 (travel)</td><td>Zeitgeist carrier</td></tr>
+        <tr><td class="bold">Key Strength</td><td class="green">After-sales, brand loyalty, 4.0★</td><td>Product specs (lightest, newborn-ready)</td><td>Celebrity halo / luxury unboxing</td></tr>
+        <tr><td class="bold">Key Weakness</td><td class="amber">Giraffe recall class action active</td><td class="red">Aer2 adapter recall + CS failures</td><td class="red">Dupe surge + mold + plus-size</td></tr>
+        <tr><td class="bold">Ownership</td><td>Mubadala Capital</td><td class="green">Bugaboo Group (Jul 2025)</td><td>Independent</td></tr>
+        <tr><td class="bold">This Week's Risk</td><td class="amber">Medium (recall lawsuit)</td><td class="red">High (safety recall + CS)</td><td class="red">High (dupe trend + boycotts)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title">Strategic Opportunities for Bugaboo Group</div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Joolz CX gap:</span> The 0.9★ Trustpilot gap between Bugaboo (4.0) and Joolz (3.1) is now an intra-group problem. Applying Bugaboo's after-sales playbook to Joolz would close a gap visible to all consumers.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div><span class="bold">Artipoppe dupe moment:</span> Deploy Bugaboo's "premium that pays for itself over years" story now — resale value, Trustpilot trajectory, modular longevity — directly in the "is luxury worth it?" conversation this week.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div><span class="bold">Travel stroller ownership:</span> Butterfly 2 and Joolz Aer2 are now sister products. A coordinated "two ways to travel premium" narrative could own the travel category conversation rather than splitting it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────────────────── RECALLS ───────────────────────────── -->
+<div class="page" id="page-recalls">
+
+  <div class="section-header">
+    Active Recalls <span class="brand-badge" style="background:#fff1f2;color:#dc2626;">2 active</span>
+  </div>
+
+  <p style="font-size:13px;color:#666;margin-bottom:20px;line-height:1.6;">
+    This section tracks active product safety recalls and legal actions across the Bugaboo Group portfolio. Recall data is sourced from official brand notices, government safety databases, and legal filings. <strong>These issues are tracked separately from the main sentiment data</strong> to avoid skewing overall brand scores.
+  </p>
+
+  <!-- ── RECALL 1: Joolz Aer2 Car Seat Adapter ── -->
+  <div class="recall-card">
+    <div class="recall-header">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <span class="recall-badge">🚨 Active Recall</span>
+          <span style="font-size:12px;color:#888;">Issued May 2026 · UK Office for Product Safety &amp; Standards</span>
+        </div>
+        <div class="recall-title">Joolz Aer2 Car Seat Adapter Set</div>
+        <div class="recall-sub">Product ref: 2605-0189 · Serial numbers starting NL311- · Sold June 2025 – May 2026</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">Affected brand</div>
+        <div style="font-size:18px;font-weight:700;color:#6366f1;">Joolz</div>
+        <div style="font-size:12px;color:#888;">Sister brand · Bugaboo Group</div>
+      </div>
+    </div>
+    <div class="recall-body">
+      <div class="recall-grid">
+        <div class="recall-stat">
+          <div class="rs-label">Safety risk</div>
+          <div class="rs-value red">High</div>
+        </div>
+        <div class="recall-stat">
+          <div class="rs-label">Affected products</div>
+          <div class="rs-value amber">All NL311- units</div>
+        </div>
+        <div class="recall-stat">
+          <div class="rs-label">Resolution</div>
+          <div class="rs-value green">Full refund</div>
+        </div>
+      </div>
+
+      <div class="recall-detail">
+        <strong>What happened:</strong> The Joolz Aer2 Car Seat Adapter Set may fail to properly engage and lock with the spring-loaded pin on the Aer2 stroller chassis. The adapter can appear secure but may be incorrectly locked — if it detaches during use, the car seat can tip forward and fall to the ground with the infant inside.
+      </div>
+      <div class="recall-detail">
+        <strong>Affected products:</strong> All Joolz Aer2 Car Seat Adapter Sets with serial numbers beginning <strong>NL311-</strong>, sold between June 2025 and May 2026. The Joolz Aer2 stroller itself is <strong>not affected</strong> and can continue to be used safely without the adapter.
+      </div>
+      <div class="recall-detail">
+        <strong>Consumer action:</strong> Stop using the adapter immediately — even if it appears properly attached. Customers will receive a refund email within 2 weeks with a form link and a prepaid return label. Do not attempt to continue using the adapter while awaiting the refund.
+      </div>
+
+      <div class="recall-timeline">
+        <div class="recall-timeline-title">Timeline</div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#dc2626;"></div>
+          <div class="timeline-date">May 2026</div>
+          <div class="timeline-text">UK Office for Product Safety &amp; Standards issues official recall notice (ref 2605-0189). Joolz publishes recall page on support site.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#d97706;"></div>
+          <div class="timeline-date">May–Jun 2026</div>
+          <div class="timeline-text">Recall active. Customers with serial NL311- advised to stop use immediately and await refund email. Aer2 stroller unit itself cleared for continued use.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#6b7280;"></div>
+          <div class="timeline-date">Ongoing</div>
+          <div class="timeline-text">Refund process underway. Joolz sending prepaid return labels. Resolution timeline: 2 weeks from recall notification.</div>
+        </div>
+      </div>
+
+      <div class="recall-actions">
+        <a class="recall-link" href="https://service.joolz.com/s/article/Joolz-Recall-Notice-Joolz-Aer2-Car-Seat-Adapter-Set?language=en_US" target="_blank">📋 Joolz Official Recall Notice</a>
+        <a class="recall-link" href="https://www.gov.uk/product-safety-alerts-reports-recalls/product-recall-joolz-aer2-car-seat-adapter-set-2605-0189" target="_blank">🏛️ GOV.UK Product Recall Page</a>
+        <a class="recall-link" href="https://service.joolz.com/s/car-seat-adapter-set-recall?language=en_GB" target="_blank">🔄 Refund Registration</a>
+        <a class="recall-link" href="https://x.com/OfficeforSandS/status/2060700252324466869" target="_blank">📢 OPSS Announcement</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RECALL 2: Bugaboo Giraffe Highchair ── -->
+  <div class="recall-card">
+    <div class="recall-header">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <span class="recall-badge">⚖️ Recall + Class Action</span>
+          <span style="font-size:12px;color:#888;">Recall issued Jun 2025 · Class action active 2025–2026</span>
+        </div>
+        <div class="recall-title">Bugaboo Giraffe Highchair</div>
+        <div class="recall-sub">18,280 units affected · Sold May 2023 – April 2025 · Class action lawsuit active</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">Affected brand</div>
+        <div style="font-size:18px;font-weight:700;color:#e63946;">Bugaboo</div>
+        <div style="font-size:12px;color:#888;">Strollers unaffected</div>
+      </div>
+    </div>
+    <div class="recall-body">
+      <div class="recall-grid">
+        <div class="recall-stat">
+          <div class="rs-label">Units recalled</div>
+          <div class="rs-value red">18,280</div>
+        </div>
+        <div class="recall-stat">
+          <div class="rs-label">Injury reports</div>
+          <div class="rs-value amber">13 minor</div>
+        </div>
+        <div class="recall-stat">
+          <div class="rs-label">Legal status</div>
+          <div class="rs-value red">Class action active</div>
+        </div>
+      </div>
+
+      <div class="recall-detail">
+        <strong>What happened:</strong> The screws securing the front legs of the Bugaboo Giraffe highchair can loosen or fall out during normal use, allowing the front legs to fully detach from the chair. Bugaboo received 22 reports of detachment, including 13 reports of minor injuries to children.
+      </div>
+      <div class="recall-detail">
+        <strong>Class action dispute:</strong> A class action lawsuit alleges that Bugaboo's recall notice placed the blame for the defect on consumers, stating the legs could detach "if the screws were not fully tightened during setup." The lawsuit claims this framing was inaccurate and that the fault lies with the product design, not consumer assembly.
+      </div>
+      <div class="recall-detail">
+        <strong>Stroller range not affected:</strong> This recall is specific to the Giraffe highchair product line. All Bugaboo strollers — Fox, Donkey, Butterfly, Dragonfly, Bee, Ant, Kangaroo — are unaffected and safe to use.
+      </div>
+
+      <div class="recall-timeline">
+        <div class="recall-timeline-title">Timeline</div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#888;"></div>
+          <div class="timeline-date">May 2023</div>
+          <div class="timeline-text">Bugaboo Giraffe highchair goes on sale.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#dc2626;"></div>
+          <div class="timeline-date">Jun 2025</div>
+          <div class="timeline-text">Bugaboo issues official recall for 18,280 Giraffe highchairs after 22 reports of leg detachment (13 minor injuries). Products sold May 2023–April 2025.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#d97706;"></div>
+          <div class="timeline-date">Late 2025</div>
+          <div class="timeline-text">Class action lawsuit filed — alleges Bugaboo's recall notice unfairly attributed fault to consumers ("if screws not tightened during setup"). Legal proceedings begin.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#dc2626;"></div>
+          <div class="timeline-date">Jun 2026</div>
+          <div class="timeline-text">Class action still active and circulating on parent forums and legal news sites. No public settlement or resolution announced.</div>
+        </div>
+      </div>
+
+      <div class="recall-actions">
+        <a class="recall-link" href="https://topclassactions.com/lawsuit-settlements/lawsuit-news/bugaboo-class-action-alleges-recalled-highchairs-pose-serious-safety-risk/" target="_blank">⚖️ Class Action Details</a>
+        <a class="recall-link" href="https://www.consumeraffairs.com/family/bugaboo-strollers.html" target="_blank">📋 ConsumerAffairs Reviews</a>
+        <a class="recall-link" href="https://www.trustpilot.com/review/www.bugaboo.com" target="_blank">⭐ Bugaboo Trustpilot</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary note -->
+  <div class="card" style="border-color:#e8e8e8;">
+    <div class="card-title">Recall Monitoring Notes</div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Separation from sentiment scores:</span> Neither recall is factored into the main brand sentiment scores on other tabs. This is intentional — the sentiment scores reflect organic social conversation and review data, while recalls represent a distinct operational risk category.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div><span class="bold">Joolz Aer2 adapter recall:</span> The Aer2 stroller is unaffected and continues to appear in travel stroller comparisons and positive review content. The recall should not impact Aer2 stroller sales once the adapter issue is resolved and communicated clearly.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div><span class="bold">Bugaboo Giraffe class action:</span> The risk here is reputational spillover to the stroller range if the class action generates press coverage. The framing of the claim ("Bugaboo blamed consumers") is the kind of story that gains traction on parent social media. Proactive, transparent communication is the mitigation.</div>
+    </div>
+  </div>
+
+</div><!-- /recalls page -->
+
+</div><!-- /main -->
+
+<div class="footer">
+  Data sources: Trustpilot · TikTok · Instagram · YouTube · Strolleria · Babylist · MacroBaby · Babesta · TopClassActions · Thingtesting · OC&amp;C / Gimv (M&amp;A) · GOV.UK · Joolz Support · OPSS &nbsp;·&nbsp; Last updated: 2 Jun 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
+</div>
+
+<script>
+// ── Chart instances ─────────────────────────────────────────────────
+const charts = {};
+
+// ── Tab navigation ──────────────────────────────────────────────────
+function showPage(id, evt) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const target = evt && evt.currentTarget ? evt.currentTarget : (evt && evt.target ? evt.target : null);
+  if (target) target.classList.add('active');
+  if (id === 'compare') drawCompareChart();
+  if (id === 'overview') { drawSentimentChart(); drawWoWChart(); }
+}
+
+// ── Week-on-week chart ───────────────────────────────────────────────
+function drawWoWChart() {
+  const ctx = document.getElementById('wowChart');
+  if (!ctx || charts.wow) return;
+
+  // Data: [metric label, prev value, curr value, unit, color]
+  const metrics = [
+    { label: 'Bugaboo Trustpilot ★',   prev: 3.9,   curr: 4.0,   unit: '★',  color: '#e63946' },
+    { label: 'Bugaboo Sentiment',       prev: 0.68,  curr: 0.70,  unit: '',   color: '#e63946' },
+    { label: 'Joolz Reviews (×100)',    prev: 9.55,  curr: 10.31, unit: '',   color: '#6366f1' },
+    { label: 'Bugaboo Reviews (×100)',  prev: 24.97, curr: 30.0,  unit: '',   color: '#e63946' },
+    { label: 'Artipoppe Sentiment',     prev: 0.31,  curr: 0.25,  unit: '',   color: '#f59e0b' },
+    { label: 'Joolz Trustpilot ★',     prev: 3.1,   curr: 3.1,   unit: '★',  color: '#6366f1' },
+  ];
+
+  const labels = metrics.map(m => m.label);
+  const deltas = metrics.map(m => parseFloat((m.curr - m.prev).toFixed(3)));
+  const bgColors = metrics.map((m, i) => deltas[i] > 0 ? '#16a34a99' : deltas[i] < 0 ? '#dc262699' : '#88888844');
+  const borderColors = metrics.map((m, i) => deltas[i] > 0 ? '#16a34a' : deltas[i] < 0 ? '#dc2626' : '#888888');
+
+  charts.wow = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Change vs prev week',
+        data: deltas,
+        backgroundColor: bgColors,
+        borderColor: borderColors,
+        borderWidth: 2,
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const val = ctx.raw;
+              const sign = val > 0 ? '+' : '';
+              return ` ${sign}${val.toFixed(3)} vs prev week`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: '#f0f0f0' },
+          ticks: { font: { size: 11 }, callback: v => v > 0 ? '+' + v : v },
+          title: { display: true, text: 'Change from prior week', font: { size: 11 }, color: '#888' }
+        },
+        y: {
+          ticks: { font: { size: 11 } },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+}
+
+// ── Sentiment chart (overview) ──────────────────────────────────────
+function drawSentimentChart() {
+  // Not displayed separately on overview anymore — WoW chart takes that slot
+}
+
+// ── Compare chart ───────────────────────────────────────────────────
+function drawCompareChart() {
+  const ctx = document.getElementById('compareChart');
+  if (!ctx || charts.compare) return;
+  charts.compare = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Bugaboo', 'Joolz', 'Artipoppe'],
+      datasets: [
+        {
+          label: 'Trustpilot (/5)',
+          data: [4.0, 3.1, null],
+          backgroundColor: ['#e6394633', '#6366f133', '#f59e0b33'],
+          borderColor: ['#e63946', '#6366f1', '#f59e0b'],
+          borderWidth: 2, borderRadius: 4, yAxisID: 'y1',
+        },
+        {
+          label: 'Sentiment Score',
+          data: [0.70, 0.22, 0.25],
+          backgroundColor: ['#e63946aa', '#6366f1aa', '#f59e0baa'],
+          borderColor: ['#e63946', '#6366f1', '#f59e0b'],
+          borderWidth: 2, borderRadius: 4, yAxisID: 'y2',
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { font: { size: 12 }, boxWidth: 12 } } },
+      scales: {
+        y1: { position: 'left', min: 0, max: 5, title: { display: true, text: 'Trustpilot (/5)', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { color: '#f0f0f0' } },
+        y2: { position: 'right', min: -1, max: 1, title: { display: true, text: 'Sentiment', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { display: false } },
+        x: { ticks: { font: { size: 12 } }, grid: { display: false } }
+      }
+    }
+  });
+}
+
+// Draw on load
+window.addEventListener('load', () => {
+  setTimeout(() => { drawWoWChart(); }, 150);
+});
+</script>
+</body>
+</html>

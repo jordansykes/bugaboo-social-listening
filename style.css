@@ -49,24 +49,9 @@
   /* ── Main layout ── */
   .main { padding: 16px 16px; max-width: 1600px; margin: 0 auto; }
 
-  /* ── Page show/hide — CSS :target is primary (works with or without JS) ── */
+  /* ── Page show/hide ── */
   .page { display: none; }
-  .page.active { display: block; }   /* JS-managed fallback */
-  .page:target { display: block; }   /* CSS :target — no JS needed */
-
-  /* Default: show overview when no hash in URL */
-  #page-overview { display: block; }
-  /* Hide overview when any other page is targeted */
-  #page-bugaboo:target ~ #page-overview,
-  #page-joolz:target ~ #page-overview,
-  #page-artipoppe:target ~ #page-overview,
-  #page-compare:target ~ #page-overview,
-  #page-comp-strollers:target ~ #page-overview,
-  #page-comp-carriers:target ~ #page-overview,
-  #page-recalls:target ~ #page-overview { display: none; }
-
-  /* Tab link reset */
-  a.tab { text-decoration: none; }
+  .page.active { display: block; }
 
   /* ── KPI strip ── */
   .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }

@@ -7,15 +7,29 @@ var charts = {};
 // Script is at end of <body> — all elements exist, no DOMContentLoaded needed.
 
 function showPage(id, tabEl) {
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  // Hide all pages via inline style (bypasses any CSS class issues)
+  document.querySelectorAll('.page').forEach(function(p) {
+    p.style.display = 'none';
+    p.classList.remove('active');
+  });
   document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
   var page = document.getElementById('page-' + id);
-  if (page) page.classList.add('active');
+  if (page) {
+    page.style.display = 'block';
+    page.classList.add('active');
+  }
   if (tabEl) tabEl.classList.add('active');
   try { if (id === 'compare') drawCompareChart(); } catch(e) { console.error(e); }
   try { if (id === 'comp-strollers') drawCompStrollerChart(); } catch(e) { console.error(e); }
   try { if (id === 'comp-carriers') drawCompCarrierChart(); } catch(e) { console.error(e); }
 }
+
+// Set initial state — show overview, hide everything else
+(function() {
+  document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
+  var overview = document.getElementById('page-overview');
+  if (overview) { overview.style.display = 'block'; overview.classList.add('active'); }
+})();
 
 // Wire up tab clicks — direct init, no DOMContentLoaded needed
 document.querySelectorAll('.tab[data-page]').forEach(function(tab) {

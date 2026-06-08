@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bugaboo Group – Social Listening Dashboard</title>
 <script src="./chart.umd.js"></script>
-<link rel="stylesheet" href="./style.css">
-</head>
+<link rel="stylesheet" href="./style.css"></head>
 <body>
 
-<!-- ══ HEADER ══════════════════════════════════════════════════════════ -->
 <div class="header">
   <div class="header-left">
     <div class="logo-badge">B</div>
     <div>
       <div class="header-title">Bugaboo Group · Social Listening</div>
-      <div class="header-sub">Bugaboo · Joolz · Artipoppe &nbsp;|&nbsp; Week ending 3 Jun 2026</div>
+      <div class="header-sub">Bugaboo · Joolz · Artipoppe &nbsp;|&nbsp; Week ending 8 Jun 2026</div>
     </div>
   </div>
   <div class="header-right">
@@ -25,31 +22,155 @@
   </div>
 </div>
 
-<!-- ══ TABS ═══════════════════════════════════════════════════════════ -->
 <div class="tabs">
-  <a href="#page-overview" class="tab active">Overview</a>
-  <a href="#page-bugaboo" class="tab">Bugaboo</a>
-  <a href="#page-joolz" class="tab">Joolz</a>
-  <a href="#page-artipoppe" class="tab">Artipoppe</a>
-  <a href="#page-compare" class="tab">Compare</a>
-  <a href="#page-comp-strollers" class="tab">Competitors · Strollers</a>
-  <a href="#page-comp-carriers" class="tab">Competitors · Carriers</a>
-  <a href="#page-recalls" class="tab"><span class="recall-dot"></span> Recalls</a>
+  <div class="tab active" data-page="overview">Overview</div>
+  <div class="tab" data-page="bugaboo">Bugaboo</div>
+  <div class="tab" data-page="joolz">Joolz</div>
+  <div class="tab" data-page="artipoppe">Artipoppe</div>
+  <div class="tab" data-page="compare">Compare</div>
+  <div class="tab" data-page="comp-strollers">Competitors · Strollers</div>
+  <div class="tab" data-page="comp-carriers">Competitors · Carriers</div>
+  <div class="tab" data-page="recalls"><span class="recall-dot"></span> Recalls</div>
 </div>
 
-<!-- ══ MAIN ═══════════════════════════════════════════════════════════ -->
 <div class="main">
 
-<!-- ─────────────────────────── BUGABOO ──────────────────────────── -->
+<!-- OVERVIEW -->
+<div class="page active" id="page-overview">
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">Bugaboo Trustpilot</div>
+      <div class="value warn">3.9 <span style="font-size:16px;">★</span></div>
+      <div class="delta">~2,500 reviews · <span style="color:#dc2626;font-size:11px;">↓ −0.1★ from 4.0</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Joolz Trustpilot</div>
+      <div class="value warn">3.1 <span style="font-size:16px;">★</span></div>
+      <div class="delta">~1,034 reviews · <span style="color:#888;font-size:11px;">→ stable</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Artipoppe Sentiment</div>
+      <div class="value warn">Mixed</div>
+      <div class="delta">Controversies persist · <span style="color:#dc2626;font-size:11px;">↓ to +0.22</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Active Recalls</div>
+      <div class="value neg">2</div>
+      <div class="delta">Bugaboo Giraffe · Joolz Aer2 adapter</div>
+    </div>
+  </div>
+
+  <div class="info-banner">
+    <span>📊</span>
+    <div><span class="bold">THIS WEEK — Bugaboo Trustpilot dips to 3.9★:</span> A slight drop from 4.0★ (now ~2,500 reviews) reflects emerging CS complaints around delivery and warranty response. The Donkey 6 (Red Dot Award winner, launched March 2026) continues to drive positive product review volume. Meanwhile the Butterfly 2 vs Cybex Coya travel stroller comparison is the hottest new content loop — Bugaboo winning on ride quality, Cybex on carry weight.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Brand Sentiment Overview — Week of 8 Jun 2026</div>
+    <div class="brand-row">
+      <div class="brand-icon" style="background:#e63946;color:#fff;">B</div>
+      <div>
+        <div class="brand-name">Bugaboo</div>
+        <div class="brand-sub">Strollers · Premium · Amsterdam · Mubadala Capital</div>
+      </div>
+      <div class="brand-bar-col">
+        <div class="sentiment-bar-wrap">
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:85%;background:#16a34a;"></div></div>
+        </div>
+        <div class="text-sm mt8">Sentiment score: +0.70 · Trustpilot 3.9★ ↓ · Fox 5 + Donkey 6 review cycle active</div>
+      </div>
+      <div class="brand-meta">
+        <span class="sentiment-pill s-pos">Positive</span>
+        <div class="text-sm" style="margin-top:4px;">~2,500 reviews</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <div class="brand-icon" style="background:#6366f1;color:#fff;">J</div>
+      <div>
+        <div class="brand-name">Joolz</div>
+        <div class="brand-sub">Strollers · Mid-premium · Amsterdam · Bugaboo Group</div>
+      </div>
+      <div class="brand-bar-col">
+        <div class="sentiment-bar-wrap">
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:44%;background:#d97706;"></div></div>
+        </div>
+        <div class="text-sm mt8">Sentiment score: +0.20 · Trustpilot 3.1★ stable · Recall fix ~3 weeks away</div>
+      </div>
+      <div class="brand-meta">
+        <span class="sentiment-pill s-mix">Mixed</span>
+        <div class="text-sm" style="margin-top:4px;">1,034 reviews</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <div class="brand-icon" style="background:#f59e0b;color:#fff;">A</div>
+      <div>
+        <div class="brand-name">Artipoppe</div>
+        <div class="brand-sub">Baby Carriers · Luxury · Netherlands</div>
+      </div>
+      <div class="brand-bar-col">
+        <div class="sentiment-bar-wrap">
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:31%;background:#dc2626;"></div></div>
+        </div>
+        <div class="text-sm mt8">Sentiment score: +0.22 · Mold, plus-size, cultural appropriation controversies ongoing</div>
+      </div>
+      <div class="brand-meta">
+        <span class="sentiment-pill s-mix">Mixed</span>
+        <div class="text-sm" style="margin-top:4px;">Controversy active</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Week-on-Week Shifts (3 Jun → 8 Jun 2026)</div>
+      <div class="chart-wrap tall">
+        <canvas id="wowChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Hot Topics This Week</div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Topic</th><th>Brand</th><th>Sentiment</th></tr></thead>
+        <tbody>
+          <tr><td>Butterfly 2 vs Cybex Coya — travel stroller battle</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>Bugaboo Fox 5 review wave — post-Feb launch surge</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>Bugaboo Trustpilot dips to 3.9★ — CS complaints</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="red">Negative</td></tr>
+          <tr><td>Joolz Aer2 adapter recall fix ~3 weeks away</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="amber">Neutral</td></tr>
+          <tr><td>Joolz Dot appearing in best travel stroller lists</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="green">Positive</td></tr>
+          <tr><td>Artipoppe mold + plus-size criticism still circulating</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Negative</td></tr>
+          <tr><td>Premium stroller market CAGR 5.4% — category growth</td><td class="bold" style="color:#888;">Category</td><td class="green">Positive</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">This Week's Recommended Actions</div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Bugaboo (CS reputation):</span> The 3.9★ dip vs last week's 4.0★ is a leading indicator — CS complaints around delivery and warranty handling are the driver, not product quality. A targeted CS response campaign on Trustpilot and proactive outreach to recent low-scorers can halt the slide before it becomes structural.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div><span class="bold">Joolz (Recall resolution):</span> End-of-June adapter fix is now ~3 weeks away. This week is the time to draft the "recall closed" announcement email, press release, and social post — so comms can go live the moment the revised adapter ships. Speed of closure communication is the single biggest driver of post-recall sentiment recovery.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot amber"></div>
+      <div><span class="bold">vs. Artipoppe:</span> Ongoing controversies continue slow erosion of the brand's premium position. Deploy Bugaboo's "worth every year" counter-narrative into the "is luxury baby gear worth it?" conversation — 3.9★ Trustpilot on 2,500+ reviews, B Corp, Donkey 6 sustainability story, built-to-last modular design.</div>
+    </div>
+  </div>
+</div>
+
+<!-- BUGABOO -->
 <div class="page" id="page-bugaboo">
   <div class="section-header">
-    Bugaboo <span class="brand-badge" style="background:#fef2f2;color:#e63946;">Positive · 4.0★ · Donkey 6 Launch</span>
+    Bugaboo <span class="brand-badge" style="background:#fef2f2;color:#e63946;">Positive · 3.9★ ↓ · Fox 5 + Butterfly 2 Review Surge</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">Trustpilot Score</div>
-      <div class="value pos">4.0★</div>
-      <div class="delta">~3,000 reviews · <span style="color:#888;font-size:11px;">→ stable</span></div>
+      <div class="value warn">3.9★</div>
+      <div class="delta">~2,500 reviews · <span style="color:#dc2626;font-size:11px;">↓ from 4.0★</span></div>
     </div>
     <div class="kpi">
       <div class="label">Instagram (Global)</div>
@@ -63,51 +184,56 @@
     </div>
     <div class="kpi">
       <div class="label">Sentiment Score</div>
-      <div class="value pos">+0.72</div>
-      <div class="delta"><span style="color:#16a34a;font-size:11px;">↑ from +0.70</span> · Donkey 6 lift</div>
+      <div class="value pos">+0.70</div>
+      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ from +0.72</span> · CS noise</div>
     </div>
-  </div>
-  <div class="info-banner">
-    <span>🏆</span>
-    <div><span class="bold">NEW — Donkey 6 wins Red Dot Award: Product Design 2026:</span> The Bugaboo Donkey 6 has been awarded the prestigious Red Dot Award for Product Design 2026. Key upgrades: 50% larger underseat basket (up to 33 lbs), 2× larger breezy bassinet panels, organic cotton bassinet lining, 17% lower CO₂ footprint, and 100% recycled polyester fabrics. This is strong editorial content for product and sustainability comms.</div>
   </div>
   <div class="alert-banner">
     <span>⚠️</span>
-    <div><span class="bold">Active legal risk:</span> Class action lawsuit filed over Bugaboo Giraffe highchair recall (18,280 units). Front leg screws can loosen causing chair collapse — 22 detachment reports, 13 minor injuries. Class action alleges recall notice unfairly blamed consumers. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab for full details</a></div>
+    <div><span class="bold">Trustpilot dipping — CS complaints pattern emerging:</span> Bugaboo's Trustpilot score dropped from 4.0★ to 3.9★ this week. Review analysis shows complaints clustering around slow response times and delivery/warranty handling — not product quality. This is a recoverable CX issue but requires active management. <a href="https://www.trustpilot.com/review/www.bugaboo.com" target="_blank" style="color:#9f1239;font-weight:600;">→ View live Trustpilot reviews</a></div>
+  </div>
+  <div class="info-banner">
+    <span>🚲</span>
+    <div><span class="bold">Butterfly 2 vs Cybex Coya — hottest comparison content this week:</span> The Cybex Coya vs Bugaboo Butterfly 2 face-off is generating strong blog and review traffic. Verdict: Bugaboo wins on ride quality (larger wheels, full suspension); Cybex wins on carry weight (14.6 lbs with shoulder strap vs Butterfly 2's 16 lbs). Bugaboo should lean into the "smoother ride = better for baby" narrative in comparison contexts.</div>
+  </div>
+  <div class="alert-banner">
+    <span>⚖️</span>
+    <div><span class="bold">Active legal risk:</span> Class action lawsuit (Case No. 1:25-cv-05688, SDNY) over Bugaboo Giraffe highchair recall remains active. No settlement announced. "Bugaboo blamed consumers" framing continues to circulate on parent forums. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab</a></div>
   </div>
   <div class="two-col">
     <div class="card">
       <div class="card-title">Trending Topics</div>
       <div class="topic-tags">
-        <span class="topic-tag trending">Donkey 6 — Red Dot Award win 2026</span>
-        <span class="topic-tag trending">Butterfly 2 vs Joolz Aer2 travel battle</span>
-        <span class="topic-tag trending">Fox 5 — lightweight flagship reviews</span>
-        <span class="topic-tag trending">Dragonfly city stroller roundups</span>
-        <span class="topic-tag trending">Kangaroo single-to-double growing families</span>
-        <span class="topic-tag info">Donkey 6 sustainability story (17% CO₂ reduction)</span>
-        <span class="topic-tag alert">Giraffe highchair recall class action</span>
+        <span class="topic-tag trending">Butterfly 2 vs Cybex Coya travel battle</span>
+        <span class="topic-tag trending">Fox 5 review surge — Feb 2026 launch settling in</span>
+        <span class="topic-tag trending">Donkey 6 — Red Dot Award + sustainability</span>
+        <span class="topic-tag trending">Stokke YOYO3 vs Butterfly 2 (TikTok active)</span>
+        <span class="topic-tag trending">Kangaroo — single-to-double growing families</span>
+        <span class="topic-tag info">Premium stroller market growing at 5.4% CAGR</span>
+        <span class="topic-tag alert">Trustpilot CS complaints — delivery / warranty</span>
+        <span class="topic-tag alert">Giraffe highchair class action still active</span>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Top Mentions / Sources</div>
+      <a class="post-link" href="https://www.sheknows.com/parenting/articles/1234971619/cybex-vs-bugaboo-stroller-review-2026/" target="_blank">
+        Cybex vs. Bugaboo 2026: Coya vs Butterfly 2 — travel stroller showdown
+        <div class="post-platform">🌐 SheKnows · Active comparison content</div>
+      </a>
+      <a class="post-link" href="https://www.childfriendlygear.com/en/us/toplists/strollers/bugaboo/" target="_blank">
+        Best Bugaboo Strollers in the US 2026 — full lineup ranked
+        <div class="post-platform">🌐 ChildFriendlyGear</div>
+      </a>
       <a class="post-link" href="https://strolleria.com/blogs/news/bugaboo-donkey-6-new-product-comparison" target="_blank">
-        Bugaboo Donkey 6 | New 2026 Stroller Review and Comparison
+        Bugaboo Donkey 6 — New 2026 Review and Comparison
         <div class="post-platform">🌐 Strolleria</div>
-      </a>
-      <a class="post-link" href="https://www.youtube.com/watch?v=zi5leTooU-4" target="_blank">
-        Best Luxury Travel Strollers 2026: Bugaboo Butterfly 2 vs Joolz Aer 2 vs UPPAbaby Minu V3
-        <div class="post-platform">📺 YouTube</div>
-      </a>
-      <a class="post-link" href="https://www.bambibaby.com/blogs/learning-center/bugaboo-donkey-6-new-2026-bugaboo-product-review-and-comparison" target="_blank">
-        Bugaboo Donkey 6 — New 2026 Product Review (Bambi Baby)
-        <div class="post-platform">🌐 Bambi Baby</div>
       </a>
       <a class="post-link" href="https://topclassactions.com/lawsuit-settlements/lawsuit-news/bugaboo-class-action-alleges-recalled-highchairs-pose-serious-safety-risk/" target="_blank">
         Bugaboo highchair class action — safety risk allegations
         <div class="post-platform">⚖️ TopClassActions</div>
       </a>
       <a class="post-link" href="https://www.trustpilot.com/review/www.bugaboo.com" target="_blank">
-        Bugaboo on Trustpilot — ~3,000 reviews, 4.0★
+        Bugaboo on Trustpilot — ~2,500 reviews, 3.9★ ↓
         <div class="post-platform">⭐ Trustpilot</div>
       </a>
     </div>
@@ -116,72 +242,73 @@
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><strong>Donkey 6 Red Dot Award is this week's headline win.</strong> The award win, combined with sustainability credentials (17% CO₂ reduction, recycled fabrics), positions Bugaboo squarely in the premium + responsible consumption space — exactly where its core audience lives.</div>
+      <div><strong>Trustpilot dip to 3.9★ is a CS signal, not a product signal.</strong> Review analysis shows negative posts clustering on delivery delays, warranty response times, and phone support failures — not product defects or design issues. The Donkey 6, Fox 5, and Butterfly 2 are all receiving positive editorial reviews simultaneously. This divergence means a targeted CS intervention can recover the score.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>The Butterfly 2 continues to dominate travel stroller comparison content on YouTube and specialist blogs. Consistently wins on build quality and brand trust; Joolz Aer2 still edges it on weight (14.3 lbs vs 16 lbs). As sister products, the conversation is now category-defining for the Group.</div>
+      <div>The <strong>Butterfly 2 vs Cybex Coya</strong> comparison is the active travel stroller battleground this week. Bugaboo wins on ride quality (larger wheels, full suspension for smoother rides) and brand trust; Cybex Coya edges on carry weight (14.6 lbs with shoulder strap vs Butterfly 2's 16 lbs). Both at similar price points. Active content creation in this comparison space is a clear opportunity.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div>The Giraffe highchair class action (Case No. 1:25-cv-05688, SDNY) remains active with no settlement announced. The plaintiff's "Bugaboo blamed consumers" framing is sticky on parent forums. Legal exposure is contained to the highchair category but brand spillover risk persists while unresolved.</div>
+      <div><strong>Fox 5 (launched February 2026)</strong> is now past its initial wave and generating settled long-term review content — the phase where product strength compounds into SEO authority. Full-size flagship reviews, Fox 5 vs UPPAbaby Vista V3 comparison content, and Fox 5 suspension highlight reels are the content formats doing well.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>Bugaboo's B Corp certification is increasingly a differentiator in 2026 as premium stroller market premiumization accelerates — 46% of purchases now towards premium models. Buyers increasingly factor sustainability alongside brand trust.</div>
+      <div>The Giraffe highchair class action (Case No. 1:25-cv-05688, SDNY) remains active with no settlement. The "Bugaboo blamed consumers" recall notice framing continues to circulate in parent legal news sites. Legal risk is contained to the highchair category — keeping stroller messaging clearly separate from highchair messaging is essential.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action:</span> Push the Donkey 6 Red Dot Award story hard this week via Instagram Reels and TikTok — pair design award + sustainability numbers (17% CO₂, recycled polyester) for a two-layer premium narrative. Simultaneously publish a brief, transparent update on the Giraffe recall resolution timeline.</div>
+      <div><span class="bold">Recommended action:</span> (1) Launch a targeted Trustpilot response campaign — acknowledge CS delays publicly and offer fast-track resolution for recent low-scorers. (2) Commission or amplify a Butterfly 2 vs Coya head-to-head on YouTube/TikTok that explicitly names "smoother ride" as the winning argument. (3) Publish a transparent Giraffe recall update to pre-empt further "blame consumers" forum traction.</div>
     </div>
   </div>
 </div>
 
-<!-- ─────────────────────────── JOOLZ ────────────────────────────── -->
+<!-- JOOLZ -->
 <div class="page" id="page-joolz">
   <div class="section-header">
-    Joolz <span class="brand-badge" style="background:#ede9fe;color:#6366f1;">Mixed · 3.1★ · Recall Resolution Incoming</span>
+    Joolz <span class="brand-badge" style="background:#ede9fe;color:#6366f1;">Mixed · 3.1★ · Recall Fix ~3 Weeks Away</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">Trustpilot Score</div>
       <div class="value warn">3.1★</div>
-      <div class="delta">1,034 reviews · <span style="color:#16a34a;font-size:11px;">↑ +3 reviews</span></div>
+      <div class="delta">~1,034 reviews · <span style="color:#888;font-size:11px;">→ stable</span></div>
     </div>
     <div class="kpi">
       <div class="label">vs Bugaboo Gap</div>
-      <div class="value neg">−0.9★</div>
-      <div class="delta">Still 0.9★ below Bugaboo · priority gap</div>
+      <div class="value neg">−0.8★</div>
+      <div class="delta">Gap narrowed slightly (was −0.9★) due to Bugaboo dip</div>
     </div>
     <div class="kpi">
       <div class="label">Recall Fix Timeline</div>
-      <div class="value warn" style="font-size:16px;">End Jun</div>
-      <div class="delta">Revised adapter expected late June 2026</div>
+      <div class="value warn" style="font-size:16px;">~3 Weeks</div>
+      <div class="delta">Revised adapter expected end of June 2026</div>
     </div>
     <div class="kpi">
       <div class="label">Sentiment Score</div>
       <div class="value warn">+0.20</div>
-      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ from +0.22</span> · recall dampening</div>
+      <div class="delta"><span style="color:#888;font-size:11px;">→ stable</span> · recall still dampening</div>
     </div>
   </div>
   <div class="alert-banner">
     <span>🚨</span>
-    <div><span class="bold">Active safety recall — resolution expected end of June:</span> Joolz Aer2 Car Seat Adapter Set recalled — adapter may fail to lock with spring-loaded pin, allowing car seat to detach. All units with serial NL311- affected. Revised adapter version expected end of June 2026. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab for full details</a></div>
+    <div><span class="bold">Recall resolution now ~3 weeks away:</span> Joolz Aer2 Car Seat Adapter Set recall (ref 2605-0189) — adapter can fail to lock, allowing car seat detachment. End-of-June revised adapter is the critical milestone. Refund process active; prepaid return labels being issued. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab for full details</a></div>
   </div>
   <div class="info-banner">
     <span>🏆</span>
-    <div><span class="bold">Positive recognition:</span> The Joolz Aer2 won Silver at the Mother&amp;Baby Awards 2026 for Best Lightweight Buggy/Stroller. Strong editorial validation for the core product despite the adapter recall noise.</div>
+    <div><span class="bold">Positive recognition:</span> The Joolz Aer2 won Silver at the Mother&amp;Baby Awards 2026 for Best Lightweight Buggy/Stroller — strong editorial validation that the stroller product itself is excellent, separate from the adapter accessory recall. Joolz Dot (12.2 lbs) also appearing in best travel stroller roundups for the first time.</div>
   </div>
   <div class="two-col">
     <div class="card">
       <div class="card-title">Trending Topics</div>
       <div class="topic-tags">
-        <span class="topic-tag trending">Aer2 vs Bugaboo Butterfly 2</span>
+        <span class="topic-tag trending">Aer2 vs Bugaboo Butterfly 2 — travel stroller</span>
         <span class="topic-tag trending">Mother&amp;Baby Silver Award 2026</span>
-        <span class="topic-tag trending">Joolz Dot — 12.2 lb ultra-light newbie</span>
-        <span class="topic-tag alert">Aer2 car seat adapter recall — end-Jun fix</span>
-        <span class="topic-tag alert">Customer service failures &amp; delivery complaints</span>
-        <span class="topic-tag info">Joolz acquired by Bugaboo Group news</span>
+        <span class="topic-tag trending">Joolz Dot — 12.2 lb ultra-light in roundups</span>
+        <span class="topic-tag trending">Joolz Aer+ comparison content</span>
+        <span class="topic-tag alert">Aer2 car seat adapter recall — 3 weeks to fix</span>
+        <span class="topic-tag alert">Customer service delivery + refund complaints</span>
+        <span class="topic-tag info">Joolz as Bugaboo Group sister brand</span>
       </div>
     </div>
     <div class="card">
@@ -195,15 +322,15 @@
         <div class="post-platform">🏛️ GOV.UK · Official</div>
       </a>
       <a class="post-link" href="https://www.motherandbaby.com/reviews/pushchairs-buggies-strollers/joolz-aer2-review/" target="_blank">
-        Joolz Aer2 review: The one-hand fold that'll change your strolling game (Mother&amp;Baby)
-        <div class="post-platform">🌐 Mother&amp;Baby · Silver Award winner</div>
+        Joolz Aer2 review: Silver Award winner 2026 (Mother&amp;Baby)
+        <div class="post-platform">🌐 Mother&amp;Baby · Award winner</div>
       </a>
-      <a class="post-link" href="https://babesta.com/blogs/news/%F0%9F%97%BDbest-travel-strollers-for-nyc-parents-joolz-aer-vs-bugaboo-butterfly-2" target="_blank">
-        Best Travel Strollers for NYC Parents: Joolz Aer² vs Bugaboo Butterfly 2
-        <div class="post-platform">🌐 Babesta (NYC)</div>
+      <a class="post-link" href="https://parenthoodadventures.com/joolz-aer-travel-stroller-worth-it-review/" target="_blank">
+        Is the Joolz Aer2 Worth Buying? Honest review
+        <div class="post-platform">🌐 Parenthood Adventures</div>
       </a>
       <a class="post-link" href="https://www.trustpilot.com/review/www.joolz.com" target="_blank">
-        Joolz on Trustpilot — 1,034 reviews, 3.1★
+        Joolz on Trustpilot — ~1,034 reviews, 3.1★
         <div class="post-platform">⭐ Trustpilot</div>
       </a>
     </div>
@@ -212,37 +339,37 @@
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div>The Aer2 recall is moving towards resolution — a revised adapter is expected at end of June. This is the most important near-term milestone for Joolz sentiment recovery. Clear, proactive communication of this date to registered owners will protect brand trust and the Aer2's strong product reputation.</div>
+      <div>The Aer2 recall fix window is now less than 3 weeks away. <strong>This week is the pre-comms window</strong> — draft the "recall closed" announcement email, press release, and social assets now so they can go live within 24 hours of the revised adapter shipping. Speed of resolution communication is the single biggest driver of post-recall sentiment recovery.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>The Joolz Aer2 winning Silver at Mother&amp;Baby Awards 2026 is a positive counterweight to recall noise. Deploy this recognition in all messaging to reinforce that the product itself is excellent — the recall is about one specific adapter accessory, not the stroller.</div>
+      <div>The Mother&amp;Baby Silver Award is a durable narrative asset. Pair it explicitly with the recall resolution message: "The Joolz Aer2 is an award-winning stroller — and the car seat adapter issue has now been fully resolved." That two-sentence structure closes the recall loop and pivots back to product strength.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div>Trustpilot complaints continue to cluster around delivery failures, non-arrivals, and slow CS response — not product defects. The 0.9★ gap vs Bugaboo (3.1 vs 4.0★) is entirely a customer experience gap, not a product quality gap. Bugaboo Group's after-sales infrastructure should be applied here.</div>
+      <div>Trustpilot complaints continue to cluster around delivery failures, non-arrivals, and slow CS — not product defects. The 0.8★ gap vs Bugaboo (narrowed from 0.9★ only because Bugaboo dipped, not because Joolz improved) is still entirely a customer experience gap. Applying Bugaboo Group's after-sales playbook post-recall is the highest-leverage CX action.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>The new Joolz Dot (12.2 lbs, 6 months+) is beginning to appear in travel stroller roundups. Lightest product in the Joolz range — worth seeding in lightweight/travel content as the recall resolves.</div>
+      <div>The <strong>Joolz Dot</strong> (12.2 lbs, for babies 6 months+) is appearing for the first time in "best lightweight travel stroller" roundup content. Seeding this with travel bloggers and flight-friendly content is the next product momentum play once the Aer2 adapter recall is closed.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action for Bugaboo Group:</span> Proactively email all registered Aer2 owners with the specific end-of-June adapter fix date and a clear FAQ. Use the Mother&amp;Baby Silver Award win to reinforce product excellence in the same communication — "the stroller won an award, the adapter is being fixed."</div>
+      <div><span class="bold">Recommended action for Bugaboo Group:</span> Prepare and pre-draft all recall-closure communications this week. Include: (1) registered Aer2 owner email with specific ship date; (2) press release citing the Mother&amp;Baby Silver Award win alongside the fix; (3) Trustpilot response template for recall-related reviews. Execute within 24 hours of revised adapter shipping.</div>
     </div>
   </div>
 </div>
 
-<!-- ────────────────────────── ARTIPOPPE ─────────────────────────── -->
+<!-- ARTIPOPPE -->
 <div class="page" id="page-artipoppe">
   <div class="section-header">
-    Artipoppe <span class="brand-badge" style="background:#fffbeb;color:#d97706;">Mixed · Controversies Ongoing</span>
+    Artipoppe <span class="brand-badge" style="background:#fffbeb;color:#d97706;">Mixed · Controversies Deepening</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">Price Range</div>
-      <div class="value warn">$370–$1K+</div>
-      <div class="delta">Zeitgeist flagship from ~$370</div>
+      <div class="value warn">$350–$1K+</div>
+      <div class="delta">Zeitgeist flagship from ~$350</div>
     </div>
     <div class="kpi">
       <div class="label">Instagram Followers</div>
@@ -252,29 +379,30 @@
     <div class="kpi">
       <div class="label">Active Controversies</div>
       <div class="value neg">4+</div>
-      <div class="delta">Mold · Plus-size · Ethics · Referral</div>
+      <div class="delta">Mold · Plus-size · Cultural appropriation · Referral</div>
     </div>
     <div class="kpi">
       <div class="label">Sentiment Score</div>
-      <div class="value warn">+0.23</div>
-      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ from +0.25</span> · slow erosion</div>
+      <div class="value warn">+0.22</div>
+      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ from +0.23</span> · slow erosion continues</div>
     </div>
   </div>
   <div class="alert-banner">
     <span>⚠️</span>
-    <div><span class="bold">Industry context — baby carrier lab compliance:</span> In January 2026, the CPSC removed four Chinese labs from its accepted labs list after falsified test reports were uncovered. This creates a broader conversation about premium baby carrier quality credentials — Artipoppe has not addressed this publicly, which may be an opportunity or risk depending on their testing history.</div>
+    <div><span class="bold">Mold + plus-size controversies driving ongoing TikTok content:</span> Reviews describing mold growth on carriers after washing, and plus-size users reporting the carrier "barely buckles" at 5'5" / 230 lbs, continue to generate negative TikTok content. The brand's silence on both issues is itself becoming a talking point in premium parenting communities.</div>
   </div>
   <div class="two-col">
     <div class="card">
       <div class="card-title">Trending Topics</div>
       <div class="topic-tags">
-        <span class="topic-tag alert">Mold on carriers — ongoing complaints</span>
-        <span class="topic-tag alert">Plus-size exclusivity criticism</span>
+        <span class="topic-tag alert">Mold on carriers — ongoing reports post-washing</span>
+        <span class="topic-tag alert">Plus-size exclusivity — sizing controversy</span>
         <span class="topic-tag alert">Cultural appropriation concerns (indigenous imagery)</span>
         <span class="topic-tag alert">Referral program ethics complaints</span>
-        <span class="topic-tag trending">Zeitgeist limited edition resale value (2–3× retail)</span>
-        <span class="topic-tag trending">Luxury carrier unboxing &amp; aesthetic content</span>
-        <span class="topic-tag info">Baby carrier lab compliance — CPSC decertification</span>
+        <span class="topic-tag trending">Zeitgeist limited edition resale (2–3× retail)</span>
+        <span class="topic-tag trending">Luxury carrier unboxing + aesthetic content</span>
+        <span class="topic-tag trending">Artipoppe vs Wildbird vs Mabe — TikTok triangle</span>
+        <span class="topic-tag info">Ergobaby Omni 360 as functional alternative ($180)</span>
       </div>
     </div>
     <div class="card">
@@ -283,17 +411,17 @@
         Artipoppe Zeitgeist Review 2026: Is It Worth the Premium Price?
         <div class="post-platform">🌐 Daily Mumtra</div>
       </a>
-      <a class="post-link" href="https://thingtesting.com/brands/artipoppe" target="_blank">
-        Artipoppe Reviews 2026 — Read Before You Buy
-        <div class="post-platform">🌐 Thingtesting</div>
+      <a class="post-link" href="https://sweetteal.com/2026/03/artipoppe-vs-wildbird-baby-carrier-review/" target="_blank">
+        Artipoppe vs. Wildbird — Carrier Comparison Review 2026
+        <div class="post-platform">🌐 Sweet Teal</div>
       </a>
       <a class="post-link" href="https://www.tiktok.com/discover/artipoppe-controversy" target="_blank">
-        Artipoppe Controversy — TikTok discovery page
-        <div class="post-platform">🎵 TikTok · Active controversy threads</div>
+        Artipoppe Controversy — TikTok discovery page (active)
+        <div class="post-platform">🎵 TikTok · Multiple active threads</div>
       </a>
-      <a class="post-link" href="https://www.trustpilot.com/review/artipoppe.com" target="_blank">
-        Artipoppe on Trustpilot — 59 reviews
-        <div class="post-platform">⭐ Trustpilot · Small but visible sample</div>
+      <a class="post-link" href="https://teachtoddler.com/blog/ergobaby-vs-artipoppe-baby-carrier" target="_blank">
+        Ergobaby vs Artipoppe 2026 — Which Is Better?
+        <div class="post-platform">🌐 TeachToddler</div>
       </a>
     </div>
   </div>
@@ -301,33 +429,33 @@
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div>Artipoppe's controversies (mold, plus-size, cultural appropriation, referral ethics) are not new but are becoming entrenched. The brand's continued silence in response to these threads is itself a talking point — premium parent communities notice and remember non-responses.</div>
+      <div>Sentiment now at +0.22 — down from +0.31 six weeks ago. The decline is slow but consistent and driven by accumulating controversy content rather than any single event. The brand's pattern of non-response to criticism is itself being cited in reviews and TikTok commentary as a red flag.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>Sentiment is in slow decline (from +0.31 five weeks ago to +0.23 now). The resale value story (rare prints selling 2–3× retail) continues to provide a floor for brand aspiration, but this halo is narrowing as the "is it worth it?" conversation intensifies.</div>
+      <div>The <strong>Artipoppe vs Wildbird vs Mabe TikTok triangle</strong> is intensifying. Wildbird ($75–$150) is winning the "beautiful AND affordable" positioning; Mabe ($120–$160) is winning the "viral Artipoppe dupe" slot. This three-way comparison is putting structural downward pressure on Artipoppe's price justification narrative.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div>The CPSC's January 2026 removal of four Chinese baby carrier testing labs from its approved list creates a broader "quality credentials" conversation in this product category. Artipoppe has not addressed its own testing credentials publicly — a gap that a competitor could exploit.</div>
+      <div>The resale value story (rare prints selling 2–3× retail) still provides an aspirational floor for the brand. This collectible angle remains Artipoppe's strongest single counter-narrative — but it appeals only to the most brand-loyal tier of its audience, not to the growing "is it worth it?" consideration cohort.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div>The Artipoppe audience — premium parents who care about aesthetics, sustainability, and social proof — is the same audience Bugaboo targets. The slow erosion of Artipoppe's brand trust is a direct opportunity for Bugaboo's "worth every year" value narrative.</div>
+      <div>The Artipoppe audience — 731K Instagram followers, premium parents who value aesthetics, sustainability, and social proof — is <strong>exactly Bugaboo's target</strong>. As Artipoppe's brand trust erodes, this audience is actively looking for alternative "premium that makes sense" stories. Bugaboo's content should be visible in this conversation.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action:</span> Capitalize on the "is luxury baby gear worth it?" moment by deploying Bugaboo's long-term value story — resale value, 4.0★ Trustpilot, B Corp certification, modular longevity across multiple children. Pair with the Donkey 6 sustainability story for a complete premium-with-purpose narrative.</div>
+      <div><span class="bold">Recommended action:</span> Deploy Bugaboo's "premium with purpose" narrative directly into the "is luxury baby gear worth it?" content space — 3.9★ Trustpilot on 2,500+ reviews, B Corp certification, Donkey 6 sustainability credentials (17% CO₂ reduction, recycled fabrics), modular longevity across multiple children. Target the Artipoppe-adjacent audience on Instagram Reels and TikTok.</div>
     </div>
   </div>
 </div>
 
-<!-- ────────────────────────── COMPARE ───────────────────────────── -->
+<!-- COMPARE -->
 <div class="page" id="page-compare">
-  <div class="section-header">Brand Comparison — Week of 3 Jun 2026</div>
+  <div class="section-header">Brand Comparison — Week of 8 Jun 2026</div>
   <div class="info-banner" style="margin-bottom:16px;">
     <span>ℹ️</span>
-    <div><span class="bold">Note on Joolz:</span> Joolz is now a Bugaboo Group sister brand (acquired July 2025). Scores reflect distinct consumer brand positions, not rival companies. Both operate independently under Mubadala Capital.</div>
+    <div><span class="bold">Note on Joolz:</span> Joolz is a Bugaboo Group sister brand (acquired July 2025). Scores reflect distinct consumer brand positions, not rival companies. Both operate independently under Mubadala Capital.</div>
   </div>
   <div class="card" style="margin-bottom:16px;">
     <div class="card-title">Sentiment &amp; Trustpilot Score</div>
@@ -347,14 +475,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td class="bold">Trustpilot</td><td class="green bold">4.0★ (~3,000) stable</td><td class="amber">3.1★ (1,034) slight ↑</td><td class="text-sm">59 reviews only</td></tr>
-        <tr><td class="bold">Sentiment Score</td><td class="green">+0.72 Positive ↑</td><td class="amber">+0.20 Mixed ↓</td><td class="amber">+0.23 Mixed ↓</td></tr>
+        <tr><td class="bold">Trustpilot</td><td class="amber bold">3.9★ (~2,500) ↓</td><td class="amber">3.1★ (1,034) stable</td><td class="text-sm">59 reviews only</td></tr>
+        <tr><td class="bold">Sentiment Score</td><td class="green">+0.70 Positive ↓</td><td class="amber">+0.20 Mixed stable</td><td class="amber">+0.22 Mixed ↓</td></tr>
         <tr><td class="bold">Instagram Followers</td><td class="green">510K (@bugabooglobal)</td><td class="text-sm">Moderate</td><td class="green">731K · aspirational</td></tr>
-        <tr><td class="bold">Top Product (buzz)</td><td>Donkey 6 (new!) · Butterfly 2</td><td>Aer2 (travel) · Dot (new)</td><td>Zeitgeist carrier</td></tr>
-        <tr><td class="bold">Key Strength</td><td class="green">Donkey 6 Red Dot Award · 4.0★ · B Corp</td><td>Product specs (lightest, newborn-ready, Mother&amp;Baby Silver)</td><td>731K followers / luxury unboxing</td></tr>
-        <tr><td class="bold">Key Weakness</td><td class="amber">Giraffe recall class action active</td><td class="red">Aer2 adapter recall + CS failures</td><td class="red">Mold + plus-size + cultural appropriation</td></tr>
+        <tr><td class="bold">Top Product (buzz)</td><td>Butterfly 2 · Fox 5 · Donkey 6</td><td>Aer2 (travel) · Dot (new)</td><td>Zeitgeist carrier</td></tr>
+        <tr><td class="bold">Key Strength</td><td>Donkey 6 Red Dot Award · B Corp · product depth</td><td>Aer2 specs (lightest, newborn-ready) · Mother&amp;Baby Silver</td><td>731K followers / luxury unboxing / resale value</td></tr>
+        <tr><td class="bold">Key Weakness</td><td class="amber">Trustpilot CS dip + Giraffe recall class action</td><td class="red">Aer2 adapter recall + CS failures</td><td class="red">Mold + plus-size + cultural appropriation</td></tr>
         <tr><td class="bold">Ownership</td><td>Mubadala Capital</td><td class="green">Bugaboo Group (Jul 2025)</td><td>Independent</td></tr>
-        <tr><td class="bold">This Week's Risk</td><td class="amber">Medium (recall lawsuit ongoing)</td><td class="amber">Medium (recall fix coming)</td><td class="red">High (controversies + sentiment decline)</td></tr>
+        <tr><td class="bold">This Week's Risk</td><td class="amber">Medium (CS score dip + recall lawsuit)</td><td class="amber">Medium (recall fix 3 weeks away)</td><td class="red">High (controversies + sentiment decline)</td></tr>
       </tbody>
     </table>
   </div>
@@ -362,52 +490,42 @@
     <div class="card-title">Strategic Opportunities for Bugaboo Group</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Donkey 6 momentum:</span> The Red Dot Award win is the strongest piece of brand content available this week. Distribute across all channels — the design-world credibility pairs with B Corp sustainability credentials for a complete premium-with-purpose narrative.</div>
+      <div><span class="bold">Bugaboo CS recovery:</span> The 3.9★ Trustpilot dip is a CS pattern, not a product quality signal. Active Trustpilot management — public responses, fast-track resolution for recent negative reviewers — can recover this within 2–4 weeks and maintain competitive advantage over Joolz (3.1★) and Cybex (mixed).</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div><span class="bold">Joolz CX gap — opportunity to close:</span> The 0.9★ Trustpilot gap (Bugaboo 4.0 vs Joolz 3.1) is driven entirely by service experience, not products. Applying Bugaboo's after-sales playbook to Joolz post-recall is the single highest-leverage CX action for the Group right now.</div>
+      <div><span class="bold">Joolz recall closure:</span> The Aer2 adapter fix in ~3 weeks is the most time-sensitive operational milestone for the Group this month. A well-executed closure campaign (proactive owner comms, award-paired messaging) can convert a recall story into a brand trust story.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><span class="bold">Artipoppe audience capture:</span> 731K Instagram followers consuming content from a brand with slipping sentiment is a warm audience. Bugaboo's "worth every year" story — Donkey 6 sustainability, Butterfly 2 build quality, 4.0★ Trustpilot trajectory — lands directly into their consideration set.</div>
+      <div><span class="bold">Artipoppe audience capture:</span> 731K Instagram followers watching a brand with slipping sentiment (+0.22 and declining) are a warm audience. Bugaboo's content presence in the "is premium baby gear worth it?" conversation captures consideration at exactly the right moment.</div>
     </div>
   </div>
 </div>
 
-<!-- ─────────────────── COMPETITORS · STROLLERS ──────────────────── -->
+<!-- COMPETITORS · STROLLERS -->
 <div class="page" id="page-comp-strollers">
   <div class="section-header">
     Competitors · Strollers <span class="brand-badge" style="background:#f0f9ff;color:#0369a1;">UPPAbaby · Cybex · Nuna · BabyZen/Stokke</span>
   </div>
-
   <div class="info-banner">
     <span>ℹ️</span>
-    <div><span class="bold">Context:</span> These four brands are Bugaboo Group's primary premium stroller competitors in the US and European markets. <strong>Bugaboo and Joolz are shown as Bugaboo Group brands</strong> for reference. Sentiment scores and insights are assessed relative to Bugaboo's +0.72 / 4.0★ and Joolz's +0.20 / 3.1★ baselines. Recall issues at competitors are noted where relevant.</div>
+    <div><span class="bold">Context:</span> Bugaboo Group's primary premium stroller competitors in the US and European markets. <strong>Bugaboo and Joolz shown as Bugaboo Group brands</strong> for reference. Bugaboo's slight Trustpilot dip this week (3.9★) still leads the competitive set on review volume and score credibility.</div>
   </div>
-
-  <!-- Competitor scorecard -->
   <div class="card" style="margin-bottom:16px;">
-    <div class="card-title">Scorecard — Bugaboo Group vs Competitors · Week of 3 Jun 2026</div>
+    <div class="card-title">Scorecard — Bugaboo Group vs Competitors · Week of 8 Jun 2026</div>
     <div class="table-wrap"><table>
       <thead>
-        <tr>
-          <th>Brand</th>
-          <th>Group</th>
-          <th>Sentiment</th>
-          <th>Trustpilot</th>
-          <th>Key Product Buzz</th>
-          <th>Top Risk</th>
-        </tr>
+        <tr><th>Brand</th><th>Group</th><th>Sentiment</th><th>Trustpilot</th><th>Key Product Buzz</th><th>Top Risk</th></tr>
       </thead>
       <tbody>
         <tr style="background:#fef2f2;">
           <td class="bold" style="color:#e63946;">Bugaboo</td>
           <td><span style="background:#fef2f2;color:#e63946;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;border:1px solid #fecaca;">Bugaboo Group</span></td>
-          <td><span class="sentiment-pill s-pos">+0.72</span></td>
-          <td class="green bold">4.0★ (~3,000)</td>
-          <td>Donkey 6 Red Dot · Butterfly 2 · Fox 5</td>
-          <td class="amber">Giraffe highchair class action</td>
+          <td><span class="sentiment-pill s-pos">+0.70</span></td>
+          <td class="amber bold">3.9★ (~2,500) ↓</td>
+          <td>Butterfly 2 vs Coya · Fox 5 · Donkey 6</td>
+          <td class="amber">CS score dip + Giraffe class action</td>
         </tr>
         <tr style="background:#f5f3ff;">
           <td class="bold" style="color:#6366f1;">Joolz</td>
@@ -430,7 +548,7 @@
           <td><span style="background:#f0f9ff;color:#0369a1;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid #bae6fd;">Competitor</span></td>
           <td><span class="sentiment-pill s-mix">+0.42</span></td>
           <td class="amber">Mixed</td>
-          <td>Gazelle S · e-Priam (electric)</td>
+          <td>Coya vs Butterfly 2 · e-Priam electric</td>
           <td class="amber">CS failures dominate reviews</td>
         </tr>
         <tr>
@@ -438,7 +556,7 @@
           <td><span style="background:#f0f9ff;color:#0369a1;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid #bae6fd;">Competitor</span></td>
           <td><span class="sentiment-pill s-mix">+0.45</span></td>
           <td class="amber">Mixed</td>
-          <td>TRVL · SWIV · Swiv Reach</td>
+          <td>TRVL · SWIV Reach</td>
           <td class="red">RAVA car seat recall 600K units + class action</td>
         </tr>
         <tr>
@@ -446,14 +564,12 @@
           <td><span style="background:#f0f9ff;color:#0369a1;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid #bae6fd;">Competitor</span></td>
           <td><span class="sentiment-pill s-pos">+0.60</span></td>
           <td class="text-sm">N/A</td>
-          <td>YOYO3 (under Stokke) · vs Butterfly TikTok</td>
-          <td class="amber">Rebrand confusion YOYO2→YOYO3</td>
+          <td>YOYO3 vs Butterfly 2 (TikTok active)</td>
+          <td class="amber">Paid leg rest add-on backlash</td>
         </tr>
       </tbody>
     </table>
   </div>
-
-  <!-- Competitor sentiment chart -->
   <div class="two-col">
     <div class="card">
       <div class="card-title">Sentiment — Bugaboo Group vs Competitors</div>
@@ -466,43 +582,41 @@
       <div class="table-wrap"><table>
         <thead><tr><th>Topic</th><th>Brand</th><th>Sentiment</th></tr></thead>
         <tbody>
-          <tr><td>Vista V3 vs Cruz V3 — which UPPAbaby?</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="green">Positive</td></tr>
-          <tr><td>UPPAbaby car seat class action (Mesa/Aria)</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="red">Negative</td></tr>
+          <tr><td>Cybex Coya vs Bugaboo Butterfly 2 — travel battle</td><td class="bold" style="color:#7c3aed;">Cybex</td><td class="green">Positive</td></tr>
           <tr><td>Cybex e-Priam electric pram content</td><td class="bold" style="color:#7c3aed;">Cybex</td><td class="green">Positive</td></tr>
-          <tr><td>Cybex CS failures — delivery/refund</td><td class="bold" style="color:#7c3aed;">Cybex</td><td class="red">Negative</td></tr>
+          <tr><td>UPPAbaby Vista V3 vs Cruz V3 comparison</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="green">Positive</td></tr>
+          <tr><td>UPPAbaby car seat class action ongoing</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="red">Negative</td></tr>
           <tr><td>Nuna RAVA recall class action ongoing</td><td class="bold" style="color:#059669;">Nuna</td><td class="red">Negative</td></tr>
-          <tr><td>Stokke YOYO3 vs YOYO2 — what changed?</td><td class="bold" style="color:#d97706;">BabyZen/Stokke</td><td class="green">Positive</td></tr>
-          <tr><td>Stokke YOYO3 vs Bugaboo Butterfly TikTok</td><td class="bold" style="color:#d97706;">BabyZen/Stokke</td><td class="amber">Mixed</td></tr>
+          <tr><td>Stokke YOYO3 vs Bugaboo Butterfly TikTok</td><td class="bold" style="color:#d97706;">Stokke YOYO3</td><td class="amber">Mixed</td></tr>
+          <tr><td>YOYO3 paid leg rest backlash</td><td class="bold" style="color:#d97706;">Stokke YOYO3</td><td class="red">Negative</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- Individual competitor deep-dives -->
-  <!-- UPPAbaby -->
   <div class="card">
     <div class="card-title" style="color:#0ea5e9;">UPPAbaby · Sentiment +0.65 · Positive</div>
     <div class="two-col" style="margin-bottom:0;">
       <div>
         <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
         <div class="topic-tags">
-          <span class="topic-tag trending">Vista V3 — best-in-class storage (30 lbs basket)</span>
-          <span class="topic-tag trending">Cruz V3 — newborn-from-birth seat mode</span>
-          <span class="topic-tag trending">Vista V3 vs Cruz V3 comparison content</span>
+          <span class="topic-tag trending">Vista V3 — 30 lb basket, best storage in class</span>
+          <span class="topic-tag trending">Cruz V3 — from-birth seat mode (Fall 2025)</span>
+          <span class="topic-tag trending">Vista V3 vs Cruz V3 — which UPPAbaby?</span>
           <span class="topic-tag alert">Car seat class action — Mesa Max / Mesa V2 / Aria</span>
           <span class="topic-tag alert">Amazon counterfeit alert (active campaign)</span>
-          <span class="topic-tag info">Nuna vs UPPAbaby — ongoing category debate</span>
+          <span class="topic-tag info">Nuna vs UPPAbaby — ongoing debate</span>
         </div>
       </div>
       <div>
         <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
         <a class="post-link" href="https://www.babyenroute.com/blogs/blog/nuna-vs-uppababy-the-ultimate-stroller-showdown-for-2026" target="_blank">
-          Nuna vs UPPAbaby: The Ultimate Stroller Showdown for 2026
+          Nuna vs UPPAbaby: Ultimate Stroller Showdown 2026
           <div class="post-platform">🌐 Baby enRoute</div>
         </a>
-        <a class="post-link" href="https://strolleria.com/blogs/news/uppababy-cruz-v3-vs-uppababy-vista-v3" target="_blank">
-          UPPAbaby Cruz V3 vs Vista V3 — full comparison
-          <div class="post-platform">🌐 Strolleria</div>
+        <a class="post-link" href="https://www.babyenroute.com/blogs/blog/uppababy-vista-vs-bugaboo-fox-stroller-comparison-2026" target="_blank">
+          UPPAbaby Vista V2 vs Bugaboo Fox 5: Ultimate Showdown 2026
+          <div class="post-platform">🌐 Baby enRoute</div>
         </a>
         <a class="post-link" href="https://www.classaction.org/news/class-action-lawsuit-alleges-uppababy-knowingly-sold-defective-car-seats" target="_blank">
           UPPAbaby car seat class action — Mesa/Aria asphyxiation risk
@@ -512,182 +626,111 @@
     </div>
     <div class="insight-item" style="margin-top:14px;">
       <div class="insight-dot" style="background:#0ea5e9;"></div>
-      <div>UPPAbaby's strongest asset is the Vista V3's storage (30 lb basket, king of class) and multi-config flexibility. Cruz V3's from-birth seat mode (Fall 2025 launch) closes a gap vs Bugaboo Butterfly 2 and Joolz Aer2 on newborn-readiness.</div>
-    </div>
-    <div class="insight-item">
-      <div class="insight-dot amber"></div>
-      <div>The car seat class action (Mesa Max / Mesa V2 / Aria — alleged asphyxiation risk, filed May 2025) is the significant reputational risk. Unlike Bugaboo's highchair recall, this is in UPPAbaby's core stroller-adjacent product range. Ongoing in 2026.</div>
+      <div>UPPAbaby's Vista V3 storage (30 lb basket) and multi-config flexibility remain its strongest product assets. Cruz V3's from-birth seat mode closes a gap vs Bugaboo Butterfly 2 and Joolz Aer2 on newborn-readiness.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo opportunity:</span> UPPAbaby has only 51 Trustpilot reviews — its CX reputation lives entirely on retailer and word-of-mouth channels. Bugaboo's 4.0★ on ~3,000 reviews is a more credible social proof signal at scale. Lean into this in comparison contexts.</div>
+      <div><span class="bold">Bugaboo opportunity:</span> UPPAbaby has only ~51 Trustpilot reviews — its CX reputation lives entirely on retailer and word-of-mouth. Bugaboo's 3.9★ on 2,500+ reviews is a more credible and scaled social proof signal, even with this week's slight dip.</div>
     </div>
   </div>
 
-  <!-- Cybex -->
   <div class="card">
     <div class="card-title" style="color:#7c3aed;">Cybex · Sentiment +0.42 · Mixed</div>
     <div class="two-col" style="margin-bottom:0;">
       <div>
         <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
         <div class="topic-tags">
+          <span class="topic-tag trending">Coya vs Bugaboo Butterfly 2 — travel stroller battle</span>
           <span class="topic-tag trending">e-Priam electric pram — new category</span>
           <span class="topic-tag trending">Gazelle S single-to-double content</span>
-          <span class="topic-tag trending">Cybex Gazelle S vs Priam comparison</span>
-          <span class="topic-tag alert">Customer service failures — delivery/refunds</span>
-          <span class="topic-tag alert">Brake failure complaint (no loan buggy)</span>
-          <span class="topic-tag info">Fashion collaborations (Virgil Abloh legacy)</span>
+          <span class="topic-tag alert">CS failures — delivery, refunds, warranty</span>
+          <span class="topic-tag info">Cybex 2026 Platinum lineup review</span>
         </div>
       </div>
       <div>
         <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
-        <a class="post-link" href="https://orbitbaby.com/blogs/news/cybex-gazelle-s-stroller-review" target="_blank">
-          Cybex Gazelle S Stroller: Expert &amp; Parent Review 2026
-          <div class="post-platform">🌐 Orbit Baby</div>
+        <a class="post-link" href="https://www.sheknows.com/parenting/articles/1234971619/cybex-vs-bugaboo-stroller-review-2026/" target="_blank">
+          Cybex vs. Bugaboo 2026: Coya vs Butterfly 2
+          <div class="post-platform">🌐 SheKnows · Active comparison</div>
         </a>
-        <a class="post-link" href="https://www.tiktok.com/discover/cybex-gazelle-vs-priam" target="_blank">
-          Cybex Gazelle vs Priam — TikTok comparison content
-          <div class="post-platform">🎵 TikTok</div>
-        </a>
-        <a class="post-link" href="https://www.trustpilot.com/review/cybex-online.com" target="_blank">
-          Cybex on Trustpilot — CS complaints pattern
-          <div class="post-platform">⭐ Trustpilot</div>
+        <a class="post-link" href="https://www.bambibaby.com/blogs/learning-center/new-cybex-strollers-2026-platinum-review-and-comparison" target="_blank">
+          New Cybex Strollers 2026: Platinum Review
+          <div class="post-platform">🌐 Bambi Baby</div>
         </a>
       </div>
     </div>
     <div class="insight-item" style="margin-top:14px;">
       <div class="insight-dot" style="background:#7c3aed;"></div>
-      <div>Cybex's e-Priam (electric-assisted pram) is the most novel product in the premium stroller space right now — generating genuine curiosity content on Instagram and TikTok. This is new category territory that no other premium brand has entered at scale.</div>
+      <div>Cybex's Coya is now directly challenging the Butterfly 2 in travel stroller comparisons. Cybex wins on carry weight (14.6 lbs with shoulder strap); Bugaboo wins on ride quality and suspension. This is the active battleground for Bugaboo to own in comparison content this week.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div>Cybex's recurring CS complaints (delayed/missing deliveries, refusal to honour warranties, long chat wait times) are structurally similar to Joolz's problems. The pattern is widespread across Trustpilot pages. At this price point, CS failure is a brand-defining risk.</div>
-    </div>
-    <div class="insight-item">
-      <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo opportunity:</span> Cybex's design-forward positioning is its strongest asset — but it's being undercut by its own CS experience. Bugaboo's rising 4.0★ Trustpilot score with a CS-positive narrative is a direct competitive advantage in any Cybex-adjacent consideration context.</div>
+      <div><span class="bold">Bugaboo opportunity:</span> Cybex's recurring CS failures (delayed deliveries, warranty refusals) are structurally identical to Joolz's weaknesses. Bugaboo's actively improving CS story — even with the 3.9★ dip — is a competitive advantage vs Cybex's structural CS problems.</div>
     </div>
   </div>
 
-  <!-- Nuna -->
   <div class="card">
     <div class="card-title" style="color:#059669;">Nuna · Sentiment +0.45 · Mixed</div>
     <div class="alert-banner" style="margin-bottom:12px;">
       <span>⚠️</span>
       <div><span class="bold">Active recall risk:</span> Nuna RAVA convertible car seat — 600,000+ units recalled December 2024 (harness defect). Class action ongoing. Nuna not offering monetary compensation, only repair. Reputational risk ongoing into 2026.</div>
     </div>
-    <div class="two-col" style="margin-bottom:0;">
-      <div>
-        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
-        <div class="topic-tags">
-          <span class="topic-tag trending">Nuna TRVL travel stroller comparisons</span>
-          <span class="topic-tag trending">Nuna vs UPPAbaby Vista V3</span>
-          <span class="topic-tag trending">SWIV Reach rotating seat</span>
-          <span class="topic-tag alert">RAVA car seat recall — 600K+ units</span>
-          <span class="topic-tag alert">CS failures — zero help complaints</span>
-          <span class="topic-tag info">Consumer Reports Nuna Swiv score 81/100</span>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
-        <a class="post-link" href="https://www.babyenroute.com/blogs/blog/nuna-vs-uppababy-the-ultimate-stroller-showdown-for-2026" target="_blank">
-          Nuna vs UPPAbaby: Ultimate Stroller Showdown 2026
-          <div class="post-platform">🌐 Baby enRoute</div>
-        </a>
-        <a class="post-link" href="https://topclassactions.com/lawsuit-settlements/lawsuit-news/recent-recalls-class-actions-against-evenflo-nuna-chicco-and-others-reveal-widespread-car-seat-safety-concerns/" target="_blank">
-          Nuna RAVA recall class action — widespread car seat safety concerns
-          <div class="post-platform">⚖️ TopClassActions</div>
-        </a>
-        <a class="post-link" href="https://www.trustpilot.com/review/www.nunababy.com" target="_blank">
-          Nuna on Trustpilot — CS complaint pattern
-          <div class="post-platform">⭐ Trustpilot</div>
-        </a>
-      </div>
-    </div>
-    <div class="insight-item" style="margin-top:14px;">
-      <div class="insight-dot" style="background:#059669;"></div>
-      <div>Nuna's products (especially TRVL and SWIV) earn strong design and quality praise. However, the 600,000+ RAVA car seat recall and associated class action is dominating the brand's reputation in search and forum conversations going into mid-2026.</div>
-    </div>
     <div class="insight-item">
-      <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo opportunity:</span> In any Nuna vs Bugaboo comparison, Bugaboo's lack of a core stroller recall is a credibility asset. The Giraffe highchair recall is highchair-only and separate from the stroller range — important to keep this narrative clear in comparison content.</div>
+      <div class="insight-dot" style="background:#059669;"></div>
+      <div>Nuna's TRVL and SWIV earn strong design praise but the 600K+ RAVA car seat recall is dominating brand reputation in search results. <span class="bold">Bugaboo opportunity:</span> In Nuna vs Bugaboo comparisons, Bugaboo's lack of a core stroller recall is a credibility asset — keep Giraffe highchair recall clearly separated from stroller messaging.</div>
     </div>
   </div>
 
-  <!-- BabyZen / Stokke YOYO3 -->
   <div class="card">
     <div class="card-title" style="color:#d97706;">BabyZen / Stokke YOYO3 · Sentiment +0.60 · Positive</div>
     <div class="two-col" style="margin-bottom:0;">
       <div>
         <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
         <div class="topic-tags">
-          <span class="topic-tag trending">YOYO3 vs YOYO2 — what changed?</span>
-          <span class="topic-tag trending">Stokke YOYO3 vs Bugaboo Butterfly 2 (TikTok)</span>
-          <span class="topic-tag trending">YOYO3 overhead bin fits / travel hack content</span>
+          <span class="topic-tag trending">YOYO3 vs Bugaboo Butterfly 2 (TikTok active)</span>
+          <span class="topic-tag trending">YOYO3 overhead bin fits — travel content</span>
           <span class="topic-tag trending">4-wheel suspension + Soft Drive upgrade</span>
-          <span class="topic-tag alert">Canopy coverage complaints (smaller than rivals)</span>
-          <span class="topic-tag alert">Leg rest is $40 paid add-on — backlash</span>
-          <span class="topic-tag info">Rebrand from BabyZen → Stokke (Aug 2024)</span>
+          <span class="topic-tag alert">$40 leg rest add-on — ongoing backlash</span>
+          <span class="topic-tag info">BabyZen→Stokke rebrand (Aug 2024)</span>
         </div>
       </div>
       <div>
         <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
-        <a class="post-link" href="https://www.wanderlustchloe.com/yoyo3-review/" target="_blank">
-          Stokke YOYO3 Stroller Review — Real Mum Review 2026
-          <div class="post-platform">🌐 Wanderlust Chloe</div>
-        </a>
-        <a class="post-link" href="https://www.tiktok.com/discover/stokke-yoyo3-vs-butterfly" target="_blank">
-          Stokke YOYO3 vs Butterfly — TikTok comparison
-          <div class="post-platform">🎵 TikTok · Active</div>
-        </a>
         <a class="post-link" href="https://littlelovinglife.com/best-travel-strollers-2026/" target="_blank">
           Best Travel Strollers 2026 — YOYO3 featured
           <div class="post-platform">🌐 Little Loving Life</div>
+        </a>
+        <a class="post-link" href="https://www.tiktok.com/discover/stokke-yoyo3-vs-butterfly" target="_blank">
+          Stokke YOYO3 vs Butterfly TikTok — active loop
+          <div class="post-platform">🎵 TikTok · Very active</div>
         </a>
       </div>
     </div>
     <div class="insight-item" style="margin-top:14px;">
       <div class="insight-dot" style="background:#d97706;"></div>
-      <div>The Stokke YOYO3 (relaunched August 2024 after BabyZen acquisition) is the most direct single-brand competitor to the Bugaboo Butterfly 2 in the travel stroller category. The "YOYO3 vs Butterfly" TikTok comparison loop is highly active and is the battleground for Bugaboo to win.</div>
-    </div>
-    <div class="insight-item">
-      <div class="insight-dot amber"></div>
-      <div>The YOYO3's paid leg rest add-on ($40) is a recurring irritant in reviews — reviewers consistently call it out as penny-pinching at this price point. Bugaboo's Butterfly 2 includes a leg rest by default. This is a specific talking point to win in head-to-head content.</div>
-    </div>
-    <div class="insight-item">
-      <div class="insight-dot"></div>
-      <div>The BabyZen→Stokke rebrand creates some SEO and brand-recall confusion in the short term. Some reviews still reference "BabyZen" — indicating a portion of the audience hasn't fully registered the ownership change. Stokke's premium brand halo (high chair, Tripp Trapp) is a positive long-term asset for the YOYO3.</div>
+      <div>YOYO3 vs Butterfly 2 is the most active TikTok stroller comparison loop right now. <span class="bold">Bugaboo should own this:</span> Butterfly 2 includes leg rest standard (YOYO3 charges $40 add-on), has larger basket, and Bugaboo's Trustpilot score on 2,500+ reviews vs Stokke's minimal review presence. These three talking points should anchor all Butterfly 2 vs YOYO3 content.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action:</span> Create explicit Butterfly 2 vs YOYO3 content that highlights: (1) leg rest included, not an add-on; (2) bigger basket; (3) Bugaboo's 4.0★ Trustpilot vs no comparable Stokke YOYO score. Own the TikTok comparison loop currently driving the consideration decision.</div>
+      <div><span class="bold">Recommended action:</span> Commission an explicit Butterfly 2 vs YOYO3 piece this week — timing is perfect while the TikTok loop is active. Lead with: (1) leg rest included, not $40 extra; (2) larger basket; (3) Bugaboo 3.9★ Trustpilot on 2,500 reviews vs no comparable Stokke score.</div>
     </div>
   </div>
 </div>
 
-<!-- ─────────────────── COMPETITORS · CARRIERS ────────────────────── -->
+<!-- COMPETITORS · CARRIERS -->
 <div class="page" id="page-comp-carriers">
   <div class="section-header">
     Competitors · Carriers <span class="brand-badge" style="background:#fdf4ff;color:#9333ea;">Wildbird · Mabe · Sakura Bloom · Ergobaby · Tula</span>
   </div>
-
   <div class="info-banner">
     <span>ℹ️</span>
-    <div><span class="bold">Context:</span> These brands are Artipoppe's direct competitors in the premium/luxury baby carrier space — all overlap with Bugaboo's core customer. Wildbird and Mabe are the two brands most actively being positioned as Artipoppe alternatives on TikTok right now. Monitoring this space informs Bugaboo's "is luxury worth it?" counter-narrative opportunity.</div>
+    <div><span class="bold">Context:</span> Artipoppe's direct competitors in the premium/luxury baby carrier space — all overlap with Bugaboo's core customer. The Wildbird/Mabe/Artipoppe TikTok triangle is intensifying week-on-week as Artipoppe's controversies accumulate.</div>
   </div>
-
-  <!-- Carrier scorecard -->
   <div class="card" style="margin-bottom:16px;">
-    <div class="card-title">Carrier Competitor Scorecard — Week of 3 Jun 2026</div>
+    <div class="card-title">Carrier Competitor Scorecard — Week of 8 Jun 2026</div>
     <div class="table-wrap"><table>
       <thead>
-        <tr>
-          <th>Brand</th>
-          <th>Price Range</th>
-          <th>Sentiment</th>
-          <th>TikTok Positioning</th>
-          <th>Artipoppe Threat Level</th>
-        </tr>
+        <tr><th>Brand</th><th>Price Range</th><th>Sentiment</th><th>TikTok Positioning</th><th>Artipoppe Threat Level</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -702,7 +745,7 @@
           <td>$120–$160</td>
           <td><span class="sentiment-pill s-mix">+0.52</span></td>
           <td>"Viral Artipoppe alternative" — postpartum-friendly</td>
-          <td class="red bold">High — fastest growing in the dupe conversation</td>
+          <td class="red bold">High — fastest growing in dupe conversation</td>
         </tr>
         <tr>
           <td class="bold" style="color:#8b5cf6;">Sakura Bloom</td>
@@ -728,152 +771,74 @@
       </tbody>
     </table>
   </div>
-
-  <!-- TikTok comparison triangle -->
   <div class="alert-banner" style="background:#fdf4ff;border-color:#d8b4fe;color:#6b21a8;">
     <span>🎵</span>
-    <div><span class="bold">The dominant TikTok triangle:</span> The "Artipoppe vs Wildbird vs Mabe" comparison is the most-searched carrier content cluster on TikTok right now. This three-way battle is reshaping how premium parents evaluate carrier value — and it puts pressure on Artipoppe's pricing while lifting both Wildbird and Mabe.</div>
+    <div><span class="bold">The dominant TikTok triangle intensifies:</span> "Artipoppe vs Wildbird vs Mabe" is the most-searched carrier content cluster on TikTok. This three-way battle is reshaping how premium parents evaluate carrier value — putting structural downward pressure on Artipoppe's price justification while lifting Wildbird and Mabe.</div>
   </div>
-
-  <!-- Carrier sentiment chart -->
   <div class="card" style="margin-bottom:16px;">
     <div class="card-title">Sentiment — Carrier Competitors vs Artipoppe</div>
     <div class="chart-wrap" style="height:240px;">
       <canvas id="compCarrierChart"></canvas>
     </div>
   </div>
-
-  <!-- Individual brand deep dives -->
-  <!-- Wildbird -->
   <div class="card">
     <div class="card-title" style="color:#10b981;">Wildbird · Sentiment +0.75 · Positive · HIGH Artipoppe threat</div>
-    <div class="two-col" style="margin-bottom:0;">
-      <div>
-        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
-        <div class="topic-tags">
-          <span class="topic-tag trending">Wildbird Aerial vs Artipoppe Zeitgeist</span>
-          <span class="topic-tag trending">Ring sling for summer — linen breathability</span>
-          <span class="topic-tag trending">Hip Dysplasia Institute approval content</span>
-          <span class="topic-tag trending">Wildbird vs Artipoppe vs Mabe — the triangle</span>
-          <span class="topic-tag info">"Beautiful AND affordable" positioning locked in</span>
-          <span class="topic-tag alert">Aerial snap broke on day 1 — minor complaints</span>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
-        <a class="post-link" href="https://www.tiktok.com/discover/wildbird-vs-artipoppe" target="_blank">
-          Wildbird vs Artipoppe — TikTok comparison hub
-          <div class="post-platform">🎵 TikTok · Very active</div>
-        </a>
-        <a class="post-link" href="https://itsmommode.com/blog/wildbird-aerial-baby-carrier-review" target="_blank">
-          Wildbird Aerial Baby Carrier Review: Is It Worth the Hype?
-          <div class="post-platform">🌐 Mom Mode</div>
-        </a>
-        <a class="post-link" href="https://wildbird.co/" target="_blank">
-          Wildbird official — ring slings &amp; Aerial carrier
-          <div class="post-platform">🌐 Wildbird.co</div>
-        </a>
-      </div>
-    </div>
-    <div class="insight-item" style="margin-top:14px;">
-      <div class="insight-dot" style="background:#10b981;"></div>
-      <div>Wildbird is the single most effective challenger to Artipoppe's premium positioning. Its linen quality, aesthetics, and price ($75–$150 vs $370–$1K+) land perfectly in the "is Artipoppe worth it?" conversation. The Aerial carrier specifically is being positioned as a direct Zeitgeist alternative.</div>
-    </div>
     <div class="insight-item">
-      <div class="insight-dot amber"></div>
-      <div>Wildbird's ring sling positioning (not a structured carrier) means it doesn't fully replace Artipoppe's Zeitgeist use case — but the Aerial buckle carrier does, and it's where Wildbird's growth momentum is concentrated right now.</div>
+      <div class="insight-dot" style="background:#10b981;"></div>
+      <div>Wildbird is the single most effective challenger to Artipoppe's premium positioning. Linen quality, aesthetics, and price ($75–$150 vs $350–$1K+) land perfectly in the "is Artipoppe worth it?" conversation. The Aerial buckle carrier specifically is positioned as a direct Zeitgeist alternative with growing TikTok momentum.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo relevance:</span> Wildbird's audience — premium parents who care about aesthetics, sustainability, and value — is identical to Bugaboo's target. Content that positions Bugaboo's "premium that lasts" story alongside Wildbird-adjacent moments captures consideration at the right time.</div>
+      <div><span class="bold">Bugaboo relevance:</span> Wildbird's audience — premium parents who care about aesthetics, sustainability, and value — is identical to Bugaboo's target. Bugaboo's "premium that lasts" content in Wildbird-adjacent moments captures consideration at the right time.</div>
     </div>
   </div>
-
-  <!-- Mabe -->
   <div class="card">
     <div class="card-title" style="color:#f43f5e;">Mabe · Sentiment +0.52 · Mixed · HIGH Artipoppe threat</div>
-    <div class="two-col" style="margin-bottom:0;">
-      <div>
-        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Trending Topics</div>
-        <div class="topic-tags">
-          <span class="topic-tag trending">Mabe Monarch — the viral "Artipoppe dupe"</span>
-          <span class="topic-tag trending">Soft waistband — postpartum belly friendly</span>
-          <span class="topic-tag trending">Mabe vs Artipoppe vs Wildbird triangle</span>
-          <span class="topic-tag alert">Support fades after 20–25 lbs</span>
-          <span class="topic-tag alert">Not ideal for newborns — panel too large</span>
-          <span class="topic-tag info">TikTok Shop sales driving awareness</span>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Top Sources</div>
-        <a class="post-link" href="https://www.babylist.com/hello-baby/mabe-monarch-carrier-review" target="_blank">
-          Mabe Monarch Carrier Review — Babylist
-          <div class="post-platform">🌐 Babylist</div>
-        </a>
-        <a class="post-link" href="https://thingtesting.com/brands/mabe" target="_blank">
-          Mabe Reviews 2026 — Read Before You Buy
-          <div class="post-platform">🌐 Thingtesting</div>
-        </a>
-        <a class="post-link" href="https://shop.tiktok.com/us/k/mabe-baby-carrier-reviews" target="_blank">
-          Mabe — TikTok Shop reviews &amp; content
-          <div class="post-platform">🎵 TikTok Shop · High volume</div>
-        </a>
-      </div>
-    </div>
-    <div class="insight-item" style="margin-top:14px;">
-      <div class="insight-dot" style="background:#f43f5e;"></div>
-      <div>Mabe is the fastest-growing Artipoppe challenger on TikTok. Its "viral Artipoppe dupe" positioning is working — the soft waistband story (postpartum-belly-friendly) gives it a specific functional hook beyond just price. TikTok Shop distribution is accelerating discovery.</div>
-    </div>
     <div class="insight-item">
-      <div class="insight-dot amber"></div>
-      <div>Mabe has real functional limitations: support deteriorates at 20–25 lbs, not ideal for newborns, no chest clip for smaller babies. These are genuine long-term usage gaps that Artipoppe (and Wildbird's Aerial) don't share. The "dupe" positioning may have ceiling effects as babies grow.</div>
+      <div class="insight-dot" style="background:#f43f5e;"></div>
+      <div>Mabe is the fastest-growing Artipoppe challenger on TikTok. Soft waistband story (postpartum-belly-friendly) gives it a specific functional hook beyond just price. TikTok Shop distribution accelerating discovery. Real limitations exist: support fades at 20–25 lbs, not ideal for newborns — mirrors a "buy cheap, replace sooner" dynamic.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo relevance:</span> Mabe's limitations mirror a broader "buy cheap, replace sooner" dynamic that plays directly into Bugaboo's "built to last" brand story. Mabe is winning the short-term TikTok moment; Bugaboo can own the long-term value narrative.</div>
+      <div><span class="bold">Bugaboo relevance:</span> Mabe's limitations play directly into Bugaboo's "built to last" story. Mabe is winning the short-term TikTok moment; Bugaboo can own the long-term value narrative — premium that grows with the family across multiple children.</div>
     </div>
   </div>
-
-  <!-- Sakura Bloom + Ergobaby + Tula -->
   <div class="card">
     <div class="card-title">Other Key Carriers — Sakura Bloom · Ergobaby · Tula</div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#8b5cf6;"></div>
-      <div><span class="bold">Sakura Bloom</span> — premium positioning (~$100–$200), softer and more wrap-inspired than Artipoppe. Carves a loyal niche among babywearers who want luxury aesthetics without Artipoppe's price or controversy. Quiet but credible. Stokke also makes a Limas carrier at a lower price point that competes in this space.</div>
+      <div><span class="bold">Sakura Bloom</span> — premium positioning (~$100–$200), wrap-inspired luxury. Carves a loyal niche among babywearers who want luxury aesthetics without Artipoppe's price or controversy. Hand-crafted in California; California-sourced linen, silk, cashmere fabrics.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#0891b2;"></div>
-      <div><span class="bold">Ergobaby</span> — the functional floor of the premium carrier market (~$70–$180). Positioned on ergonomics, safety credentials, and utility rather than aesthetics. Often used as the "sensible baseline" in Artipoppe comparison reviews ("does Artipoppe perform 3× better than an Ergobaby?"). High sentiment (+0.70) but different audience to Artipoppe.</div>
+      <div><span class="bold">Ergobaby</span> — the functional floor of premium carriers (~$70–$180). Positioned on ergonomics and utility. The Omni 360 ($180) includes all carry positions PLUS hood, detachable pouch, mesh ventilation — features Artipoppe Zeitgeist lacks. Often used as the "sensible baseline" in Artipoppe comparison reviews.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#ca8a04;"></div>
-      <div><span class="bold">Tula</span> — sits between Ergobaby and Artipoppe on aesthetics. Slim profile, feature-rich, competitively priced (~$80–$150). Increasingly appears in "I bought Tula instead of Artipoppe" narratives on momtok as parents downgrade from the Artipoppe consideration tier.</div>
+      <div><span class="bold">Tula</span> — sits between Ergobaby and Artipoppe on aesthetics. Feature-rich, slim profile, competitively priced (~$80–$150). Increasingly appears in "I bought Tula instead of Artipoppe" narratives on momtok as parents downgrade from the Artipoppe consideration tier.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Strategic insight for Bugaboo:</span> The carrier competitor landscape is fracturing Artipoppe's premium positioning from below (Mabe, Wildbird) and alongside (Sakura Bloom, Tula). The shared audience — style-conscious premium parents — is actively questioning luxury value. Bugaboo's content should be present in this moment: "premium that lasts, proven by 4.0★ across 3,000 reviews."</div>
+      <div><span class="bold">Strategic insight for Bugaboo:</span> The carrier competitor landscape is fracturing Artipoppe's premium positioning from below (Mabe, Wildbird) and alongside (Sakura Bloom, Tula). The shared audience is actively questioning luxury value. Bugaboo content should be present: "premium that lasts, proven by 3.9★ across 2,500+ reviews and B Corp certification."</div>
     </div>
   </div>
 </div>
 
-<!-- ────────────────────────── RECALLS ───────────────────────────── -->
+<!-- RECALLS -->
 <div class="page" id="page-recalls">
-
   <div class="section-header">
     Active Recalls <span class="brand-badge" style="background:#fff1f2;color:#dc2626;">2 active</span>
   </div>
-
   <p style="font-size:13px;color:#666;margin-bottom:20px;line-height:1.6;">
-    This section tracks active product safety recalls and legal actions across the Bugaboo Group portfolio. Recall data is sourced from official brand notices, government safety databases, and legal filings. <strong>These issues are tracked separately from the main sentiment data</strong> to avoid skewing overall brand scores.
+    Active product safety recalls and legal actions across the Bugaboo Group portfolio. <strong>Tracked separately from sentiment scores</strong> to avoid skewing overall brand ratings.
   </p>
 
-  <!-- ── RECALL 1: Joolz Aer2 Car Seat Adapter ── -->
   <div class="recall-card">
     <div class="recall-header">
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span class="recall-badge">🚨 Active Recall</span>
-          <span style="font-size:12px;color:#888;">Issued May 2026 · UK Office for Product Safety &amp; Standards · Fix expected end of June 2026</span>
+          <span style="font-size:12px;color:#888;">Issued May 2026 · UK Office for Product Safety &amp; Standards · Fix expected end of June 2026 (~3 weeks)</span>
         </div>
         <div class="recall-title">Joolz Aer2 Car Seat Adapter Set</div>
         <div class="recall-sub">Product ref: 2605-0189 · Serial numbers starting NL311- · Sold June 2025 – May 2026</div>
@@ -886,20 +851,10 @@
     </div>
     <div class="recall-body">
       <div class="recall-grid">
-        <div class="recall-stat">
-          <div class="rs-label">Safety risk</div>
-          <div class="rs-value red">High</div>
-        </div>
-        <div class="recall-stat">
-          <div class="rs-label">Affected products</div>
-          <div class="rs-value amber">All NL311- units</div>
-        </div>
-        <div class="recall-stat">
-          <div class="rs-label">Resolution</div>
-          <div class="rs-value amber">Refund + new adapter end-Jun</div>
-        </div>
+        <div class="recall-stat"><div class="rs-label">Safety risk</div><div class="rs-value red">High</div></div>
+        <div class="recall-stat"><div class="rs-label">Affected products</div><div class="rs-value amber">All NL311- units</div></div>
+        <div class="recall-stat"><div class="rs-label">Resolution</div><div class="rs-value amber">Refund + revised adapter ~end-Jun</div></div>
       </div>
-
       <div class="recall-detail">
         <strong>What happened:</strong> The Joolz Aer2 Car Seat Adapter Set may fail to properly engage and lock with the spring-loaded pin on the Aer2 stroller chassis. The adapter can appear secure but may be incorrectly locked ("false lock") — if it detaches during use, the car seat can tip forward and fall to the ground with the infant inside.
       </div>
@@ -907,28 +862,26 @@
         <strong>Affected products:</strong> All Joolz Aer2 Car Seat Adapter Sets with serial numbers beginning <strong>NL311-</strong>, sold between June 2025 and May 2026. The Joolz Aer2 stroller itself is <strong>not affected</strong> and can continue to be used safely without the adapter.
       </div>
       <div class="recall-detail">
-        <strong>Consumer action:</strong> Stop using the adapter immediately — even if it appears properly attached. Customers will receive a refund email within 2 weeks with a form link and a prepaid return label. A revised, corrected adapter version is expected at the end of June 2026.
+        <strong>Consumer action:</strong> Stop using the adapter immediately — even if it appears properly attached. Customers will receive a refund email with a form link and prepaid return label. A revised, corrected adapter version is expected at the end of June 2026 (~3 weeks from now).
       </div>
-
       <div class="recall-timeline">
         <div class="recall-timeline-title">Timeline</div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#dc2626;"></div>
           <div class="timeline-date">May 2026</div>
-          <div class="timeline-text">UK Office for Product Safety &amp; Standards issues official recall notice (ref 2605-0189). Joolz publishes recall page on support site. All NL311- serial numbers advised to stop use immediately.</div>
+          <div class="timeline-text">UK OPSS issues official recall (ref 2605-0189). Joolz publishes recall page. All NL311- serial numbers advised to stop use immediately.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#d97706;"></div>
           <div class="timeline-date">May–Jun 2026</div>
-          <div class="timeline-text">Recall active. Refund process underway — customers receiving prepaid return labels. Aer2 stroller unit cleared for continued use without the adapter.</div>
+          <div class="timeline-text">Recall active. Refund process underway — prepaid return labels being issued. Aer2 stroller cleared for continued use without the adapter.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#16a34a;"></div>
-          <div class="timeline-date">End Jun 2026</div>
-          <div class="timeline-text">Revised Aer2 Car Seat Adapter Set expected. New version will correct the spring-loaded pin engagement issue. Monitor for official announcement.</div>
+          <div class="timeline-date">~End Jun 2026</div>
+          <div class="timeline-text">Revised Aer2 Car Seat Adapter Set expected. New version will correct the spring-loaded pin engagement issue. Pre-draft all closure communications this week for rapid deployment.</div>
         </div>
       </div>
-
       <div class="recall-actions">
         <a class="recall-link" href="https://service.joolz.com/s/article/Joolz-Recall-Notice-Joolz-Aer2-Car-Seat-Adapter-Set?language=en_US" target="_blank">📋 Joolz Official Recall Notice</a>
         <a class="recall-link" href="https://www.gov.uk/product-safety-alerts-reports-recalls/product-recall-joolz-aer2-car-seat-adapter-set-2605-0189" target="_blank">🏛️ GOV.UK Product Recall Page</a>
@@ -938,13 +891,12 @@
     </div>
   </div>
 
-  <!-- ── RECALL 2: Bugaboo Giraffe Highchair ── -->
   <div class="recall-card">
     <div class="recall-header">
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span class="recall-badge">⚖️ Recall + Class Action</span>
-          <span style="font-size:12px;color:#888;">Recall issued Jun 2025 · Class action active · No settlement announced as of 3 Jun 2026</span>
+          <span style="font-size:12px;color:#888;">Recall issued Jun 2025 · Class action active · No settlement as of 8 Jun 2026</span>
         </div>
         <div class="recall-title">Bugaboo Giraffe Highchair</div>
         <div class="recall-sub">18,280 units affected (US) + 2,325 (Canada) · Sold May 2023 – April 2025 · ~$380 retail price</div>
@@ -957,30 +909,19 @@
     </div>
     <div class="recall-body">
       <div class="recall-grid">
-        <div class="recall-stat">
-          <div class="rs-label">Units recalled</div>
-          <div class="rs-value red">20,605</div>
-        </div>
-        <div class="recall-stat">
-          <div class="rs-label">Injury reports</div>
-          <div class="rs-value amber">13 minor</div>
-        </div>
-        <div class="recall-stat">
-          <div class="rs-label">Legal status</div>
-          <div class="rs-value red">Class action active</div>
-        </div>
-      </div>
-
-      <div class="recall-detail">
-        <strong>What happened:</strong> The screws securing the front legs of the Bugaboo Giraffe highchair can loosen or fall out during normal use, allowing the front legs to fully detach from the chair. Bugaboo received 22 reports of detachment, including 13 reports of minor injuries. The defect is most likely to occur when a child pushes on the footrest.
+        <div class="recall-stat"><div class="rs-label">Units recalled</div><div class="rs-value red">20,605</div></div>
+        <div class="recall-stat"><div class="rs-label">Injury reports</div><div class="rs-value amber">13 minor</div></div>
+        <div class="recall-stat"><div class="rs-label">Legal status</div><div class="rs-value red">Class action active</div></div>
       </div>
       <div class="recall-detail">
-        <strong>Class action dispute:</strong> A class action lawsuit (Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688, SDNY) alleges that Bugaboo's recall notice placed the blame for the defect on consumers, stating legs could detach "if the screws were not fully tightened during setup." The plaintiff claims this framing was inaccurate and that the fault lies in the product design. Bugaboo is offering a free repair kit (Allen key + new screws) but no refunds.
+        <strong>What happened:</strong> The screws securing the front legs of the Bugaboo Giraffe highchair can loosen or fall out during normal use, allowing the front legs to fully detach. 22 reports of detachment, 13 minor injuries. Most likely to occur when a child pushes on the footrest.
       </div>
       <div class="recall-detail">
-        <strong>Stroller range not affected:</strong> This recall is specific to the Giraffe highchair. All Bugaboo strollers — Fox 5, Donkey 6, Butterfly 2, Dragonfly, Bee, Ant, Kangaroo — are unaffected and safe to use.
+        <strong>Class action dispute:</strong> Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688, SDNY — alleges recall notice unfairly blamed consumers ("screws not fully tightened during setup"). Bugaboo offering free repair kit but no refunds. No settlement announced as of 8 Jun 2026.
       </div>
-
+      <div class="recall-detail">
+        <strong>Stroller range not affected:</strong> This recall is specific to the Giraffe highchair. All Bugaboo strollers — Fox 5, Donkey 6, Butterfly 2, Dragonfly, Bee, Ant, Kangaroo — are unaffected.
+      </div>
       <div class="recall-timeline">
         <div class="recall-timeline-title">Timeline</div>
         <div class="timeline-item">
@@ -991,185 +932,49 @@
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#dc2626;"></div>
           <div class="timeline-date">Jun 2025</div>
-          <div class="timeline-text">Bugaboo issues official CPSC recall for 18,280 highchairs (US) and 2,325 (Canada) after 22 leg-detachment reports, 13 minor injuries.</div>
+          <div class="timeline-text">CPSC recall for 18,280 highchairs (US) + 2,325 (Canada) after 22 leg-detachment reports, 13 minor injuries.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#d97706;"></div>
           <div class="timeline-date">Late 2025</div>
-          <div class="timeline-text">Class action lawsuit filed (Case No. 1:25-cv-05688, SDNY) — alleges Bugaboo's recall notice unfairly blamed consumers. Legal proceedings begin.</div>
+          <div class="timeline-text">Class action filed (Case No. 1:25-cv-05688, SDNY). Legal proceedings begin.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#dc2626;"></div>
           <div class="timeline-date">Jun 2026</div>
-          <div class="timeline-text">Class action still active. No public settlement or resolution announced. Story circulating on parent forums and legal news sites. Monitor for settlement news.</div>
+          <div class="timeline-text">Class action still active. No settlement or resolution announced. Story circulating on parent forums and legal news sites. Monitor weekly.</div>
         </div>
       </div>
-
       <div class="recall-actions">
         <a class="recall-link" href="https://topclassactions.com/lawsuit-settlements/lawsuit-news/bugaboo-class-action-alleges-recalled-highchairs-pose-serious-safety-risk/" target="_blank">⚖️ Class Action Details</a>
         <a class="recall-link" href="https://www.cpsc.gov/Recalls/2025/Bugaboo-North-America-Recalls-Giraffe-High-Chairs-Due-to-Risk-of-Serious-Injury-or-Death-from-Fall-Hazard" target="_blank">🏛️ CPSC Official Recall</a>
-        <a class="recall-link" href="https://www.classaction.org/news/class-action-claims-dangerous-defect-causes-bugaboo-giraffe-highchairs-to-fall-apart" target="_blank">📋 Class Action Details (classaction.org)</a>
+        <a class="recall-link" href="https://www.classaction.org/news/class-action-claims-dangerous-defect-causes-bugaboo-giraffe-highchairs-to-fall-apart" target="_blank">📋 classaction.org Details</a>
       </div>
     </div>
   </div>
 
-  <!-- Summary note -->
   <div class="card" style="border-color:#e8e8e8;">
-    <div class="card-title">Recall Monitoring Notes — 3 Jun 2026</div>
+    <div class="card-title">Recall Monitoring Notes — 8 Jun 2026</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Joolz Aer2 adapter — resolution incoming:</span> End-of-June revised adapter target is the key milestone to watch. Once communicated and delivered, this issue can be closed and the Aer2's strong product sentiment should rebound. The stroller itself has been positively reviewed throughout.</div>
+      <div><span class="bold">Joolz Aer2 adapter — ~3 weeks to resolution:</span> End-of-June revised adapter is the most time-sensitive milestone this month. Pre-draft all closure communications this week. Once delivered, this issue can be closed and Aer2's strong product sentiment should rebound. The stroller itself has been positively reviewed throughout.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div><span class="bold">Bugaboo Giraffe class action — no change:</span> Case No. 1:25-cv-05688 (SDNY) remains active with no settlement announced. The "Bugaboo blamed consumers" framing continues to circulate. Risk is contained to highchair category but the narrative is reputationally sensitive. Priority: transparent proactive comms.</div>
+      <div><span class="bold">Bugaboo Giraffe class action — no change:</span> Case No. 1:25-cv-05688 (SDNY) remains active with no settlement. The "Bugaboo blamed consumers" framing continues to circulate. Risk is contained to the highchair category but the narrative is reputationally sensitive. Maintain clear separation between highchair recall and stroller product messaging.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><span class="bold">Separation from sentiment scores:</span> Neither recall is factored into the main brand sentiment scores on other tabs — this is intentional. Sentiment scores reflect organic social and review conversation; recalls represent a distinct operational risk category that requires separate monitoring and response protocols.</div>
+      <div><span class="bold">Separation from sentiment scores:</span> Neither recall is factored into the main brand sentiment scores on other tabs — intentional. Sentiment scores reflect organic social and review conversation; recalls represent a distinct operational risk category requiring separate monitoring protocols.</div>
     </div>
   </div>
-
-</div><!-- /recalls page -->
-
-
-<!-- ─────────────────────────── OVERVIEW ─────────────────────────── -->
-<div class="page" id="page-overview">
-
-  <div class="kpi-row">
-    <div class="kpi">
-      <div class="label">Bugaboo Trustpilot</div>
-      <div class="value pos">4.0 <span style="font-size:16px;">★</span></div>
-      <div class="delta">~3,000 reviews · <span style="color:#888;font-size:11px;">→ stable</span></div>
-    </div>
-    <div class="kpi">
-      <div class="label">Joolz Trustpilot</div>
-      <div class="value warn">3.1 <span style="font-size:16px;">★</span></div>
-      <div class="delta">1,034 reviews · <span style="color:#16a34a;font-size:11px;">↑ +3 reviews</span></div>
-    </div>
-    <div class="kpi">
-      <div class="label">Artipoppe Sentiment</div>
-      <div class="value warn">Mixed</div>
-      <div class="delta">Ongoing controversies · <span style="color:#dc2626;font-size:11px;">↓ from +0.25</span></div>
-    </div>
-    <div class="kpi">
-      <div class="label">Active Recalls</div>
-      <div class="value neg">2</div>
-      <div class="delta">Bugaboo Giraffe · Joolz Aer2 adapter</div>
-    </div>
-  </div>
-
-  <div class="info-banner">
-    <span>🚀</span>
-    <div><span class="bold">NEW THIS WEEK — Bugaboo Donkey 6 launch:</span> Bugaboo launched the Donkey 6 in early 2026, now generating strong review and comparison content. Winner of the Red Dot Award: Product Design 2026. 50% bigger underseat basket, 17% lower CO₂ footprint, 100% recycled polyester fabrics. Major positive momentum for the brand.</div>
-  </div>
-
-  <!-- Brand sentiment overview -->
-  <div class="card">
-    <div class="card-title">Brand Sentiment Overview — Week of 3 Jun 2026</div>
-    <div class="brand-row">
-      <div class="brand-icon" style="background:#e63946;color:#fff;">B</div>
-      <div>
-        <div class="brand-name">Bugaboo</div>
-        <div class="brand-sub">Strollers · Premium · Amsterdam · Mubadala Capital</div>
-      </div>
-      <div class="brand-bar-col">
-        <div class="sentiment-bar-wrap">
-          <div class="sentiment-bar"><div class="sentiment-fill" style="width:86%;background:#16a34a;"></div></div>
-        </div>
-        <div class="text-sm mt8">Sentiment score: +0.72 · Trustpilot 4.0★ stable · Donkey 6 launch buzz</div>
-      </div>
-      <div class="brand-meta">
-        <span class="sentiment-pill s-pos">Positive</span>
-        <div class="text-sm" style="margin-top:4px;">~3,000 reviews</div>
-      </div>
-    </div>
-    <div class="brand-row">
-      <div class="brand-icon" style="background:#6366f1;color:#fff;">J</div>
-      <div>
-        <div class="brand-name">Joolz</div>
-        <div class="brand-sub">Strollers · Mid-premium · Amsterdam · Bugaboo Group</div>
-      </div>
-      <div class="brand-bar-col">
-        <div class="sentiment-bar-wrap">
-          <div class="sentiment-bar"><div class="sentiment-fill" style="width:44%;background:#d97706;"></div></div>
-        </div>
-        <div class="text-sm mt8">Sentiment score: +0.20 · Trustpilot 3.1★ · Recall resolution expected end-Jun</div>
-      </div>
-      <div class="brand-meta">
-        <span class="sentiment-pill s-mix">Mixed</span>
-        <div class="text-sm" style="margin-top:4px;">1,034 reviews</div>
-      </div>
-    </div>
-    <div class="brand-row">
-      <div class="brand-icon" style="background:#f59e0b;color:#fff;">A</div>
-      <div>
-        <div class="brand-name">Artipoppe</div>
-        <div class="brand-sub">Baby Carriers · Luxury · Netherlands</div>
-      </div>
-      <div class="brand-bar-col">
-        <div class="sentiment-bar-wrap">
-          <div class="sentiment-bar"><div class="sentiment-fill" style="width:33%;background:#dc2626;"></div></div>
-        </div>
-        <div class="text-sm mt8">Sentiment score: +0.23 · Mold, plus-size, referral controversies still circulating</div>
-      </div>
-      <div class="brand-meta">
-        <span class="sentiment-pill s-mix">Mixed</span>
-        <div class="text-sm" style="margin-top:4px;">Controversy active</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Week-on-week chart + hot topics -->
-  <div class="two-col">
-    <div class="card">
-      <div class="card-title">Week-on-Week Shifts (2 Jun → 3 Jun 2026)</div>
-      <div class="chart-wrap tall">
-        <canvas id="wowChart"></canvas>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">Hot Topics This Week</div>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Topic</th><th>Brand</th><th>Sentiment</th></tr></thead>
-        <tbody>
-          <tr><td>Bugaboo Donkey 6 launch — Red Dot Award 2026</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
-          <tr><td>Butterfly 2 vs Joolz Aer2 travel stroller battle</td><td class="bold" style="color:#e63946;">Bugaboo/Joolz</td><td class="green">Positive</td></tr>
-          <tr><td>Joolz Aer2 car seat adapter recall — end-Jun fix</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="red">Negative</td></tr>
-          <tr><td>Bugaboo Giraffe highchair class action ongoing</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="red">Negative</td></tr>
-          <tr><td>Artipoppe mold + plus-size criticism ongoing</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Negative</td></tr>
-          <tr><td>Premium stroller market growing 6% CAGR</td><td class="bold" style="color:#888;">Category</td><td class="green">Positive</td></tr>
-          <tr><td>Baby carrier lab compliance — 4 Chinese labs decertified</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="amber">Neutral</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Recommended actions -->
-  <div class="card">
-    <div class="card-title">This Week's Recommended Actions</div>
-    <div class="insight-item">
-      <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo (Product launch):</span> Amplify the Donkey 6 Red Dot Award win across social — Red Dot is design-world credibility that resonates with Bugaboo's premium parent audience. Pair it with the sustainability story (17% CO₂ reduction, 100% recycled polyester) for maximum impact.</div>
-    </div>
-    <div class="insight-item">
-      <div class="insight-dot blue"></div>
-      <div><span class="bold">Joolz (Recall):</span> The revised Aer2 car seat adapter is expected end of June. Proactively communicate the timeline to registered Aer2 owners — certainty about the fix date will reduce anxiety and protect the Aer2's strong product reputation.</div>
-    </div>
-    <div class="insight-item">
-      <div class="insight-dot amber"></div>
-      <div><span class="bold">vs. Artipoppe:</span> Ongoing controversies (mold, plus-size, referral ethics) continue to erode premium positioning. Deploy Bugaboo's "worth every year" value narrative — resale strength, 4.0★ Trustpilot, modular longevity — directly into the "is luxury baby gear worth it?" conversation.</div>
-    </div>
-  </div>
-
 </div>
 
 </div><!-- /main -->
 
 <div class="footer">
-  Data sources: Trustpilot · TikTok · Instagram · YouTube · Strolleria · Bambi Baby · Mother&amp;Baby · MacroBaby · Babesta · TopClassActions · Thingtesting · GOV.UK · CPSC · Joolz Support · OPSS · classaction.org · Baby enRoute · Orbit Baby · Babylist · Wanderlust Chloe · Wildbird.co &nbsp;·&nbsp; Last updated: 3 Jun 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
+  Data sources: Trustpilot · TikTok · Instagram · YouTube · Strolleria · Bambi Baby · Mother&amp;Baby · SheKnows · Parenthood Adventures · TeachToddler · Baby enRoute · Babylist · TopClassActions · GOV.UK · CPSC · Joolz Support · OPSS · classaction.org · Sweet Teal · Daily Mumtra · Little Loving Life · ChildFriendlyGear &nbsp;·&nbsp; Last updated: 8 Jun 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
 </div>
-
 <script src="./script.js"></script>
 </body>
 </html>

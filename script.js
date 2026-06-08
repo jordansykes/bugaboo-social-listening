@@ -3,33 +3,30 @@ const charts = {};
 
 // ── Tab navigation ──────────────────────────────────────────────────
 function showPage(id, tabEl) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  const page = document.getElementById('page-' + id);
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+  var page = document.getElementById('page-' + id);
   if (page) page.classList.add('active');
   if (tabEl) tabEl.classList.add('active');
-  if (id === 'compare') drawCompareChart();
-  if (id === 'overview') drawWoWChart();
-  if (id === 'comp-strollers') drawCompStrollerChart();
-  if (id === 'comp-carriers') drawCompCarrierChart();
+  try { if (id === 'compare') drawCompareChart(); } catch(e) { console.error('compare chart:', e); }
+  try { if (id === 'overview') drawWoWChart(); } catch(e) { console.error('wow chart:', e); }
+  try { if (id === 'comp-strollers') drawCompStrollerChart(); } catch(e) { console.error('stroller chart:', e); }
+  try { if (id === 'comp-carriers') drawCompCarrierChart(); } catch(e) { console.error('carrier chart:', e); }
 }
 
-// ── Wire up tabs via addEventListener (no inline handlers) ──────────
-document.addEventListener('DOMContentLoaded', function () {
-  // Tab clicks
-  document.querySelectorAll('.tab[data-page]').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      showPage(tab.dataset.page, tab);
-    });
+// ── Wire up tabs (script is at end of <body>, DOM is ready — no DOMContentLoaded needed) ──
+document.querySelectorAll('.tab[data-page]').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    showPage(tab.dataset.page, tab);
   });
+});
 
-  // "Go to Recalls" links inside alert banners
-  document.querySelectorAll('.goto-recalls').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      var recallTab = document.querySelector('.tab[data-page="recalls"]');
-      showPage('recalls', recallTab);
-    });
+// "Go to Recalls" links inside alert banners
+document.querySelectorAll('.goto-recalls').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var recallTab = document.querySelector('.tab[data-page="recalls"]');
+    showPage('recalls', recallTab);
   });
 });
 
@@ -200,6 +197,8 @@ function drawCompCarrierChart() {
 }
 
 // Draw on load
-window.addEventListener('load', () => {
-  setTimeout(() => { drawWoWChart(); }, 150);
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    try { drawWoWChart(); } catch(e) { console.error('initial wow chart:', e); }
+  }, 150);
 });

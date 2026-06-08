@@ -1,30 +1,26 @@
 // ── Chart instances ─────────────────────────────────────────────────
 var charts = {};
 
-// ── Tab active-class management + chart triggers ─────────────────────
-// CSS :target handles show/hide — JS just manages the active highlight
-// and triggers charts when tabs are clicked.
-// Script is at end of <body>, so all elements exist here.
+// ── Tab navigation ───────────────────────────────────────────────────
+// Tabs are <div class="tab" data-page="xxx"> elements.
+// showPage() handles display toggling and chart triggers.
+// Script is at end of <body> — all elements exist, no DOMContentLoaded needed.
 
-function setActiveTab(href) {
+function showPage(id, tabEl) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
   document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-  var tab = document.querySelector('a.tab[href="' + href + '"]');
-  if (tab) tab.classList.add('active');
+  var page = document.getElementById('page-' + id);
+  if (page) page.classList.add('active');
+  if (tabEl) tabEl.classList.add('active');
+  try { if (id === 'compare') drawCompareChart(); } catch(e) { console.error(e); }
+  try { if (id === 'comp-strollers') drawCompStrollerChart(); } catch(e) { console.error(e); }
+  try { if (id === 'comp-carriers') drawCompCarrierChart(); } catch(e) { console.error(e); }
 }
 
-function triggerChartForHash(hash) {
-  var id = (hash || '').replace('#page-', '');
-  try { if (id === 'compare') drawCompareChart(); } catch(e) { console.error('compare chart:', e); }
-  try { if (id === 'comp-strollers') drawCompStrollerChart(); } catch(e) { console.error('stroller chart:', e); }
-  try { if (id === 'comp-carriers') drawCompCarrierChart(); } catch(e) { console.error('carrier chart:', e); }
-  try { if (id === 'overview' || id === '') drawWoWChart(); } catch(e) { console.error('wow chart:', e); }
-}
-
-// Wire up tab clicks
-document.querySelectorAll('a.tab').forEach(function(tab) {
+// Wire up tab clicks — direct init, no DOMContentLoaded needed
+document.querySelectorAll('.tab[data-page]').forEach(function(tab) {
   tab.addEventListener('click', function() {
-    setActiveTab(tab.getAttribute('href'));
-    triggerChartForHash(tab.getAttribute('href'));
+    showPage(tab.getAttribute('data-page'), tab);
   });
 });
 
@@ -32,21 +28,9 @@ document.querySelectorAll('a.tab').forEach(function(tab) {
 document.querySelectorAll('.goto-recalls').forEach(function(link) {
   link.addEventListener('click', function(e) {
     e.preventDefault();
-    location.hash = '#page-recalls';
-    setActiveTab('#page-recalls');
+    var recallTab = document.querySelector('.tab[data-page="recalls"]');
+    showPage('recalls', recallTab);
   });
-});
-
-// Set initial active tab on page load
-(function() {
-  var hash = location.hash || '#page-overview';
-  setActiveTab(hash);
-})();
-
-// Sync active tab if user navigates back/forward
-window.addEventListener('hashchange', function() {
-  setActiveTab(location.hash);
-  triggerChartForHash(location.hash);
 });
 
 // Draw overview chart on load

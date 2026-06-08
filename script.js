@@ -1,59 +1,84 @@
 // ── Chart instances ─────────────────────────────────────────────────
-const charts = {};
+var charts = {};
 
-// ── Tab navigation ──────────────────────────────────────────────────
-function showPage(id, tabEl) {
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+// ── Tab active-class management + chart triggers ─────────────────────
+// CSS :target handles show/hide — JS just manages the active highlight
+// and triggers charts when tabs are clicked.
+// Script is at end of <body>, so all elements exist here.
+
+function setActiveTab(href) {
   document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-  var page = document.getElementById('page-' + id);
-  if (page) page.classList.add('active');
-  if (tabEl) tabEl.classList.add('active');
-  try { if (id === 'compare') drawCompareChart(); } catch(e) { console.error('compare chart:', e); }
-  try { if (id === 'overview') drawWoWChart(); } catch(e) { console.error('wow chart:', e); }
-  try { if (id === 'comp-strollers') drawCompStrollerChart(); } catch(e) { console.error('stroller chart:', e); }
-  try { if (id === 'comp-carriers') drawCompCarrierChart(); } catch(e) { console.error('carrier chart:', e); }
+  var tab = document.querySelector('a.tab[href="' + href + '"]');
+  if (tab) tab.classList.add('active');
 }
 
-// ── Wire up tabs (script is at end of <body>, DOM is ready — no DOMContentLoaded needed) ──
-document.querySelectorAll('.tab[data-page]').forEach(function(tab) {
+function triggerChartForHash(hash) {
+  var id = (hash || '').replace('#page-', '');
+  try { if (id === 'compare') drawCompareChart(); } catch(e) { console.error('compare chart:', e); }
+  try { if (id === 'comp-strollers') drawCompStrollerChart(); } catch(e) { console.error('stroller chart:', e); }
+  try { if (id === 'comp-carriers') drawCompCarrierChart(); } catch(e) { console.error('carrier chart:', e); }
+  try { if (id === 'overview' || id === '') drawWoWChart(); } catch(e) { console.error('wow chart:', e); }
+}
+
+// Wire up tab clicks
+document.querySelectorAll('a.tab').forEach(function(tab) {
   tab.addEventListener('click', function() {
-    showPage(tab.dataset.page, tab);
+    setActiveTab(tab.getAttribute('href'));
+    triggerChartForHash(tab.getAttribute('href'));
   });
 });
 
-// "Go to Recalls" links inside alert banners
+// "Go to Recalls" links
 document.querySelectorAll('.goto-recalls').forEach(function(link) {
   link.addEventListener('click', function(e) {
     e.preventDefault();
-    var recallTab = document.querySelector('.tab[data-page="recalls"]');
-    showPage('recalls', recallTab);
+    location.hash = '#page-recalls';
+    setActiveTab('#page-recalls');
   });
+});
+
+// Set initial active tab on page load
+(function() {
+  var hash = location.hash || '#page-overview';
+  setActiveTab(hash);
+})();
+
+// Sync active tab if user navigates back/forward
+window.addEventListener('hashchange', function() {
+  setActiveTab(location.hash);
+  triggerChartForHash(location.hash);
+});
+
+// Draw overview chart on load
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    try { drawWoWChart(); } catch(e) { console.error('initial wow chart:', e); }
+  }, 150);
 });
 
 // ── Week-on-week chart ───────────────────────────────────────────────
 function drawWoWChart() {
-  const ctx = document.getElementById('wowChart');
+  var ctx = document.getElementById('wowChart');
   if (!ctx || charts.wow) return;
 
-  // Prior week (2 Jun 2026) vs this week (3 Jun 2026)
-  const metrics = [
-    { label: 'Bugaboo Sentiment',       prev: 0.70,  curr: 0.72,  color: '#e63946' },
-    { label: 'Bugaboo Reviews (×100)',  prev: 30.0,  curr: 30.0,  color: '#e63946' },
-    { label: 'Joolz Trustpilot ★',     prev: 3.1,   curr: 3.1,   color: '#6366f1' },
-    { label: 'Joolz Reviews (×100)',    prev: 10.31, curr: 10.34, color: '#6366f1' },
-    { label: 'Joolz Sentiment',         prev: 0.22,  curr: 0.20,  color: '#6366f1' },
-    { label: 'Artipoppe Sentiment',     prev: 0.25,  curr: 0.23,  color: '#f59e0b' },
+  var metrics = [
+    { label: 'Bugaboo Sentiment',       prev: 0.70,  curr: 0.72  },
+    { label: 'Bugaboo Reviews (×100)',  prev: 30.0,  curr: 30.0  },
+    { label: 'Joolz Trustpilot ★',     prev: 3.1,   curr: 3.1   },
+    { label: 'Joolz Reviews (×100)',    prev: 10.31, curr: 10.34 },
+    { label: 'Joolz Sentiment',         prev: 0.22,  curr: 0.20  },
+    { label: 'Artipoppe Sentiment',     prev: 0.25,  curr: 0.23  },
   ];
 
-  const labels = metrics.map(m => m.label);
-  const deltas = metrics.map(m => parseFloat((m.curr - m.prev).toFixed(3)));
-  const bgColors = metrics.map((m, i) => deltas[i] > 0 ? '#16a34a99' : deltas[i] < 0 ? '#dc262699' : '#88888844');
-  const borderColors = metrics.map((m, i) => deltas[i] > 0 ? '#16a34a' : deltas[i] < 0 ? '#dc2626' : '#888888');
+  var labels = metrics.map(function(m) { return m.label; });
+  var deltas = metrics.map(function(m) { return parseFloat((m.curr - m.prev).toFixed(3)); });
+  var bgColors = deltas.map(function(d) { return d > 0 ? '#16a34a99' : d < 0 ? '#dc262699' : '#88888844'; });
+  var borderColors = deltas.map(function(d) { return d > 0 ? '#16a34a' : d < 0 ? '#dc2626' : '#888888'; });
 
   charts.wow = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels,
+      labels: labels,
       datasets: [{
         label: 'Change vs prev week',
         data: deltas,
@@ -71,10 +96,10 @@ function drawWoWChart() {
         legend: { display: false },
         tooltip: {
           callbacks: {
-            label: (ctx) => {
-              const val = ctx.raw;
-              const sign = val > 0 ? '+' : '';
-              return ` ${sign}${val.toFixed(3)} vs prev week`;
+            label: function(ctx) {
+              var val = ctx.raw;
+              var sign = val > 0 ? '+' : '';
+              return ' ' + sign + val.toFixed(3) + ' vs prev week';
             }
           }
         }
@@ -82,13 +107,10 @@ function drawWoWChart() {
       scales: {
         x: {
           grid: { color: '#f0f0f0' },
-          ticks: { font: { size: 11 }, callback: v => v > 0 ? '+' + v : v },
+          ticks: { font: { size: 11 }, callback: function(v) { return v > 0 ? '+' + v : v; } },
           title: { display: true, text: 'Change from prior week', font: { size: 11 }, color: '#888' }
         },
-        y: {
-          ticks: { font: { size: 11 } },
-          grid: { display: false }
-        }
+        y: { ticks: { font: { size: 11 } }, grid: { display: false } }
       }
     }
   });
@@ -96,7 +118,7 @@ function drawWoWChart() {
 
 // ── Compare chart ───────────────────────────────────────────────────
 function drawCompareChart() {
-  const ctx = document.getElementById('compareChart');
+  var ctx = document.getElementById('compareChart');
   if (!ctx || charts.compare) return;
   charts.compare = new Chart(ctx, {
     type: 'bar',
@@ -134,7 +156,7 @@ function drawCompareChart() {
 
 // ── Competitor stroller chart ───────────────────────────────────────
 function drawCompStrollerChart() {
-  const ctx = document.getElementById('compStrollerChart');
+  var ctx = document.getElementById('compStrollerChart');
   if (!ctx || charts.compStroller) return;
   charts.compStroller = new Chart(ctx, {
     type: 'bar',
@@ -154,7 +176,7 @@ function drawCompStrollerChart() {
       maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
-        tooltip: { callbacks: { label: ctx => ` Sentiment: +${ctx.raw.toFixed(2)}` } }
+        tooltip: { callbacks: { label: function(ctx) { return ' Sentiment: +' + ctx.raw.toFixed(2); } } }
       },
       scales: {
         x: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0 to +1.0)  · ★ = Bugaboo Group brand', font: { size: 11 }, color: '#888' } },
@@ -166,7 +188,7 @@ function drawCompStrollerChart() {
 
 // ── Competitor carrier chart ────────────────────────────────────────
 function drawCompCarrierChart() {
-  const ctx = document.getElementById('compCarrierChart');
+  var ctx = document.getElementById('compCarrierChart');
   if (!ctx || charts.compCarrier) return;
   charts.compCarrier = new Chart(ctx, {
     type: 'bar',
@@ -186,7 +208,7 @@ function drawCompCarrierChart() {
       maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
-        tooltip: { callbacks: { label: ctx => ` Sentiment: +${ctx.raw.toFixed(2)}` } }
+        tooltip: { callbacks: { label: function(ctx) { return ' Sentiment: +' + ctx.raw.toFixed(2); } } }
       },
       scales: {
         x: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0 to +1.0)', font: { size: 11 }, color: '#888' } },
@@ -195,10 +217,3 @@ function drawCompCarrierChart() {
     }
   });
 }
-
-// Draw on load
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    try { drawWoWChart(); } catch(e) { console.error('initial wow chart:', e); }
-  }, 150);
-});

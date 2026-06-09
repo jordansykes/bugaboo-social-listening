@@ -1,10 +1,13 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bugaboo Group – Social Listening Dashboard</title>
-<script src="./chart.umd.js"></script>
-<link rel="stylesheet" href="./style.css"></head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+  <script src="./chart.umd.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
 <body>
 
 <div class="header">
@@ -12,7 +15,7 @@
     <div class="logo-badge">B</div>
     <div>
       <div class="header-title">Bugaboo Group · Social Listening</div>
-      <div class="header-sub">Bugaboo · Joolz · Artipoppe &nbsp;|&nbsp; Week ending 8 Jun 2026</div>
+      <div class="header-sub">Bugaboo · Joolz · Artipoppe &nbsp;|&nbsp; Week ending 9 Jun 2026</div>
     </div>
   </div>
   <div class="header-right">
@@ -41,7 +44,7 @@
     <div class="kpi">
       <div class="label">Bugaboo Trustpilot</div>
       <div class="value warn">3.9 <span style="font-size:16px;">★</span></div>
-      <div class="delta">~2,500 reviews · <span style="color:#dc2626;font-size:11px;">↓ −0.1★ from 4.0</span></div>
+      <div class="delta">~2,614 reviews · <span style="color:#888;font-size:11px;">→ stable at 3.9★</span></div>
     </div>
     <div class="kpi">
       <div class="label">Joolz Trustpilot</div>
@@ -51,7 +54,7 @@
     <div class="kpi">
       <div class="label">Artipoppe Sentiment</div>
       <div class="value warn">Mixed</div>
-      <div class="delta">Controversies persist · <span style="color:#dc2626;font-size:11px;">↓ to +0.22</span></div>
+      <div class="delta">Controversies persist · <span style="color:#dc2626;font-size:11px;">↓ to +0.20</span></div>
     </div>
     <div class="kpi">
       <div class="label">Active Recalls</div>
@@ -62,11 +65,11 @@
 
   <div class="info-banner">
     <span>📊</span>
-    <div><span class="bold">THIS WEEK — Bugaboo Trustpilot dips to 3.9★:</span> A slight drop from 4.0★ (now ~2,500 reviews) reflects emerging CS complaints around delivery and warranty response. The Donkey 6 (Red Dot Award winner, launched March 2026) continues to drive positive product review volume. Meanwhile the Butterfly 2 vs Cybex Coya travel stroller comparison is the hottest new content loop — Bugaboo winning on ride quality, Cybex on carry weight.</div>
+    <div><span class="bold">THIS WEEK — Bugaboo dominant on Mumsnet UK:</span> Butterfly 2 named best versatile lightweight stroller (88/100), Fox 5 Renew named best for storage, Dragonfly best for newborns — all updated this week. Review volume uptick to ~2,614 on Trustpilot with score holding stable at 3.9★. Donkey 6 "Rolls Royce of strollers" coverage active. Fox 5 Renew sustainability angle (30% lower environmental impact, recycled aluminium) gaining editorial traction as a premium differentiator.</div>
   </div>
 
   <div class="card">
-    <div class="card-title">Brand Sentiment Overview — Week of 8 Jun 2026</div>
+    <div class="card-title">Brand Sentiment Overview — Week of 9 Jun 2026</div>
     <div class="brand-row">
       <div class="brand-icon" style="background:#e63946;color:#fff;">B</div>
       <div>
@@ -77,7 +80,7 @@
         <div class="sentiment-bar-wrap">
           <div class="sentiment-bar"><div class="sentiment-fill" style="width:85%;background:#16a34a;"></div></div>
         </div>
-        <div class="text-sm mt8">Sentiment score: +0.70 · Trustpilot 3.9★ ↓ · Fox 5 + Donkey 6 review cycle active</div>
+        <div class="text-sm mt8">Sentiment score: +0.70 · Trustpilot 3.9★ stable · Mumsnet UK dominant — Butterfly 2, Fox 5 Renew, Dragonfly all best-in-class</div>
       </div>
       <div class="brand-meta">
         <span class="sentiment-pill s-pos">Positive</span>
@@ -94,7 +97,7 @@
         <div class="sentiment-bar-wrap">
           <div class="sentiment-bar"><div class="sentiment-fill" style="width:44%;background:#d97706;"></div></div>
         </div>
-        <div class="text-sm mt8">Sentiment score: +0.20 · Trustpilot 3.1★ stable · Recall fix ~3 weeks away</div>
+        <div class="text-sm mt8">Sentiment score: +0.20 · Trustpilot 3.1★ stable · Recall fix expected end of June</div>
       </div>
       <div class="brand-meta">
         <span class="sentiment-pill s-mix">Mixed</span>
@@ -111,7 +114,7 @@
         <div class="sentiment-bar-wrap">
           <div class="sentiment-bar"><div class="sentiment-fill" style="width:31%;background:#dc2626;"></div></div>
         </div>
-        <div class="text-sm mt8">Sentiment score: +0.22 · Mold, plus-size, cultural appropriation controversies ongoing</div>
+        <div class="text-sm mt8">Sentiment score: +0.20 · Smoking controversy newly surfaced · mold, plus-size, cultural appropriation ongoing</div>
       </div>
       <div class="brand-meta">
         <span class="sentiment-pill s-mix">Mixed</span>
@@ -122,7 +125,7 @@
 
   <div class="two-col">
     <div class="card">
-      <div class="card-title">Week-on-Week Shifts (3 Jun → 8 Jun 2026)</div>
+      <div class="card-title">Week-on-Week Shifts (3 Jun → 9 Jun 2026)</div>
       <div class="chart-wrap tall">
         <canvas id="wowChart"></canvas>
       </div>
@@ -132,13 +135,13 @@
       <div class="table-wrap"><table>
         <thead><tr><th>Topic</th><th>Brand</th><th>Sentiment</th></tr></thead>
         <tbody>
-          <tr><td>Butterfly 2 vs Cybex Coya — travel stroller battle</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
-          <tr><td>Bugaboo Fox 5 review wave — post-Feb launch surge</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
-          <tr><td>Bugaboo Trustpilot dips to 3.9★ — CS complaints</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="red">Negative</td></tr>
-          <tr><td>Joolz Aer2 adapter recall fix ~3 weeks away</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="amber">Neutral</td></tr>
-          <tr><td>Joolz Dot appearing in best travel stroller lists</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="green">Positive</td></tr>
-          <tr><td>Artipoppe mold + plus-size criticism still circulating</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Negative</td></tr>
-          <tr><td>Premium stroller market CAGR 5.4% — category growth</td><td class="bold" style="color:#888;">Category</td><td class="green">Positive</td></tr>
+          <tr><td>Butterfly 2 — Mumsnet best versatile lightweight stroller (88/100)</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>Fox 5 Renew sustainability (30% lower impact, recycled aluminium)</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>Donkey 6 — "Rolls Royce of strollers" editorial coverage</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>Joolz Aer2 vs Butterfly 2 — Joolz winning UK specs debate</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="green">Positive</td></tr>
+          <tr><td>Artipoppe: smoking while babywearing controversy surfaces</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Negative</td></tr>
+          <tr><td>Cybex AI self-folding strollers + Nordstrom 50% Nuna/Cybex sale</td><td class="bold" style="color:#888;">Competitor</td><td class="amber">Watch</td></tr>
+          <tr><td>Artipoppe price shock — "omg the price" Mumsnet threads dominant</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Negative</td></tr>
         </tbody>
       </table>
     </div>
@@ -148,15 +151,15 @@
     <div class="card-title">This Week's Recommended Actions</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo (CS reputation):</span> The 3.9★ dip vs last week's 4.0★ is a leading indicator — CS complaints around delivery and warranty handling are the driver, not product quality. A targeted CS response campaign on Trustpilot and proactive outreach to recent low-scorers can halt the slide before it becomes structural.</div>
+      <div><span class="bold">Bugaboo (amplify Mumsnet wins):</span> Butterfly 2 (88/100), Fox 5 Renew, and Dragonfly all named best-in-category on Mumsnet this week. Amplify these editorial wins in UK social — quote scores, use the "best versatile lightweight stroller" framing in UK Instagram and TikTok content. Continue Trustpilot CS response to hold the 3.9★.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div><span class="bold">Joolz (Recall resolution):</span> End-of-June adapter fix is now ~3 weeks away. This week is the time to draft the "recall closed" announcement email, press release, and social post — so comms can go live the moment the revised adapter ships. Speed of closure communication is the single biggest driver of post-recall sentiment recovery.</div>
+      <div><span class="bold">Joolz (Recall resolution — ~end of June):</span> Revised adapter is approaching. Pre-draft the "recall closed" email, press release, and social post now — comms must go live the moment the adapter ships. Critically: the recall has not appeared on Mumsnet yet. Fast resolution keeps it that way.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><span class="bold">vs. Artipoppe:</span> Ongoing controversies continue slow erosion of the brand's premium position. Deploy Bugaboo's "worth every year" counter-narrative into the "is luxury baby gear worth it?" conversation — 3.9★ Trustpilot on 2,500+ reviews, B Corp, Donkey 6 sustainability story, built-to-last modular design.</div>
+      <div><span class="bold">vs. Artipoppe (smoking controversy — most damaging signal yet):</span> Smoking while babywearing brand history now circulating on TikTok alongside mold, plus-size, and cultural appropriation. Mumsnet price shock threads running high volume. Deploy Bugaboo's "premium with purpose" counter-narrative — B Corp, Fox 5 Renew (30% lower impact), 3.9★ on 2,614 reviews, modular longevity. Target Artipoppe-adjacent audiences on TikTok and UK Mumsnet-adjacent content.</div>
     </div>
   </div>
 </div>
@@ -165,13 +168,13 @@
 </div>
 <div class="page" id="page-bugaboo">
   <div class="section-header">
-    Bugaboo <span class="brand-badge" style="background:#fef2f2;color:#e63946;">Positive · 3.9★ ↓ · Fox 5 + Butterfly 2 Review Surge</span>
+    Bugaboo <span class="brand-badge" style="background:#fef2f2;color:#e63946;">Positive · 3.9★ stable · Mumsnet UK Very Strong</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">Trustpilot Score</div>
       <div class="value warn">3.9★</div>
-      <div class="delta">~2,500 reviews · <span style="color:#dc2626;font-size:11px;">↓ from 4.0★</span></div>
+      <div class="delta">~2,614 reviews · <span style="color:#888;font-size:11px;">→ stable</span></div>
     </div>
     <div class="kpi">
       <div class="label">Instagram (Global)</div>
@@ -186,16 +189,16 @@
     <div class="kpi">
       <div class="label">Sentiment Score</div>
       <div class="value pos">+0.70</div>
-      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ from +0.72</span> · CS noise</div>
+      <div class="delta"><span style="color:#888;font-size:11px;">→ stable</span> · Mumsnet editorial strong</div>
     </div>
   </div>
   <div class="alert-banner">
     <span>⚠️</span>
-    <div><span class="bold">Trustpilot dipping — CS complaints pattern emerging:</span> Bugaboo's Trustpilot score dropped from 4.0★ to 3.9★ this week. Review analysis shows complaints clustering around slow response times and delivery/warranty handling — not product quality. This is a recoverable CX issue but requires active management. <a href="https://www.trustpilot.com/review/www.bugaboo.com" target="_blank" style="color:#9f1239;font-weight:600;">→ View live Trustpilot reviews</a></div>
+    <div><span class="bold">Trustpilot stable at 3.9★ — review volume growing to ~2,614:</span> Score holding steady with slight uptick in review volume. CS delivery/warranty complaints persisting but not worsening. Mumsnet UK editorial sweep this week is a strong positive signal independent of Trustpilot. <a href="https://www.trustpilot.com/review/www.bugaboo.com" target="_blank" style="color:#9f1239;font-weight:600;">→ View live Trustpilot reviews</a></div>
   </div>
   <div class="info-banner">
     <span>🚲</span>
-    <div><span class="bold">Butterfly 2 vs Cybex Coya — hottest comparison content this week:</span> The Cybex Coya vs Bugaboo Butterfly 2 face-off is generating strong blog and review traffic. Verdict: Bugaboo wins on ride quality (larger wheels, full suspension); Cybex wins on carry weight (14.6 lbs with shoulder strap vs Butterfly 2's 16 lbs). Bugaboo should lean into the "smoother ride = better for baby" narrative in comparison contexts.</div>
+    <div><span class="bold">Mumsnet UK editorial sweep — Bugaboo dominant across all 2026 guides:</span> Butterfly 2 named best versatile lightweight stroller (88/100, updated this week). Fox 5 Renew named best for storage. Dragonfly named best for newborns. No new forum complaints on Mumsnet. Strong editorial presence that UK CS complaints have not yet reached. Fox 5 Renew sustainability angle (30% lower environmental impact, recycled aluminium) is gaining traction as a premium differentiator.</div>
   </div>
   <div class="alert-banner">
     <span>⚖️</span>
@@ -205,13 +208,13 @@
     <div class="card">
       <div class="card-title">Trending Topics</div>
       <div class="topic-tags">
-        <span class="topic-tag trending">Butterfly 2 vs Cybex Coya travel battle</span>
-        <span class="topic-tag trending">Fox 5 review surge — Feb 2026 launch settling in</span>
-        <span class="topic-tag trending">Donkey 6 — Red Dot Award + sustainability</span>
-        <span class="topic-tag trending">Stokke YOYO3 vs Butterfly 2 (TikTok active)</span>
-        <span class="topic-tag trending">Kangaroo — single-to-double growing families</span>
-        <span class="topic-tag info">Premium stroller market growing at 5.4% CAGR</span>
-        <span class="topic-tag alert">Trustpilot CS complaints — delivery / warranty</span>
+        <span class="topic-tag trending">Butterfly 2 = Mumsnet best versatile lightweight stroller (88/100)</span>
+        <span class="topic-tag trending">Fox 5 Renew — 30% lower environmental impact, recycled aluminium</span>
+        <span class="topic-tag trending">Donkey 6 — "Rolls Royce of strollers" coverage</span>
+        <span class="topic-tag trending">Butterfly 2 vs Cybex Coya — travel battle still active</span>
+        <span class="topic-tag trending">Bugaboo Donkey 2026 TikTok tag active</span>
+        <span class="topic-tag info">Dragonfly = Mumsnet best for newborns</span>
+        <span class="topic-tag alert">Trustpilot CS complaints — delivery / warranty persisting</span>
         <span class="topic-tag alert">Giraffe highchair class action still active</span>
       </div>
     </div>
@@ -234,32 +237,50 @@
         <div class="post-platform">⚖️ TopClassActions</div>
       </a>
       <a class="post-link" href="https://www.trustpilot.com/review/www.bugaboo.com" target="_blank">
-        Bugaboo on Trustpilot — ~2,500 reviews, 3.9★ ↓
+        Bugaboo on Trustpilot — ~2,614 reviews, 3.9★ stable
         <div class="post-platform">⭐ Trustpilot</div>
       </a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Mumsnet · UK Forum</div>
+    <div class="info-banner" style="margin-bottom:10px;">
+      <span>🇬🇧</span>
+      <div><span class="bold">UK Sentiment: Very Strong</span> — Butterfly 2 named best versatile lightweight stroller this week (88/100). Fox 5 Renew named best for storage. Dragonfly named best for newborns. Strong editorial presence across all 2026 pram guides. No new forum complaints on Mumsnet radar.</div>
+    </div>
+    <div class="card-title" style="margin-top:8px;">Top Mumsnet Threads</div>
+    <a class="post-link" href="https://www.mumsnet.com/reviews/pushchairs" target="_blank">Best Prams, Pushchairs &amp; Buggies UK 2026 — updated this week<div class="post-platform">🌐 Mumsnet Editorial · Updated 5 days ago</div></a>
+    <a class="post-link" href="https://www.mumsnet.com/reviews/bugaboo-butterfly-2-review" target="_blank">Bugaboo Butterfly 2 Review — 88/100, five-star rating<div class="post-platform">🌐 Mumsnet Review · UK tested</div></a>
+    <a class="post-link" href="https://www.mumsnet.com/reviews/lightweight-strollers" target="_blank">Best Lightweight Strollers 2026 — Butterfly 2 named best versatile<div class="post-platform">🌐 Mumsnet Editorial · Updated this week</div></a>
+    <div class="card-title" style="margin-top:10px;">UK-Specific Topics</div>
+    <div class="topic-tags">
+      <span class="topic-tag trending">Butterfly 2 = best versatile lightweight</span>
+      <span class="topic-tag info">Fox 5 Renew sustainability angle strong</span>
+      <span class="topic-tag trending">Dragonfly = best for newborns</span>
+      <span class="topic-tag">CS complaints not yet on Mumsnet radar</span>
     </div>
   </div>
   <div class="card">
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><strong>Trustpilot dip to 3.9★ is a CS signal, not a product signal.</strong> Review analysis shows negative posts clustering on delivery delays, warranty response times, and phone support failures — not product defects or design issues. The Donkey 6, Fox 5, and Butterfly 2 are all receiving positive editorial reviews simultaneously. This divergence means a targeted CS intervention can recover the score.</div>
+      <div><strong>Mumsnet UK editorial sweep this week is the standout positive signal.</strong> Butterfly 2 (88/100), Fox 5 Renew, and Dragonfly all named best-in-category across updated 2026 guides. No CS complaints on Mumsnet yet. This UK editorial dominance is a durable asset to amplify in UK-targeted social.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>The <strong>Butterfly 2 vs Cybex Coya</strong> comparison is the active travel stroller battleground this week. Bugaboo wins on ride quality (larger wheels, full suspension for smoother rides) and brand trust; Cybex Coya edges on carry weight (14.6 lbs with shoulder strap vs Butterfly 2's 16 lbs). Both at similar price points. Active content creation in this comparison space is a clear opportunity.</div>
+      <div>The <strong>Fox 5 Renew sustainability angle</strong> — 30% lower environmental impact, recycled aluminium — is gaining editorial traction as a premium differentiator. In a market where Cybex is launching AI strollers and Nuna/Cybex are on 50% Nordstrom sale, Bugaboo's sustainability story is a strong counter-positioning with no discount pressure.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><strong>Fox 5 (launched February 2026)</strong> is now past its initial wave and generating settled long-term review content — the phase where product strength compounds into SEO authority. Full-size flagship reviews, Fox 5 vs UPPAbaby Vista V3 comparison content, and Fox 5 suspension highlight reels are the content formats doing well.</div>
+      <div><strong>Trustpilot stable at 3.9★ / ~2,614 reviews.</strong> CS delivery/warranty complaints persisting but not worsening. The Butterfly 2 vs Cybex Coya comparison remains the active travel stroller battleground — Bugaboo wins on ride quality (larger wheels, full suspension), Cybex on carry weight. Own the "smoother ride = better for baby" narrative.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>The Giraffe highchair class action (Case No. 1:25-cv-05688, SDNY) remains active with no settlement. The "Bugaboo blamed consumers" recall notice framing continues to circulate in parent legal news sites. Legal risk is contained to the highchair category — keeping stroller messaging clearly separate from highchair messaging is essential.</div>
+      <div>The Giraffe highchair class action (Case No. 1:25-cv-05688, SDNY) remains active with no settlement. Legal risk is contained to the highchair category — keeping stroller messaging clearly separate from highchair messaging is essential.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action:</span> (1) Launch a targeted Trustpilot response campaign — acknowledge CS delays publicly and offer fast-track resolution for recent low-scorers. (2) Commission or amplify a Butterfly 2 vs Coya head-to-head on YouTube/TikTok that explicitly names "smoother ride" as the winning argument. (3) Publish a transparent Giraffe recall update to pre-empt further "blame consumers" forum traction.</div>
+      <div><span class="bold">Recommended action:</span> (1) Amplify Mumsnet UK editorial wins in UK social — Butterfly 2 88/100, Fox 5 Renew best for storage, Dragonfly best for newborns. (2) Lead Fox 5 Renew content with the 30% lower environmental impact angle — this is the sustainability differentiator vs Cybex AI and Nordstrom-discounted competitors. (3) Continue Trustpilot CS response campaign to hold 3.9★ as volume grows.</div>
     </div>
   </div>
 </div>
@@ -267,7 +288,7 @@
 <!-- JOOLZ -->
 <div class="page" id="page-joolz">
   <div class="section-header">
-    Joolz <span class="brand-badge" style="background:#ede9fe;color:#6366f1;">Mixed · 3.1★ · Recall Fix ~3 Weeks Away</span>
+    Joolz <span class="brand-badge" style="background:#ede9fe;color:#6366f1;">Mixed · 3.1★ · Recall Fix End of June</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
@@ -282,7 +303,7 @@
     </div>
     <div class="kpi">
       <div class="label">Recall Fix Timeline</div>
-      <div class="value warn" style="font-size:16px;">~3 Weeks</div>
+      <div class="value warn" style="font-size:16px;">End Jun</div>
       <div class="delta">Revised adapter expected end of June 2026</div>
     </div>
     <div class="kpi">
@@ -293,7 +314,7 @@
   </div>
   <div class="alert-banner">
     <span>🚨</span>
-    <div><span class="bold">Recall resolution now ~3 weeks away:</span> Joolz Aer2 Car Seat Adapter Set recall (ref 2605-0189) — adapter can fail to lock, allowing car seat detachment. End-of-June revised adapter is the critical milestone. Refund process active; prepaid return labels being issued. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab for full details</a></div>
+    <div><span class="bold">Recall resolution expected end of June:</span> Joolz Aer2 Car Seat Adapter Set recall (ref 2605-0189) — adapter can fail to lock, allowing car seat detachment. Revised adapter expected end of June 2026 (~2–3 weeks). Refund process active; prepaid return labels being issued. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab for full details</a></div>
   </div>
   <div class="info-banner">
     <span>🏆</span>
@@ -307,7 +328,7 @@
         <span class="topic-tag trending">Mother&amp;Baby Silver Award 2026</span>
         <span class="topic-tag trending">Joolz Dot — 12.2 lb ultra-light in roundups</span>
         <span class="topic-tag trending">Joolz Aer+ comparison content</span>
-        <span class="topic-tag alert">Aer2 car seat adapter recall — 3 weeks to fix</span>
+        <span class="topic-tag alert">Aer2 car seat adapter recall — fix expected end of June</span>
         <span class="topic-tag alert">Customer service delivery + refund complaints</span>
         <span class="topic-tag info">Joolz as Bugaboo Group sister brand</span>
       </div>
@@ -337,10 +358,28 @@
     </div>
   </div>
   <div class="card">
+    <div class="card-title">Mumsnet · UK Forum</div>
+    <div class="info-banner" style="margin-bottom:10px;">
+      <span>🇬🇧</span>
+      <div><span class="bold">UK Sentiment: Positive</span> — Aer2 named best cabin-approved stroller for easy fold (RRP £439). Recall has not surfaced in Mumsnet discussions. UK mums prefer Aer2 over Butterfly 2 on specs: weight, fold speed, handle height, included travel bag, elasticated strap.</div>
+    </div>
+    <div class="card-title" style="margin-top:8px;">Top Mumsnet Threads</div>
+    <a class="post-link" href="https://www.mumsnet.com/reviews/joolz-aer2-review" target="_blank">Joolz Aer2 Review — best cabin-approved stroller for easy fold<div class="post-platform">🌐 Mumsnet Review · UK tested</div></a>
+    <a class="post-link" href="https://www.mumsnet.com/reviews/cabin-approved-strollers" target="_blank">Best Cabin-Approved Strollers 2026 — Aer2 featured<div class="post-platform">🌐 Mumsnet Editorial · Updated this week</div></a>
+    <a class="post-link" href="https://www.mumsnet.com/talk/pushchairs_and_buggies/joolz-aer2-vs-butterfly-2" target="_blank">Joolz Aer2 vs Bugaboo Butterfly 2 — comparison thread<div class="post-platform">🌐 Mumsnet Forum · Active thread</div></a>
+    <div class="card-title" style="margin-top:10px;">UK-Specific Topics</div>
+    <div class="topic-tags">
+      <span class="topic-tag trending">Lighter than Butterfly 2</span>
+      <span class="topic-tag trending">Best cabin stroller</span>
+      <span class="topic-tag info">Recall not yet UK forum topic</span>
+      <span class="topic-tag">Travel bag included wins UK mums</span>
+    </div>
+  </div>
+  <div class="card">
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div>The Aer2 recall fix window is now less than 3 weeks away. <strong>This week is the pre-comms window</strong> — draft the "recall closed" announcement email, press release, and social assets now so they can go live within 24 hours of the revised adapter shipping. Speed of resolution communication is the single biggest driver of post-recall sentiment recovery.</div>
+      <div>The Aer2 recall fix is approaching (end of June). <strong>This week is the pre-comms window</strong> — draft the "recall closed" announcement email, press release, and social assets now so they can go live within 24 hours of the revised adapter shipping. Speed of resolution communication is the single biggest driver of post-recall sentiment recovery. Critically: the recall has not appeared on Mumsnet yet — fast resolution keeps it that way.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
@@ -364,7 +403,7 @@
 <!-- ARTIPOPPE -->
 <div class="page" id="page-artipoppe">
   <div class="section-header">
-    Artipoppe <span class="brand-badge" style="background:#fffbeb;color:#d97706;">Mixed · Controversies Deepening</span>
+    Artipoppe <span class="brand-badge" style="background:#fffbeb;color:#d97706;">Mixed · +0.20 ↓ · Controversies Deepening</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
@@ -379,14 +418,18 @@
     </div>
     <div class="kpi">
       <div class="label">Active Controversies</div>
-      <div class="value neg">4+</div>
-      <div class="delta">Mold · Plus-size · Cultural appropriation · Referral</div>
+      <div class="value neg">5+</div>
+      <div class="delta">Mold · Plus-size · Cultural appropriation · Referral · Smoking</div>
     </div>
     <div class="kpi">
       <div class="label">Sentiment Score</div>
-      <div class="value warn">+0.22</div>
-      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ from +0.23</span> · slow erosion continues</div>
+      <div class="value warn">+0.20</div>
+      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ from +0.22</span> · smoking controversy newly surfaced</div>
     </div>
+  </div>
+  <div class="alert-banner">
+    <span>🚬</span>
+    <div><span class="bold">NEW THIS WEEK — Smoking while babywearing controversy surfaces:</span> Brand history of showing and recommending smoking while babywearing has been surfaced on TikTok. This is the most damaging new controversy this week — joining mold, plus-size, and cultural appropriation in the active criticism loop. Brand silence continues to amplify reach of controversy content.</div>
   </div>
   <div class="alert-banner">
     <span>⚠️</span>
@@ -396,6 +439,7 @@
     <div class="card">
       <div class="card-title">Trending Topics</div>
       <div class="topic-tags">
+        <span class="topic-tag alert">NEW: Smoking while babywearing — brand history surfaced on TikTok</span>
         <span class="topic-tag alert">Mold on carriers — ongoing reports post-washing</span>
         <span class="topic-tag alert">Plus-size exclusivity — sizing controversy</span>
         <span class="topic-tag alert">Cultural appropriation concerns (indigenous imagery)</span>
@@ -427,10 +471,28 @@
     </div>
   </div>
   <div class="card">
+    <div class="card-title">Mumsnet · UK Forum</div>
+    <div class="info-banner" style="background:#fffbeb;border-color:#fcd34d;color:#92400e;margin-bottom:10px;">
+      <span>🇬🇧</span>
+      <div><span class="bold">UK Sentiment: Mixed</span> — Price shock is the #1 topic. High volume of discount code threads signals strong price-sensitivity. "Is it worth it?" debate ongoing with divided responses. New smoking controversy has not yet surfaced on Mumsnet.</div>
+    </div>
+    <div class="card-title" style="margin-top:8px;">Top Mumsnet Threads</div>
+    <a class="post-link" href="https://www.mumsnet.com/talk/baby_carriers/is-artipoppe-worth-it" target="_blank">Is the Artipoppe baby carrier worth it? — active debate thread<div class="post-platform">🌐 Mumsnet Forum · Active</div></a>
+    <a class="post-link" href="https://www.mumsnet.com/talk/baby_carriers/artipoppe-omg-the-price" target="_blank">Artipoppe carrier — omg the price — high volume thread<div class="post-platform">🌐 Mumsnet Forum · High engagement</div></a>
+    <a class="post-link" href="https://www.mumsnet.com/talk/baby_carriers/artipoppe-discount-codes" target="_blank">Artipoppe discount codes — ongoing thread (strong demand signal)<div class="post-platform">🌐 Mumsnet Forum · Ongoing</div></a>
+    <div class="card-title" style="margin-top:10px;">UK-Specific Topics</div>
+    <div class="topic-tags">
+      <span class="topic-tag alert">OMG the price</span>
+      <span class="topic-tag alert">Discount code seeking (high volume)</span>
+      <span class="topic-tag">Is it worth it? — divided</span>
+      <span class="topic-tag info">Resale value = main defence</span>
+    </div>
+  </div>
+  <div class="card">
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div>Sentiment now at +0.22 — down from +0.31 six weeks ago. The decline is slow but consistent and driven by accumulating controversy content rather than any single event. The brand's pattern of non-response to criticism is itself being cited in reviews and TikTok commentary as a red flag.</div>
+      <div>Sentiment now at +0.20 — down from +0.31 six weeks ago. This week's drop from +0.22 is accelerated by the newly surfaced smoking while babywearing controversy, the most damaging new signal in this reporting cycle. Brand silence continues to amplify controversy content reach.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
@@ -438,22 +500,22 @@
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div>The resale value story (rare prints selling 2–3× retail) still provides an aspirational floor for the brand. This collectible angle remains Artipoppe's strongest single counter-narrative — but it appeals only to the most brand-loyal tier of its audience, not to the growing "is it worth it?" consideration cohort.</div>
+      <div>The resale value story (rare prints selling 2–3× retail) still provides an aspirational floor for the brand. This collectible angle remains Artipoppe's strongest single counter-narrative — but it appeals only to the most brand-loyal tier of its audience, not to the growing "is it worth it?" consideration cohort. Mumsnet discount code threads signal the price barrier is intensifying.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div>The Artipoppe audience — 731K Instagram followers, premium parents who value aesthetics, sustainability, and social proof — is <strong>exactly Bugaboo's target</strong>. As Artipoppe's brand trust erodes, this audience is actively looking for alternative "premium that makes sense" stories. Bugaboo's content should be visible in this conversation.</div>
+      <div>The Artipoppe audience — 731K Instagram followers, premium parents who value aesthetics, sustainability, and social proof — is <strong>exactly Bugaboo's target</strong>. As Artipoppe's brand trust erodes (now at +0.20, down from +0.31 six weeks ago), this audience is actively looking for alternative "premium that makes sense" stories. Bugaboo's content should be visible in this conversation.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action:</span> Deploy Bugaboo's "premium with purpose" narrative directly into the "is luxury baby gear worth it?" content space — 3.9★ Trustpilot on 2,500+ reviews, B Corp certification, Donkey 6 sustainability credentials (17% CO₂ reduction, recycled fabrics), modular longevity across multiple children. Target the Artipoppe-adjacent audience on Instagram Reels and TikTok.</div>
+      <div><span class="bold">Recommended action:</span> Deploy Bugaboo's "premium with purpose" narrative directly into the "is luxury baby gear worth it?" content space — 3.9★ Trustpilot on 2,614+ reviews, B Corp certification, Fox 5 Renew sustainability (30% lower environmental impact, recycled aluminium), modular longevity across multiple children. The smoking controversy is the most toxic Artipoppe signal yet. Target the Artipoppe-adjacent audience on Instagram Reels, TikTok, and UK Mumsnet-adjacent content.</div>
     </div>
   </div>
 </div>
 
 <!-- COMPARE -->
 <div class="page" id="page-compare">
-  <div class="section-header">Brand Comparison — Week of 8 Jun 2026</div>
+  <div class="section-header">Brand Comparison — Week of 9 Jun 2026</div>
   <div class="info-banner" style="margin-bottom:16px;">
     <span>ℹ️</span>
     <div><span class="bold">Note on Joolz:</span> Joolz is a Bugaboo Group sister brand (acquired July 2025). Scores reflect distinct consumer brand positions, not rival companies. Both operate independently under Mubadala Capital.</div>
@@ -476,14 +538,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td class="bold">Trustpilot</td><td class="amber bold">3.9★ (~2,500) ↓</td><td class="amber">3.1★ (1,034) stable</td><td class="text-sm">59 reviews only</td></tr>
-        <tr><td class="bold">Sentiment Score</td><td class="green">+0.70 Positive ↓</td><td class="amber">+0.20 Mixed stable</td><td class="amber">+0.22 Mixed ↓</td></tr>
+        <tr><td class="bold">Trustpilot</td><td class="amber bold">3.9★ (~2,614) stable</td><td class="amber">3.1★ (1,034) stable</td><td class="text-sm">59 reviews only</td></tr>
+        <tr><td class="bold">Sentiment Score</td><td class="green">+0.70 Positive stable</td><td class="amber">+0.20 Mixed stable</td><td class="amber">+0.20 Mixed ↓</td></tr>
         <tr><td class="bold">Instagram Followers</td><td class="green">510K (@bugabooglobal)</td><td class="text-sm">Moderate</td><td class="green">731K · aspirational</td></tr>
         <tr><td class="bold">Top Product (buzz)</td><td>Butterfly 2 · Fox 5 · Donkey 6</td><td>Aer2 (travel) · Dot (new)</td><td>Zeitgeist carrier</td></tr>
         <tr><td class="bold">Key Strength</td><td>Donkey 6 Red Dot Award · B Corp · product depth</td><td>Aer2 specs (lightest, newborn-ready) · Mother&amp;Baby Silver</td><td>731K followers / luxury unboxing / resale value</td></tr>
         <tr><td class="bold">Key Weakness</td><td class="amber">Trustpilot CS dip + Giraffe recall class action</td><td class="red">Aer2 adapter recall + CS failures</td><td class="red">Mold + plus-size + cultural appropriation</td></tr>
         <tr><td class="bold">Ownership</td><td>Mubadala Capital</td><td class="green">Bugaboo Group (Jul 2025)</td><td>Independent</td></tr>
-        <tr><td class="bold">This Week's Risk</td><td class="amber">Medium (CS score dip + recall lawsuit)</td><td class="amber">Medium (recall fix 3 weeks away)</td><td class="red">High (controversies + sentiment decline)</td></tr>
+        <tr><td class="bold">This Week's Risk</td><td class="amber">Medium (CS complaints + recall lawsuit)</td><td class="amber">Medium (recall fix end of June)</td><td class="red">High (smoking controversy + sentiment decline)</td></tr>
       </tbody>
     </table>
   </div>
@@ -495,7 +557,7 @@
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div><span class="bold">Joolz recall closure:</span> The Aer2 adapter fix in ~3 weeks is the most time-sensitive operational milestone for the Group this month. A well-executed closure campaign (proactive owner comms, award-paired messaging) can convert a recall story into a brand trust story.</div>
+      <div><span class="bold">Joolz recall closure:</span> The Aer2 adapter fix (end of June) is the most time-sensitive operational milestone for the Group this month. A well-executed closure campaign (proactive owner comms, award-paired messaging) can convert a recall story into a brand trust story. The recall has not appeared on Mumsnet — fast closure protects this.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
@@ -515,7 +577,7 @@
     <div><span class="bold">Context:</span> Bugaboo Group's primary premium stroller competitors in the US and European markets. <strong>Bugaboo and Joolz shown as Bugaboo Group brands</strong> for reference. Bugaboo's slight Trustpilot dip this week (3.9★) still leads the competitive set on review volume and score credibility.</div>
   </div>
   <div class="card" style="margin-bottom:16px;">
-    <div class="card-title">Scorecard — Bugaboo Group vs Competitors · Week of 8 Jun 2026</div>
+    <div class="card-title">Scorecard — Bugaboo Group vs Competitors · Week of 9 Jun 2026</div>
     <div class="table-wrap"><table>
       <thead>
         <tr><th>Brand</th><th>Group</th><th>Sentiment</th><th>Trustpilot</th><th>Key Product Buzz</th><th>Top Risk</th></tr>
@@ -525,7 +587,7 @@
           <td class="bold" style="color:#e63946;">Bugaboo</td>
           <td><span style="background:#fef2f2;color:#e63946;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;border:1px solid #fecaca;">Bugaboo Group</span></td>
           <td><span class="sentiment-pill s-pos">+0.70</span></td>
-          <td class="amber bold">3.9★ (~2,500) ↓</td>
+          <td class="amber bold">3.9★ (~2,614) stable</td>
           <td>Butterfly 2 vs Coya · Fox 5 · Donkey 6</td>
           <td class="amber">CS score dip + Giraffe class action</td>
         </tr>
@@ -667,7 +729,11 @@
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><span class="bold">Bugaboo opportunity:</span> Cybex's recurring CS failures (delayed deliveries, warranty refusals) are structurally identical to Joolz's weaknesses. Bugaboo's actively improving CS story — even with the 3.9★ dip — is a competitive advantage vs Cybex's structural CS problems.</div>
+      <div><span class="bold">Bugaboo opportunity:</span> Cybex's recurring CS failures (delayed deliveries, warranty refusals) are structurally identical to Joolz's weaknesses. Bugaboo's stable 3.9★ is a competitive advantage vs Cybex's structural CS problems.</div>
+    </div>
+    <div class="info-banner" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;margin-top:12px;">
+      <span>🤖</span>
+      <div><span class="bold">NEW: Cybex launching AI-powered strollers with self-folding mechanisms</span> — a new category play generating buzz this week. Bugaboo's counter-positioning: proven ride quality, Fox 5 Renew sustainability credentials (30% lower environmental impact), and B Corp credibility over tech novelty.</div>
     </div>
   </div>
 
@@ -677,9 +743,13 @@
       <span>⚠️</span>
       <div><span class="bold">Active recall risk:</span> Nuna RAVA convertible car seat — 600,000+ units recalled December 2024 (harness defect). Class action ongoing. Nuna not offering monetary compensation, only repair. Reputational risk ongoing into 2026.</div>
     </div>
+    <div class="info-banner" style="margin-bottom:12px;">
+      <span>🏷️</span>
+      <div><span class="bold">THIS WEEK — Nordstrom running 50% off Nuna + Cybex luxury gear.</span> Significant promotional activity across the premium category. While this drives short-term conversion for Nuna/Cybex, it signals pricing pressure and normalises discounting in the premium tier. Bugaboo's consistent no-discount stance is a brand integrity differentiator.</div>
+    </div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#059669;"></div>
-      <div>Nuna's TRVL and SWIV earn strong design praise but the 600K+ RAVA car seat recall is dominating brand reputation in search results. <span class="bold">Bugaboo opportunity:</span> In Nuna vs Bugaboo comparisons, Bugaboo's lack of a core stroller recall is a credibility asset — keep Giraffe highchair recall clearly separated from stroller messaging.</div>
+      <div>Nuna's TRVL and SWIV earn strong design praise but the 600K+ RAVA car seat recall is dominating brand reputation in search results. The Nordstrom 50% sale may help clear stock but signals margin pressure. <span class="bold">Bugaboo opportunity:</span> Bugaboo's lack of a core stroller recall and no-discount premium positioning are credibility assets in comparison content.</div>
     </div>
   </div>
 
@@ -843,7 +913,7 @@
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span class="recall-badge">🚨 Active Recall</span>
-          <span style="font-size:12px;color:#888;">Issued May 2026 · UK Office for Product Safety &amp; Standards · Fix expected end of June 2026 (~3 weeks)</span>
+          <span style="font-size:12px;color:#888;">Issued May 2026 · UK Office for Product Safety &amp; Standards · Fix expected end of June 2026 (~2–3 weeks)</span>
         </div>
         <div class="recall-title">Joolz Aer2 Car Seat Adapter Set</div>
         <div class="recall-sub">Product ref: 2605-0189 · Serial numbers starting NL311- · Sold June 2025 – May 2026</div>
@@ -901,7 +971,7 @@
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span class="recall-badge">⚖️ Recall + Class Action</span>
-          <span style="font-size:12px;color:#888;">Recall issued Jun 2025 · Class action active · No settlement as of 8 Jun 2026</span>
+          <span style="font-size:12px;color:#888;">Recall issued Jun 2025 · Class action active · No settlement as of 9 Jun 2026</span>
         </div>
         <div class="recall-title">Bugaboo Giraffe Highchair</div>
         <div class="recall-sub">18,280 units affected (US) + 2,325 (Canada) · Sold May 2023 – April 2025 · ~$380 retail price</div>
@@ -922,7 +992,7 @@
         <strong>What happened:</strong> The screws securing the front legs of the Bugaboo Giraffe highchair can loosen or fall out during normal use, allowing the front legs to fully detach. 22 reports of detachment, 13 minor injuries. Most likely to occur when a child pushes on the footrest.
       </div>
       <div class="recall-detail">
-        <strong>Class action dispute:</strong> Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688, SDNY — alleges recall notice unfairly blamed consumers ("screws not fully tightened during setup"). Bugaboo offering free repair kit but no refunds. No settlement announced as of 8 Jun 2026.
+        <strong>Class action dispute:</strong> Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688, SDNY — alleges recall notice unfairly blamed consumers ("screws not fully tightened during setup"). Bugaboo offering free repair kit but no refunds. No settlement announced as of 9 Jun 2026.
       </div>
       <div class="recall-detail">
         <strong>Stroller range not affected:</strong> This recall is specific to the Giraffe highchair. All Bugaboo strollers — Fox 5, Donkey 6, Butterfly 2, Dragonfly, Bee, Ant, Kangaroo — are unaffected.
@@ -947,7 +1017,7 @@
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#dc2626;"></div>
           <div class="timeline-date">Jun 2026</div>
-          <div class="timeline-text">Class action still active. No settlement or resolution announced. Story circulating on parent forums and legal news sites. Monitor weekly.</div>
+          <div class="timeline-text">Class action still active. No settlement announced as of 9 Jun 2026. Story circulating on parent forums and legal news sites. Monitor weekly.</div>
         </div>
       </div>
       <div class="recall-actions">
@@ -959,10 +1029,10 @@
   </div>
 
   <div class="card" style="border-color:#e8e8e8;">
-    <div class="card-title">Recall Monitoring Notes — 8 Jun 2026</div>
+    <div class="card-title">Recall Monitoring Notes — 9 Jun 2026</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Joolz Aer2 adapter — ~3 weeks to resolution:</span> End-of-June revised adapter is the most time-sensitive milestone this month. Pre-draft all closure communications this week. Once delivered, this issue can be closed and Aer2's strong product sentiment should rebound. The stroller itself has been positively reviewed throughout.</div>
+      <div><span class="bold">Joolz Aer2 adapter — end of June resolution:</span> End-of-June revised adapter is the most time-sensitive milestone this month. Pre-draft all closure communications this week. Once delivered, this issue can be closed and Aer2's strong product sentiment should rebound. The stroller itself has been positively reviewed throughout.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
@@ -978,8 +1048,9 @@
 </div><!-- /main -->
 
 <div class="footer">
-  Data sources: Trustpilot · TikTok · Instagram · YouTube · Strolleria · Bambi Baby · Mother&amp;Baby · SheKnows · Parenthood Adventures · TeachToddler · Baby enRoute · Babylist · TopClassActions · GOV.UK · CPSC · Joolz Support · OPSS · classaction.org · Sweet Teal · Daily Mumtra · Little Loving Life · ChildFriendlyGear &nbsp;·&nbsp; Last updated: 8 Jun 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
+  Data sources: Trustpilot · TikTok · Instagram · YouTube · Strolleria · Bambi Baby · Mother&amp;Baby · SheKnows · Parenthood Adventures · TeachToddler · Baby enRoute · Babylist · TopClassActions · GOV.UK · CPSC · Joolz Support · OPSS · classaction.org · Sweet Teal · Daily Mumtra · Little Loving Life · ChildFriendlyGear &nbsp;·&nbsp; Last updated: 9 Jun 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
 </div>
-<script src="./script.js"></script>
+
+  <script src="./script.js"></script>
 </body>
 </html>

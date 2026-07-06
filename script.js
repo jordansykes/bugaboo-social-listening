@@ -1,192 +1,122 @@
-// ── Chart instances ─────────────────────────────────────────────────
-var charts = {};
-
-// ── Tab navigation ───────────────────────────────────────────────────
-// Tabs are <div class="tab" data-page="xxx"> elements.
-// showPage() handles display toggling and chart triggers.
-// Script is at end of <body> — all elements exist, no DOMContentLoaded needed.
+const charts = {};
 
 function showPage(id, tabEl) {
-  // Hide all pages via inline style (bypasses any CSS class issues)
-  document.querySelectorAll('.page').forEach(function(p) {
-    p.style.display = 'none';
-    p.classList.remove('active');
-  });
-  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-  var page = document.getElementById('page-' + id);
-  if (page) {
-    page.style.display = 'block';
-    page.classList.add('active');
-  }
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) page.classList.add('active');
   if (tabEl) tabEl.classList.add('active');
-  try { if (id === 'compare') drawCompareChart(); } catch(e) { console.error(e); }
-  try { if (id === 'comp-strollers') drawCompStrollerChart(); } catch(e) { console.error(e); }
-  try { if (id === 'comp-carriers') drawCompCarrierChart(); } catch(e) { console.error(e); }
+  if (id === 'compare') drawCompareChart();
+  if (id === 'overview') drawWoWChart();
+  if (id === 'comp-strollers') drawCompStrollerChart();
+  if (id === 'comp-carriers') drawCompCarrierChart();
 }
 
-// Set initial state — show overview, hide everything else
-(function() {
-  document.querySelectorAll('.page').forEach(function(p) { p.style.display = 'none'; });
-  var overview = document.getElementById('page-overview');
-  if (overview) { overview.style.display = 'block'; overview.classList.add('active'); }
-})();
-
-// Wire up tab clicks — direct init, no DOMContentLoaded needed
-document.querySelectorAll('.tab[data-page]').forEach(function(tab) {
-  tab.addEventListener('click', function() {
-    showPage(tab.getAttribute('data-page'), tab);
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.tab[data-page]').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      showPage(tab.dataset.page, tab);
+    });
   });
-});
-
-// "Go to Recalls" links
-document.querySelectorAll('.goto-recalls').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    var recallTab = document.querySelector('.tab[data-page="recalls"]');
-    showPage('recalls', recallTab);
+  document.querySelectorAll('.goto-recalls').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var recallTab = document.querySelector('.tab[data-page="recalls"]');
+      showPage('recalls', recallTab);
+    });
   });
+  drawWoWChart();
 });
 
-// Draw overview chart on load
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    try { drawWoWChart(); } catch(e) { console.error('initial wow chart:', e); }
-  }, 150);
-});
-
-// ── Week-on-week chart ───────────────────────────────────────────────
 function drawWoWChart() {
-  var ctx = document.getElementById('wowChart');
+  const ctx = document.getElementById('wowChart');
   if (!ctx || charts.wow) return;
-
+  // Prior week (29 Jun 2026) vs this week (6 Jul 2026)
   var metrics = [
-    { label: 'Bugaboo Sentiment',       prev: 0.70,  curr: 0.72  },
-    { label: 'Bugaboo Reviews (×100)',  prev: 30.0,  curr: 30.0  },
-    { label: 'Joolz Trustpilot ★',     prev: 3.1,   curr: 3.1   },
-    { label: 'Joolz Reviews (×100)',    prev: 10.31, curr: 10.34 },
-    { label: 'Joolz Sentiment',         prev: 0.22,  curr: 0.20  },
-    { label: 'Artipoppe Sentiment',     prev: 0.25,  curr: 0.23  },
+    { label: 'Bugaboo Trustpilot ★',     prev: 4.00,  curr: 4.00  },
+    { label: 'Bugaboo Reviews (×100)',   prev: 26.60, curr: 27.00 },
+    { label: 'Bugaboo Sentiment',        prev: 0.72,  curr: 0.73  },
+    { label: 'Joolz Trustpilot ★',      prev: 3.10,  curr: 3.10  },
+    { label: 'Joolz Reviews (×100)',     prev: 10.50, curr: 9.99  },
+    { label: 'Joolz Sentiment',          prev: 0.25,  curr: 0.24  },
+    { label: 'Artipoppe Sentiment',      prev: 0.22,  curr: 0.23  },
   ];
-
-  var labels = metrics.map(function(m) { return m.label; });
-  var deltas = metrics.map(function(m) { return parseFloat((m.curr - m.prev).toFixed(3)); });
-  var bgColors = deltas.map(function(d) { return d > 0 ? '#16a34a99' : d < 0 ? '#dc262699' : '#88888844'; });
-  var borderColors = deltas.map(function(d) { return d > 0 ? '#16a34a' : d < 0 ? '#dc2626' : '#888888'; });
-
+  const labels = metrics.map(m => m.label);
+  const deltas = metrics.map(m => parseFloat((m.curr - m.prev).toFixed(3)));
+  const bgColors = metrics.map((m, i) => deltas[i] > 0 ? '#16a34a99' : deltas[i] < 0 ? '#dc262699' : '#88888844');
+  const borderColors = metrics.map((m, i) => deltas[i] > 0 ? '#16a34a' : deltas[i] < 0 ? '#dc2626' : '#888888');
   charts.wow = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: labels,
-      datasets: [{
-        label: 'Change vs prev week',
-        data: deltas,
-        backgroundColor: bgColors,
-        borderColor: borderColors,
-        borderWidth: 2,
-        borderRadius: 6,
-      }]
+      labels,
+      datasets: [{ label: 'Change vs prev week', data: deltas, backgroundColor: bgColors, borderColor: borderColors, borderWidth: 2, borderRadius: 6 }]
     },
     options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: function(ctx) {
-              var val = ctx.raw;
-              var sign = val > 0 ? '+' : '';
-              return ' ' + sign + val.toFixed(3) + ' vs prev week';
-            }
-          }
-        }
+        tooltip: { callbacks: { label: (ctx) => { const val = ctx.raw; const sign = val > 0 ? '+' : ''; return ` ${sign}${val.toFixed(3)} vs prev week`; } } }
       },
       scales: {
-        x: {
-          grid: { color: '#f0f0f0' },
-          ticks: { font: { size: 11 }, callback: function(v) { return v > 0 ? '+' + v : v; } },
-          title: { display: true, text: 'Change from prior week', font: { size: 11 }, color: '#888' }
-        },
+        x: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 }, callback: v => v > 0 ? '+' + v : v }, title: { display: true, text: 'Change from prior week', font: { size: 11 }, color: '#888' } },
         y: { ticks: { font: { size: 11 } }, grid: { display: false } }
       }
     }
   });
 }
 
-// ── Compare chart ───────────────────────────────────────────────────
 function drawCompareChart() {
-  var ctx = document.getElementById('compareChart');
+  const ctx = document.getElementById('compareChart');
   if (!ctx || charts.compare) return;
   charts.compare = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: ['Bugaboo', 'Joolz', 'Artipoppe'],
       datasets: [
-        {
-          label: 'Trustpilot (/5)',
-          data: [4.0, 3.1, null],
-          backgroundColor: ['#e6394633', '#6366f133', '#f59e0b33'],
-          borderColor: ['#e63946', '#6366f1', '#f59e0b'],
-          borderWidth: 2, borderRadius: 4, yAxisID: 'y1',
-        },
-        {
-          label: 'Sentiment Score',
-          data: [0.72, 0.20, 0.23],
-          backgroundColor: ['#e63946aa', '#6366f1aa', '#f59e0baa'],
-          borderColor: ['#e63946', '#6366f1', '#f59e0b'],
-          borderWidth: 2, borderRadius: 4, yAxisID: 'y2',
-        }
+        { label: 'Trustpilot (/5)', data: [4.0, 3.1, null], backgroundColor: ['#e6394633', '#6366f133', '#f59e0b33'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y1' },
+        { label: 'Sentiment Score', data: [0.73, 0.24, 0.23], backgroundColor: ['#e63946aa', '#6366f1aa', '#f59e0baa'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y2' }
       ]
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { position: 'top', labels: { font: { size: 12 }, boxWidth: 12 } } },
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
       scales: {
-        y1: { position: 'left', min: 0, max: 5, title: { display: true, text: 'Trustpilot (/5)', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { color: '#f0f0f0' } },
-        y2: { position: 'right', min: -1, max: 1, title: { display: true, text: 'Sentiment', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { display: false } },
+        y1: { type: 'linear', position: 'left', min: 0, max: 5, title: { display: true, text: 'Trustpilot ★', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { color: '#f0f0f0' } },
+        y2: { type: 'linear', position: 'right', min: 0, max: 1, title: { display: true, text: 'Sentiment (0–1)', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { display: false } },
         x: { ticks: { font: { size: 12 } }, grid: { display: false } }
       }
     }
   });
 }
 
-// ── Competitor stroller chart ───────────────────────────────────────
 function drawCompStrollerChart() {
-  var ctx = document.getElementById('compStrollerChart');
+  const ctx = document.getElementById('compStrollerChart');
   if (!ctx || charts.compStroller) return;
   charts.compStroller = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Bugaboo ★', 'UPPAbaby', 'BabyZen/Stokke', 'Nuna', 'Cybex', 'Joolz ★'],
+      labels: ['Bugaboo', 'Wildbird', 'UPPAbaby', 'BabyZen/Stokke', 'Nuna', 'Maxi-Cosi', 'Cybex', 'Joolz'],
       datasets: [{
         label: 'Sentiment Score',
-        data: [0.72, 0.65, 0.60, 0.45, 0.42, 0.20],
-        backgroundColor: ['#e63946cc', '#0ea5e9cc', '#d97706cc', '#059669cc', '#7c3aedcc', '#6366f1cc'],
-        borderColor: ['#e63946', '#0ea5e9', '#d97706', '#059669', '#7c3aed', '#6366f1'],
-        borderWidth: 2, borderRadius: 6,
+        data: [0.73, null, 0.65, 0.60, 0.45, 0.55, 0.42, 0.24],
+        backgroundColor: ['#e63946cc', '#10b98133', '#0ea5e9cc', '#d97706cc', '#059669cc', '#db2777cc', '#7c3aedcc', '#6366f1cc'],
+        borderColor:      ['#e63946',   '#10b981',   '#0ea5e9',   '#d97706',   '#059669',   '#db2777',   '#7c3aed',   '#6366f1'],
+        borderWidth: 2, borderRadius: 6
       }]
     },
     options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: function(ctx) { return ' Sentiment: +' + ctx.raw.toFixed(2); } } }
-      },
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` Sentiment: ${c.raw !== null ? c.raw.toFixed(2) : 'N/A'}` } } },
       scales: {
-        x: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0 to +1.0)  · ★ = Bugaboo Group brand', font: { size: 11 }, color: '#888' } },
-        y: { ticks: { font: { size: 12 } }, grid: { display: false } }
+        y: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0–1)', font: { size: 11 }, color: '#888' } },
+        x: { ticks: { font: { size: 11 } }, grid: { display: false } }
       }
     }
   });
 }
 
-// ── Competitor carrier chart ────────────────────────────────────────
 function drawCompCarrierChart() {
-  var ctx = document.getElementById('compCarrierChart');
+  const ctx = document.getElementById('compCarrierChart');
   if (!ctx || charts.compCarrier) return;
   charts.compCarrier = new Chart(ctx, {
     type: 'bar',
@@ -196,21 +126,16 @@ function drawCompCarrierChart() {
         label: 'Sentiment Score',
         data: [0.75, 0.70, 0.68, 0.65, 0.52, 0.23],
         backgroundColor: ['#10b981cc', '#0891b2cc', '#ca8a04cc', '#8b5cf6cc', '#f43f5ecc', '#f59e0bcc'],
-        borderColor: ['#10b981', '#0891b2', '#ca8a04', '#8b5cf6', '#f43f5e', '#f59e0b'],
-        borderWidth: 2, borderRadius: 6,
+        borderColor:      ['#10b981',   '#0891b2',   '#ca8a04',   '#8b5cf6',   '#f43f5e',   '#f59e0b'],
+        borderWidth: 2, borderRadius: 6
       }]
     },
     options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: function(ctx) { return ' Sentiment: +' + ctx.raw.toFixed(2); } } }
-      },
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` Sentiment: ${c.raw.toFixed(2)}` } } },
       scales: {
-        x: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0 to +1.0)', font: { size: 11 }, color: '#888' } },
-        y: { ticks: { font: { size: 12 } }, grid: { display: false } }
+        y: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0–1)', font: { size: 11 }, color: '#888' } },
+        x: { ticks: { font: { size: 11 } }, grid: { display: false } }
       }
     }
   });

@@ -3,8 +3,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bugaboo Group – Social Listening Dashboard</title>
-<link rel="stylesheet" href="./style.css">
-<script src="./chart.umd.js"></script>
+  <script src="./chart.umd.js"></script>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
@@ -13,12 +13,12 @@
     <div class="logo-badge">B</div>
     <div>
       <div class="header-title">Bugaboo Group · Social Listening</div>
-      <div class="header-sub">Bugaboo · Joolz · Artipoppe &nbsp;|&nbsp; Week ending 13 Jul 2026</div>
+      <div class="header-sub">Bugaboo · Joolz · Artipoppe &nbsp;|&nbsp; Week ending 20 Jul 2026</div>
     </div>
   </div>
   <div class="header-right">
     <span class="pill live">● Live data</span>
-    <span class="pill warn">⚠ 2 active recalls · 1 shipping / comms gap</span>
+    <span class="pill warn">⚠ 2 active recalls · NEW patent suit names Bugaboo + Artipoppe</span>
     <span class="pill">3 brands · 5 platforms</span>
   </div>
 </div>
@@ -42,37 +42,42 @@
     <div class="kpi">
       <div class="label">Bugaboo Trustpilot</div>
       <div class="value warn">4.0 <span style="font-size:16px;">★</span></div>
-      <div class="delta">~2,600 reviews · <span style="color:#888;font-size:11px;">→ holding at 4.0★, minor CS drag</span></div>
+      <div class="delta">~2,614 reviews · <span style="color:#16a34a;font-size:11px;">→ holding at 4.0★, sentiment steadying</span></div>
     </div>
     <div class="kpi">
       <div class="label">Joolz Trustpilot</div>
       <div class="value warn">3.1 <span style="font-size:16px;">★</span></div>
-      <div class="delta">~1,000 reviews · <span style="color:#888;font-size:11px;">→ stable, CS complaints elevated</span></div>
+      <div class="delta">~1,040 reviews · <span style="color:#888;font-size:11px;">→ stable, CS complaints elevated</span></div>
     </div>
     <div class="kpi">
       <div class="label">Artipoppe Sentiment</div>
       <div class="value warn">Mixed</div>
-      <div class="delta">Alternatives trend growing · <span style="color:#dc2626;font-size:11px;">↓ +0.17</span></div>
+      <div class="delta">NEW patent suit adds legal risk · <span style="color:#dc2626;font-size:11px;">↓ +0.15</span></div>
     </div>
     <div class="kpi">
-      <div class="label">Active Recalls</div>
-      <div class="value neg">2</div>
-      <div class="delta">Bugaboo Giraffe (ongoing) · Joolz Aer2 adapter (shipping regionally, global page stale)</div>
+      <div class="label">Active Recalls / Legal</div>
+      <div class="value neg">2 recalls + 3 suits</div>
+      <div class="delta">Bugaboo Giraffe · Joolz Aer2 · NEW Ergobaby v. Bugaboo/Artipoppe patent suit</div>
     </div>
   </div>
 
   <div class="alert-banner">
-    <span>🚨</span>
-    <div><span class="bold">THIS WEEK — Joolz Aer2 recall: fix has shipped, but comms are inconsistent and a law firm is now soliciting claimants:</span> Country-specific Joolz recall pages (UK, Benelux) now confirm the improved Car Seat Adapter S2 is available and on sale (~$59.99) at Nordstrom, Albee Baby, Bambi Baby, Strolleria, and Destination Baby Kids. However, Joolz's <em>global</em> recall page has not been updated and still shows the stale "expected end of June" language, and the CPSC listing still shows remedy as "Refund" with no update. Separately, the law firm Johnson &amp; Becker is now actively soliciting recall claimants for a product-liability suit — a new legal-exposure signal even though the safety fix itself appears resolved. Recommend closing the comms gap on the global page immediately and briefing legal on the claimant solicitation. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ Full recall details in Recalls tab</a></div>
+    <span>⚖️</span>
+    <div><span class="bold">NEW THIS WEEK — Ergobaby patent suit names Bugaboo entities alongside Artipoppe:</span> While researching the ongoing Ergobaby v. Mabe carrier patent fight, we found a second, previously untracked Ergobaby suit: <em>The Ergo Baby Carrier, Inc. v. Bugaboo North America, Inc.</em> (Case No. 1:26-cv-00315, SDNY, Judge Katherine Polk Failla), filed 13 Jan 2026 and naming <strong>Artipoppe B.V., Bugaboo International B.V., and Bugaboo North America, Inc. as co-defendants</strong>. Ergobaby alleges the Artipoppe Zeitgeist carrier infringes U.S. Patents 10,426,275 and 12,016,470. This is the first filing we've seen that formally links Bugaboo Group entities to Artipoppe as co-defendants — worth confirming internally what the underlying corporate relationship is (distribution, licensing, or investment), since our tracking has treated Artipoppe as independent. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ Full details in Recalls tab</a></div>
+  </div>
+
+  <div class="alert-banner" style="background:#fffbeb;border-color:#fcd34d;color:#92400e;">
+    <span>🔧</span>
+    <div><span class="bold">Joolz Aer2 recall — the comms gap is now three weeks stale:</span> We confirmed directly on joolz.com this week that the UK/EMEA recall page has been properly updated — the improved Car Seat Adapter S2 is confirmed "now available" and in stock at Nordstrom and Albee Baby in the US. But Joolz's <em>global</em> recall page (joolz.com/global) still reads "expected end of June" with no shipment confirmation, and the CPSC listing (recall #26-568, dated 18 Jun 2026 — a later, US-specific action distinct from the 21 May 2026 UK/EMEA notice) still shows remedy as "Refund" only. Johnson &amp; Becker continues to solicit claimants. Recommend escalating the global-page fix past the team that owns it — this has now sat stale for three consecutive weekly cycles. <a href="#" class="goto-recalls" style="color:#92400e;font-weight:600;">→ Full recall details in Recalls tab</a></div>
   </div>
 
   <div class="success-banner">
     <span>🎉</span>
-    <div><span class="bold">Elsewhere this week:</span> Bugaboo holds at 4.0★ on ~2,600 Trustpilot reviews (stable), though sentiment softened slightly on BBB complaints about the Giraffe recall's no-refund, repair-only remedy and support access issues. Butterfly 2 vs Cybex Coya and Donkey/Fox 5 Renew vs UPPAbaby Vista V3 comparison content remain active, alongside the ongoing Pish Posh Baby 3-way (Dragonfly vs UPPAbaby Cruz vs Joolz Hub) placement. Artipoppe sentiment slipped to +0.17 as the "Artipoppe Alternatives" de-influencing trend keeps growing and a dedicated "Artipoppe Negative Review" TikTok hub has emerged, with still zero brand response across all five open controversy threads.</div>
+    <div><span class="bold">Elsewhere this week:</span> Bugaboo holds at 4.0★ on ~2,614 Trustpilot reviews with no fresh BBB escalation this week — sentiment is steadying after last week's dip. Fox 5 Renew vs Cybex Priam 4 vs Nuna MIXX Next and Bugaboo vs UPPAbaby comparison content remain active. UPPAbaby's new "Kona" mid-size stroller is now confirmed shipping late September 2026 via boutique retailers only. Artipoppe sentiment eased further to +0.15 as the existing controversy cluster persists and a new named alternative ("Chekoh") joined the TikTok "Artipoppe Alternatives" trend — and Artipoppe was notably absent from Forbes Vetted's 2026 "best baby carriers" roundup (Ergobaby Omni Deluxe, Tula Explore, and Wildbird Aerial took the top honors).</div>
   </div>
 
   <div class="card">
-    <div class="card-title">Brand Sentiment Overview — Week of 13 Jul 2026</div>
+    <div class="card-title">Brand Sentiment Overview — Week of 20 Jul 2026</div>
     <div class="brand-row">
       <div class="brand-icon" style="background:#e63946;color:#fff;">B</div>
       <div>
@@ -81,13 +86,13 @@
       </div>
       <div class="brand-bar-col">
         <div class="sentiment-bar-wrap">
-          <div class="sentiment-bar"><div class="sentiment-fill" style="width:65%;background:#16a34a;"></div></div>
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:68%;background:#16a34a;"></div></div>
         </div>
-        <div class="text-sm mt8">Sentiment score: +0.65 · Trustpilot 4.0★ holds on ~2,600 reviews · BBB complaints re: no-refund/repair-only recall remedy weigh on score · Butterfly 2 vs Cybex Coya + Donkey/Fox 5 Renew vs Vista V3 comparisons ongoing</div>
+        <div class="text-sm mt8">Sentiment score: +0.68 · Trustpilot 4.0★ holds on ~2,614 reviews · no fresh BBB escalation this week · NEW: named in Ergobaby v. Bugaboo/Artipoppe patent suit (tracked as legal risk, not scored into sentiment) · Fox 5 Renew vs Cybex Priam 4 vs Nuna MIXX Next comparisons ongoing</div>
       </div>
       <div class="brand-meta">
         <span class="sentiment-pill s-pos">Positive</span>
-        <div class="text-sm" style="margin-top:4px;">~2,600 reviews</div>
+        <div class="text-sm" style="margin-top:4px;">~2,614 reviews</div>
       </div>
     </div>
     <div class="brand-row">
@@ -98,13 +103,13 @@
       </div>
       <div class="brand-bar-col">
         <div class="sentiment-bar-wrap">
-          <div class="sentiment-bar"><div class="sentiment-fill" style="width:40%;background:#d97706;"></div></div>
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:18%;background:#d97706;"></div></div>
         </div>
-        <div class="text-sm mt8">Sentiment score: +0.20 · Trustpilot 3.1★ (999 reviews, 37% 1-star) · Aer2 adapter S2 now shipping regionally, but global recall page stale + new law-firm claimant solicitation · Aer2 vs Butterfly 2 comparison content continues</div>
+        <div class="text-sm mt8">Sentiment score: +0.18 · Trustpilot 3.1★ (~1,040 reviews) · Aer2 adapter S2 confirmed shipping/in stock, but global recall page + CPSC listing still stale (3rd week running) + law-firm claimant solicitation continues · Aer2 vs Butterfly 2 comparison content continues</div>
       </div>
       <div class="brand-meta">
         <span class="sentiment-pill s-mix">Mixed</span>
-        <div class="text-sm" style="margin-top:4px;">~1,000 reviews</div>
+        <div class="text-sm" style="margin-top:4px;">~1,040 reviews</div>
       </div>
     </div>
     <div class="brand-row">
@@ -115,20 +120,20 @@
       </div>
       <div class="brand-bar-col">
         <div class="sentiment-bar-wrap">
-          <div class="sentiment-bar"><div class="sentiment-fill" style="width:17%;background:#dc2626;"></div></div>
+          <div class="sentiment-bar"><div class="sentiment-fill" style="width:15%;background:#dc2626;"></div></div>
         </div>
-        <div class="text-sm mt8">Sentiment score: +0.17 · Controversy cluster stable (5 threads, zero brand response) · NEW: "Artipoppe Negative Review" TikTok hub emerged · "Artipoppe Alternatives" trend keeps growing, now naming Mabē, Portier, Ergobaby Embrace</div>
+        <div class="text-sm mt8">Sentiment score: +0.15 · Controversy cluster stable (5 threads, zero brand response) · NEW: named as co-defendant (with Bugaboo entities) in Ergobaby carrier-patent suit over the Zeitgeist · NEW alternative "Chekoh" joins the Alternatives trend · absent from Forbes Vetted's 2026 best-carriers roundup</div>
       </div>
       <div class="brand-meta">
         <span class="sentiment-pill s-mix">Mixed</span>
-        <div class="text-sm" style="margin-top:4px;">Controversy active</div>
+        <div class="text-sm" style="margin-top:4px;">Controversy + legal risk active</div>
       </div>
     </div>
   </div>
 
   <div class="two-col">
     <div class="card">
-      <div class="card-title">Week-on-Week Shifts (6 Jul → 13 Jul 2026)</div>
+      <div class="card-title">Week-on-Week Shifts (13 Jul → 20 Jul 2026)</div>
       <div class="chart-wrap tall">
         <canvas id="wowChart"></canvas>
       </div>
@@ -138,16 +143,17 @@
       <div class="table-wrap"><table>
         <thead><tr><th>Topic</th><th>Brand</th><th>Sentiment</th></tr></thead>
         <tbody>
-          <tr><td>Bugaboo Trustpilot holds 4.0★ on ~2,600 reviews</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
-          <tr><td>BBB complaints escalate: no-refund/repair-only remedy on Giraffe recall, support access issues</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="amber">Watch</td></tr>
-          <tr><td>Butterfly 2 vs Cybex Coya + Donkey/Fox 5 Renew vs UPPAbaby Vista V3 comparisons continue</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
-          <tr><td>NEW Mumsnet thread: "Bugaboo Dragonfly or Nuna Triv Next?"</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
-          <tr><td>NEW: Aer2 adapter S2 confirmed shipping/on sale in UK &amp; Benelux — recall moving toward resolution</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="green">Positive</td></tr>
-          <tr><td>⚠ NEW: Global Joolz recall page not updated to match regional pages — comms gap</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="amber">Watch</td></tr>
-          <tr><td>⚠ NEW: Law firm (Johnson &amp; Becker) actively soliciting Aer2 recall claimants</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="red">Urgent</td></tr>
-          <tr><td>Joolz Trustpilot shows heavy CS complaint volume (37% 1-star reviews)</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="red">Negative</td></tr>
-          <tr><td>Artipoppe 5-thread controversy cluster stable, no new story, still zero brand response</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="amber">Mixed</td></tr>
-          <tr><td>NEW: "Artipoppe Negative Review" TikTok hub emerged; Alternatives trend expands to Mabē / Portier / Ergobaby Embrace</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Watch</td></tr>
+          <tr><td>⚖️ NEW: Ergobaby v. Bugaboo North America/Artipoppe patent suit discovered — Zeitgeist carrier</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="red">Urgent</td></tr>
+          <tr><td>Bugaboo Trustpilot holds 4.0★ on ~2,614 reviews, no fresh BBB escalation this week</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>Fox 5 Renew vs Cybex Priam 4 vs Nuna MIXX Next comparisons continue</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="green">Positive</td></tr>
+          <tr><td>NEW: UPPAbaby Kona confirmed shipping late Sept 2026, boutique-exclusive distribution</td><td class="bold" style="color:#e63946;">Bugaboo</td><td class="amber">Watch</td></tr>
+          <tr><td>Aer2 adapter S2 confirmed in stock at Nordstrom/Albee Baby — safety fix holding</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="green">Positive</td></tr>
+          <tr><td>⚠ Global Joolz recall page + CPSC listing still not updated — comms gap now 3 weeks stale</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="red">Urgent</td></tr>
+          <tr><td>Johnson &amp; Becker still soliciting Aer2 recall claimants</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="amber">Watch</td></tr>
+          <tr><td>NEW: historical Joolz Hub² (UK) wheel-detachment recall found on record (Oct 2025, resolved via replacement)</td><td class="bold" style="color:#6366f1;">Joolz</td><td class="text-sm">Info</td></tr>
+          <tr><td>⚖️ NEW: Artipoppe named co-defendant with Bugaboo entities in Ergobaby carrier-patent suit</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="red">Urgent</td></tr>
+          <tr><td>NEW: "Chekoh" joins Wildbird/Mabē as a named Artipoppe alternative on TikTok</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="amber">Watch</td></tr>
+          <tr><td>Artipoppe absent from Forbes Vetted 2026 "best baby carriers" roundup</td><td class="bold" style="color:#f59e0b;">Artipoppe</td><td class="amber">Mixed</td></tr>
         </tbody>
       </table></div>
     </div>
@@ -157,15 +163,15 @@
     <div class="card-title">This Week's Recommended Actions</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo (defend 4.0★ + get ahead of the refund-policy complaint pattern):</span> Trustpilot is holding at 4.0★ on ~2,600 reviews, but sentiment softened this week as BBB complaints increasingly cite the Giraffe recall's repair-only, no-refund remedy and support access issues — this is now bleeding into general brand perception, not just the highchair category. Keep deploying the 4.0★ stat in Butterfly 2 vs Cybex Coya and Donkey/Fox 5 Renew vs Vista V3 comparison content, but pair it with a visible, fast CS response to the refund complaints before the pattern compounds further.</div>
+      <div><span class="bold">Bugaboo — confirm the scope of the new Ergobaby patent suit before it becomes public conversation:</span> Legal should confirm internally what Bugaboo North America's and Bugaboo International's actual relationship to Artipoppe B.V. is, given both are named as co-defendants alongside Artipoppe in Ergobaby's Zeitgeist patent suit (filed Jan 2026, first surfaced in our tracking this week). Separately, keep deploying the steadying 4.0★/~2,614-review Trustpilot stat in Fox 5 Renew vs Cybex Priam 4 / Nuna MIXX Next comparison content, and prepare talking points ahead of UPPAbaby Kona's confirmed late-September boutique launch.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div><span class="bold">Joolz — close the recall comms gap and get ahead of legal solicitation:</span> The good news: the improved Aer2 adapter (S2) is confirmed shipping and on sale in the UK and Benelux. The gap: Joolz's global recall page still shows stale "end of June" language and the CPSC listing hasn't been updated to reflect availability — this inconsistency is now a bigger risk than the delay itself. Update the global page and CPSC status this week. Separately, a law firm (Johnson &amp; Becker) is actively soliciting recall claimants — loop in legal now, before this surfaces on Mumsnet or press. Independently, keep pushing the Trustpilot CS response sprint (37% of reviews are 1-star).</div>
+      <div><span class="bold">Joolz — escalate the global recall page fix; it's now a 3-week-old open item:</span> The improved Aer2 adapter (S2) is confirmed in stock at US retailers (Nordstrom, Albee Baby) and the UK/EMEA recall page has been properly updated. But Joolz's global recall page and the CPSC listing (recall #26-568) are still showing stale "pending"/"refund only" language three weeks after the fix shipped — this is no longer a delay, it's a standing inconsistency that should be escalated past whoever owns that page. Continue monitoring the Johnson &amp; Becker claimant solicitation and the Trustpilot CS response sprint.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><span class="bold">Artipoppe audience — deploy carrier-to-stroller transition content:</span> Sentiment slipped to +0.17 as the "Artipoppe Alternatives" de-influencing trend keeps growing (now naming Mabē, Portier, Ergobaby Embrace, WildBird) and a new "Artipoppe Negative Review" TikTok hub has emerged — with zero brand response across all five open controversy threads. Bugaboo's 4.0★ Trustpilot on ~2,600 reviews vs Artipoppe's ~62 reviews remains a strong credibility contrast. Target the "carrier fatigue at 5–9 months / heavier baby" moment with Donkey 6 and Fox 5 Renew content — this audience is warm and increasingly primed to switch.</div>
+      <div><span class="bold">Artipoppe audience — the transition-content opportunity is now reinforced by a legal and an editorial signal:</span> Sentiment eased to +0.15 as the existing controversy cluster persists, a new "Chekoh" alternative joined the naming trend, and Artipoppe didn't appear in Forbes Vetted's 2026 best-carriers list (Ergobaby, Tula, and Wildbird did). Layer in the new Ergobaby patent suit as a further credibility question mark. Bugaboo's steady 4.0★ on ~2,614 reviews remains the strongest counter-narrative — keep targeting the "carrier fatigue at 5–9 months" moment with Donkey 6 and Fox 5 Renew content.</div>
     </div>
   </div>
 </div>
@@ -173,13 +179,13 @@
 <!-- BUGABOO -->
 <div class="page" id="page-bugaboo">
   <div class="section-header">
-    Bugaboo <span class="brand-badge" style="background:#fef2f2;color:#e63946;">Positive · 4.0★ holds · Sentiment softened on CS/refund complaints</span>
+    Bugaboo <span class="brand-badge" style="background:#fef2f2;color:#e63946;">Positive · 4.0★ holds · Sentiment steadying, NEW patent suit surfaced</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">Trustpilot Score</div>
       <div class="value warn">4.0★</div>
-      <div class="delta">~2,600 reviews · <span style="color:#888;font-size:11px;">→ holding at milestone</span></div>
+      <div class="delta">~2,614 reviews · <span style="color:#16a34a;font-size:11px;">→ holding at milestone</span></div>
     </div>
     <div class="kpi">
       <div class="label">Instagram (Global)</div>
@@ -193,39 +199,39 @@
     </div>
     <div class="kpi">
       <div class="label">Sentiment Score</div>
-      <div class="value pos">+0.65</div>
-      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ −0.08</span> vs prior week · refund-policy complaints weigh on score</div>
+      <div class="value pos">+0.68</div>
+      <div class="delta"><span style="color:#16a34a;font-size:11px;">↑ +0.03</span> vs prior week · no fresh BBB escalation this week</div>
     </div>
   </div>
   <div class="success-banner">
     <span>⭐</span>
-    <div><span class="bold">Trustpilot holds at 4.0★ on ~2,600 reviews:</span> Bugaboo sustains the 4.0★ milestone for a third straight week. This remains a meaningful social proof point for US and UK markets and continues to be the strongest credibility asset across the whole Bugaboo Group portfolio, even as sentiment softened slightly this week.</div>
+    <div><span class="bold">Trustpilot holds at 4.0★ on ~2,614 reviews:</span> Bugaboo sustains the 4.0★ milestone for a fourth straight week, and sentiment ticked back up slightly as no new BBB complaint escalation surfaced this week. This remains the strongest credibility asset across the whole Bugaboo Group portfolio.</div>
   </div>
   <div class="info-banner">
     <span>🎵</span>
-    <div><span class="bold">Comparison content remains the dominant organic conversation driver:</span> Butterfly 2 vs Cybex Coya travel-stroller comparisons continue across press and TikTok. Donkey 6 / Fox 5 Renew vs UPPAbaby Vista V3 full-size comparisons remain active across Strolleria, baby enRoute, and editorial blogs — key talking points unchanged: 17% CO2 footprint reduction, 50% more basket capacity, slim 60cm single mode, Red Dot Award 2026, water-free textile dyeing. The Pish Posh Baby 3-way (Dragonfly vs UPPAbaby Cruz vs Joolz Hub) comparison is still circulating.</div>
-  </div>
-  <div class="alert-banner">
-    <span>⚠️</span>
-    <div><span class="bold">NEW — CS complaint pattern is escalating, now tied explicitly to the recall remedy:</span> Better Business Bureau complaints this week increasingly cite the Giraffe recall's repair-only remedy (no refunds offered, only a 5–7 day repair kit) and difficulty reaching support by phone. This is a distinct escalation from the prior "damaged units / DIY disassembly" complaints and is the leading driver of this week's sentiment dip. Recommend a visible CS response before it compounds further.</div>
+    <div><span class="bold">Comparison content remains the dominant organic conversation driver:</span> Fox 5 Renew vs Cybex Priam 4 vs Nuna MIXX Next premium-stroller face-offs are the most active new comparison thread this week, alongside continuing Bugaboo vs UPPAbaby general comparisons and the ongoing Butterfly 2 vs Cybex Coya and Donkey 6/Fox 5 Renew vs UPPAbaby Vista V3 battles. Key talking points unchanged: 17% CO2 footprint reduction, 50% more basket capacity, slim 60cm single mode, Red Dot Award 2026, water-free textile dyeing.</div>
   </div>
   <div class="alert-banner">
     <span>⚖️</span>
-    <div><span class="bold">Active legal risk:</span> Bugaboo Giraffe highchair class action (Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688, SDNY) remains active with no settlement as of 13 Jul 2026 — docket last showed movement in mid-January 2026. "Bugaboo blamed consumers" framing continues to circulate on parent forums and legal news sites. Stroller range unaffected — maintain clear narrative separation. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab</a></div>
+    <div><span class="bold">NEW — Ergobaby patent suit names Bugaboo North America and Bugaboo International as co-defendants:</span> While tracking the Ergobaby v. Mabe carrier-patent fight, we found a second Ergobaby suit that had not previously appeared in our monitoring: <em>The Ergo Baby Carrier, Inc. v. Bugaboo North America, Inc.</em> (Case No. 1:26-cv-00315, SDNY, filed 13 Jan 2026, Judge Katherine Polk Failla), which also names Artipoppe B.V. and Bugaboo International B.V. Ergobaby alleges the Artipoppe Zeitgeist carrier infringes U.S. Patents 10,426,275 and 12,016,470. This is the first filing linking Bugaboo Group entities to Artipoppe as co-defendants — recommend confirming internally what the underlying relationship is. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab</a></div>
+  </div>
+  <div class="alert-banner">
+    <span>⚖️</span>
+    <div><span class="bold">Giraffe highchair class action — no change:</span> Sturtz v. Bugaboo North America Inc. (Case No. 1:25-cv-05688, SDNY) remains active with no settlement as of 20 Jul 2026 — docket last showed movement in mid-January 2026, and no newer public filings were found this week. Separately, a minor unrelated matter (Juarez v. Bugaboo North America Inc., a Telephone Consumer Protection Act/robocall case, C.D. Cal., filed 28 Apr 2026) is proceeding — low materiality, noted for completeness. Stroller range unaffected by either matter — maintain clear narrative separation. <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ See Recalls tab</a></div>
   </div>
   <div class="two-col">
     <div class="card">
       <div class="card-title">Trending Topics</div>
       <div class="topic-tags">
-        <span class="topic-tag trending">Trustpilot 4.0★ holds — ~2,600 reviews</span>
-        <span class="topic-tag trending">Butterfly 2 vs Cybex Coya — travel stroller battle ongoing</span>
+        <span class="topic-tag trending">Trustpilot 4.0★ holds — ~2,614 reviews</span>
+        <span class="topic-tag trending">NEW: Fox 5 Renew vs Cybex Priam 4 vs Nuna MIXX Next premium face-off</span>
+        <span class="topic-tag trending">Bugaboo vs UPPAbaby general comparison content continues</span>
         <span class="topic-tag trending">Donkey 6 / Fox 5 Renew vs UPPAbaby Vista V3 comparison content continuing</span>
-        <span class="topic-tag trending">Pish Posh Baby 3-way comparison (Dragonfly vs UPPAbaby Cruz vs Joolz Hub) still circulating</span>
         <span class="topic-tag trending">Donkey 6 Red Dot Award 2026 · 17% CO2 reduction · 50% more basket</span>
         <span class="topic-tag trending">Butterfly 2 vs YOYO3 — TikTok loop still active</span>
-        <span class="topic-tag info">Mumsnet: NEW thread "Bugaboo Dragonfly or Nuna Triv Next?"</span>
+        <span class="topic-tag info">Mumsnet: "Bugaboo Dragonfly or Nuna Triv Next?" thread still active</span>
         <span class="topic-tag info">Fox 5 Renew sustainability — 30% lower CO2 · recycled aluminium</span>
-        <span class="topic-tag alert">NEW: BBB complaints escalate — recall's no-refund, repair-only remedy + support access issues</span>
+        <span class="topic-tag alert">NEW: Ergobaby patent suit names Bugaboo North America + Bugaboo International as co-defendants (with Artipoppe)</span>
         <span class="topic-tag alert">Giraffe highchair class action still active — no settlement, docket stale since Jan</span>
       </div>
     </div>
@@ -235,24 +241,24 @@
         Bugaboo Strollers — 565 reviews (ConsumerAffairs)
         <div class="post-platform">🌐 ConsumerAffairs · Review roundup</div>
       </a>
-      <a class="post-link" href="https://www.sheknows.com/parenting/articles/1234971619/cybex-vs-bugaboo-stroller-review-2026/" target="_blank">
-        Cybex vs Bugaboo Stroller Review 2026 (SheKnows)
-        <div class="post-platform">🌐 SheKnows · Comparison content</div>
+      <a class="post-link" href="https://kidobebe.com/blogs/the-adventure-of-motherhood/cybex-priam-4-vs-bugaboo-fox-5-vs-nuna-mixx-next-premium-stroller-face-off" target="_blank">
+        NEW — Cybex Priam 4 vs Bugaboo Fox 5 vs Nuna MIXX Next (Kidobebe)
+        <div class="post-platform">🌐 Kidobebe · Comparison content</div>
       </a>
       <a class="post-link" href="https://www.babyenroute.com/blogs/blog/uppababy-vista-v3-vs-bugaboo-fox-5-renew-the-ultimate-2026-stroller-showdown" target="_blank">
         UPPAbaby Vista V3 vs Bugaboo Fox 5 Renew — 2026 Showdown (baby enRoute)
         <div class="post-platform">🌐 baby enRoute · Comparison content</div>
       </a>
-      <a class="post-link" href="https://www.bbb.org/us/ca/el-segundo/profile/restaurants/bugaboo-north-america-1216-427185/complaints" target="_blank">
-        Bugaboo North America — BBB complaints (recall no-refund remedy, support access)
-        <div class="post-platform">📋 Better Business Bureau · Escalating pattern</div>
+      <a class="post-link" href="https://www.courtlistener.com/docket/72139764/the-ergo-baby-carrier-inc-v-bugaboo-north-america-inc/" target="_blank">
+        NEW — The Ergo Baby Carrier, Inc. v. Bugaboo North America, Inc. (1:26-cv-00315)
+        <div class="post-platform">⚖️ CourtListener · Names Artipoppe + Bugaboo International as co-defendants</div>
       </a>
       <a class="post-link" href="https://www.courtlistener.com/docket/70750563/parties/sturtz-v-bugaboo-north-america-inc/" target="_blank">
         Sturtz v. Bugaboo North America Inc. — case docket
         <div class="post-platform">⚖️ CourtListener · No settlement, docket stale since Jan 2026</div>
       </a>
       <a class="post-link" href="https://uk.trustpilot.com/review/www.bugaboo.com" target="_blank">
-        Bugaboo on Trustpilot — ~2,600 reviews, 4.0★
+        Bugaboo on Trustpilot — ~2,614 reviews, 4.0★
         <div class="post-platform">⭐ Trustpilot · Holding at milestone</div>
       </a>
     </div>
@@ -261,42 +267,42 @@
     <div class="card-title">Mumsnet · UK Forum</div>
     <div class="info-banner" style="margin-bottom:10px;">
       <span>🇬🇧</span>
-      <div><span class="bold">UK Sentiment: Strong</span> — The Bugaboo Dragonfly review remains live on Mumsnet (21% CO2 footprint reduction via bio-based materials). Butterfly 2 remains best versatile lightweight (88/100). NEW this week: an active "Bugaboo Dragonfly or Nuna Triv Next?" thread shows Bugaboo entering cross-category consideration outside the Bugaboo Group portfolio. The "Joolz Aer2 vs Bugaboo Butterfly 2" thread remains active. Recurring UK themes: turning circle/urban handling and value-for-money debates (is Donkey/Cameleon worth it vs Bee). CS/refund complaints have still not surfaced as a Mumsnet thread.</div>
+      <div><span class="bold">UK Sentiment: Strong</span> — The Bugaboo Dragonfly review remains live on Mumsnet (21% CO2 footprint reduction via bio-based materials). Butterfly 2 remains best versatile lightweight (88/100). The "Bugaboo Dragonfly or Nuna Triv Next?" thread remains active, and the "Joolz Aer2 vs Bugaboo Butterfly 2" thread continues too. Recurring UK themes: turning circle/urban handling and value-for-money debates (is Donkey/Cameleon worth it vs Bee). CS/refund complaints and the new Ergobaby patent suit have not surfaced as Mumsnet topics.</div>
     </div>
     <div class="card-title" style="margin-top:8px;">Top Mumsnet Threads / Reviews</div>
-    <a class="post-link" href="https://www.mumsnet.com/talk/pushchair_chat/5045356-bugaboo-dragonfly-or-nuna-triv-next" target="_blank">NEW — "Bugaboo Dragonfly or Nuna Triv Next?" — active forum thread<div class="post-platform">🌐 Mumsnet Forum · New this week</div></a>
+    <a class="post-link" href="https://www.mumsnet.com/talk/pushchair_chat/5045356-bugaboo-dragonfly-or-nuna-triv-next" target="_blank">"Bugaboo Dragonfly or Nuna Triv Next?" — active forum thread<div class="post-platform">🌐 Mumsnet Forum · Ongoing</div></a>
     <a class="post-link" href="https://www.mumsnet.com/talk/parenting/5356491-joolz-aer2-vs-bugaboo-butterfly-2" target="_blank">"Joolz Aer2 vs Bugaboo Butterfly 2" — active forum comparison thread<div class="post-platform">🌐 Mumsnet Forum · Ongoing</div></a>
     <a class="post-link" href="https://www.mumsnet.com/reviews/bugaboo-dragonfly-review" target="_blank">Bugaboo Dragonfly Review — 21% CO2 reduction via bio-based materials<div class="post-platform">🌐 Mumsnet Review</div></a>
     <div class="card-title" style="margin-top:10px;">UK-Specific Topics</div>
     <div class="topic-tags">
-      <span class="topic-tag trending">NEW: Bugaboo Dragonfly vs Nuna Triv Next — cross-category consideration</span>
+      <span class="topic-tag trending">Bugaboo Dragonfly vs Nuna Triv Next — cross-category consideration ongoing</span>
       <span class="topic-tag trending">Butterfly 2 = best versatile lightweight (88/100)</span>
       <span class="topic-tag info">Turning circle / urban handling debates</span>
       <span class="topic-tag trending">Value-for-money scrutiny — is Donkey/Cameleon worth it vs Bee?</span>
-      <span class="topic-tag">CS/refund complaints not yet on Mumsnet radar</span>
+      <span class="topic-tag">CS/refund complaints + new patent suit not yet on Mumsnet radar</span>
     </div>
   </div>
   <div class="card">
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><strong>Holding at 4.0★ is now the baseline to defend, but sentiment softened this week.</strong> Trustpilot has sustained 4.0★ on ~2,600 reviews for a third week — keep using it in social copy and comparison content. However, overall sentiment dipped to +0.65 (from +0.73) as BBB complaints increasingly cite the Giraffe recall's repair-only, no-refund remedy. Rapid, visible CS responses to these complaints are now the priority to protect the 4.0★ baseline.</div>
+      <div><strong>Holding at 4.0★ for a fourth week, and sentiment ticked back up.</strong> Trustpilot has sustained 4.0★ on ~2,614 reviews — keep using it in social copy and comparison content. Sentiment recovered slightly to +0.68 (from +0.65) as no new BBB complaint escalation surfaced this week. Continued vigilance on the refund/repair-only complaint pattern is still worthwhile, since it hasn't been resolved, just quiet this week.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>Comparison content remains Bugaboo's strongest organic channel: <strong>Butterfly 2 vs Cybex Coya</strong>, <strong>Donkey 6 / Fox 5 Renew vs UPPAbaby Vista V3</strong>, and the ongoing <strong>Pish Posh Baby 3-way (Dragonfly vs UPPAbaby Cruz vs Joolz Hub)</strong> placement all continue to circulate favourably. UPPAbaby's new "Kona" mid-size stroller (launching Fall 2026) is worth watching as a fresh entrant into this comparison space.</div>
+      <div>Comparison content remains Bugaboo's strongest organic channel: the <strong>Fox 5 Renew vs Cybex Priam 4 vs Nuna MIXX Next</strong> three-way face-off is the most active new thread this week, alongside the ongoing <strong>Bugaboo vs UPPAbaby</strong> general comparison content and <strong>Donkey 6/Fox 5 Renew vs UPPAbaby Vista V3</strong>. UPPAbaby's "Kona" mid-size stroller is now confirmed shipping late September 2026 via boutique retailers only (not Amazon/big-box) — worth a comparison brief ahead of launch.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><strong>Donkey 6 / Fox 5 Renew vs UPPAbaby Vista V3 comparison content continues.</strong> Bugaboo's differentiating talking points remain: 17% CO2 reduction (Red Dot Award 2026), 33 lbs basket capacity (+50% vs Donkey 5), slim 60cm single mode, water-free dyeing. These three specs continue to win the comparison content on sustainability and practicality.</div>
+      <div><strong>NEW legal exposure surfaced this week:</strong> a patent-infringement suit — Ergobaby v. Bugaboo North America / Artipoppe B.V. / Bugaboo International B.V. (filed Jan 2026, SDNY) — names Bugaboo entities as co-defendants alongside Artipoppe over the Zeitgeist carrier. This had not appeared in prior monitoring cycles. It is a distinct matter from the Giraffe highchair class action and does not affect the stroller range, but it does formally connect Bugaboo Group entities to Artipoppe litigation for the first time in our tracking.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>A <strong>new Mumsnet thread ("Bugaboo Dragonfly or Nuna Triv Next?")</strong> shows Bugaboo entering consideration sets outside the Bugaboo Group portfolio for the first time this cycle — a healthy sign of broad category relevance, worth monitoring for how Bugaboo's talking points land against a true external competitor rather than sister-brand Joolz.</div>
+      <div>The <strong>Mumsnet "Bugaboo Dragonfly or Nuna Triv Next?"</strong> thread remains active, continuing to show Bugaboo entering consideration sets outside the Bugaboo Group portfolio — a healthy sign of broad category relevance.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action:</span> (1) Launch a visible CS response to BBB complaints about the Giraffe recall's no-refund/repair-only remedy — this is now the leading driver of the sentiment dip. (2) Continue deploying "4.0★ on ~2,600 reviews" as a social proof stat in Butterfly 2 and Donkey 6/Fox 5 Renew comparison content. (3) Prepare talking points for the new UPPAbaby Kona launch ahead of its Fall 2026 debut. (4) Monitor the new Mumsnet Dragonfly-vs-Nuna thread as a cross-competitor consideration signal.</div>
+      <div><span class="bold">Recommended action:</span> (1) Confirm internally the nature of Bugaboo Group's relationship to Artipoppe B.V., given the new Ergobaby patent suit names them as co-defendants. (2) Continue deploying "4.0★ on ~2,614 reviews" in Fox 5 Renew vs Cybex Priam 4/Nuna MIXX Next comparison content. (3) Prepare talking points for UPPAbaby Kona's confirmed late-September boutique launch. (4) Keep monitoring for any recurrence of the BBB refund-policy complaint pattern.</div>
     </div>
   </div>
 </div>
@@ -304,13 +310,13 @@
 <!-- JOOLZ -->
 <div class="page" id="page-joolz">
   <div class="section-header">
-    Joolz <span class="brand-badge" style="background:#fef3c7;color:#92400e;">Mixed · 3.1★ · Recall Shipping — Global Page &amp; Legal Comms Gap</span>
+    Joolz <span class="brand-badge" style="background:#fef3c7;color:#92400e;">Mixed · 3.1★ · Recall Fix Confirmed — Global Page Still Stale (3 weeks)</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">Trustpilot Score</div>
       <div class="value warn">3.1★</div>
-      <div class="delta">~1,000 reviews (999) · <span style="color:#888;font-size:11px;">→ stable</span></div>
+      <div class="delta">~1,040 reviews · <span style="color:#888;font-size:11px;">→ stable</span></div>
     </div>
     <div class="kpi">
       <div class="label">vs Bugaboo Gap</div>
@@ -319,22 +325,26 @@
     </div>
     <div class="kpi">
       <div class="label">Recall Fix Timeline</div>
-      <div class="value warn" style="font-size:16px;">Shipping (regional)</div>
-      <div class="delta">S2 adapter on sale in UK/Benelux · global page &amp; CPSC listing not yet updated</div>
+      <div class="value warn" style="font-size:16px;">In stock (US/UK)</div>
+      <div class="delta">S2 adapter confirmed at Nordstrom/Albee Baby · global page &amp; CPSC listing still stale</div>
     </div>
     <div class="kpi">
       <div class="label">Sentiment Score</div>
-      <div class="value warn">+0.20</div>
-      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ −0.04</span> · CS complaints + new legal solicitation risk</div>
+      <div class="value warn">+0.18</div>
+      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ −0.02</span> · comms gap persisting into a 3rd week</div>
     </div>
   </div>
   <div class="alert-banner" style="background:#fffbeb;border-color:#fcd34d;color:#92400e;">
     <span>🔧</span>
-    <div><span class="bold">UPDATE — the recall fix has shipped, but comms are inconsistent and legal exposure is rising:</span> Country-specific Joolz recall pages (UK, Benelux) now confirm the improved Aer2 Car Seat Adapter Set S2 is "tested beyond industry standards" and available for sale (~$59.99) at Nordstrom, Albee Baby, Bambi Baby, Strolleria, and Destination Baby Kids. This is genuine progress from last week's overdue status. However: (1) Joolz's <strong>global</strong> recall page still shows stale "expected end of June" language, (2) the CPSC listing has not been updated and still shows remedy as "Refund" only, and (3) the law firm <strong>Johnson &amp; Becker</strong> is now actively soliciting Aer2 recall claimants for a product-liability suit. Recommend closing the comms gap immediately and briefing legal on the claimant solicitation before it gains traction. <a href="#" class="goto-recalls" style="color:#92400e;font-weight:600;">→ Full recall details in Recalls tab</a></div>
+    <div><span class="bold">UPDATE — we verified the recall status directly on joolz.com this week; the comms gap is now three weeks old:</span> Joolz's UK/EMEA recall page (publication date 21 May 2026) confirms the improved Aer2 Car Seat Adapter S2 is "now available" and "tested beyond industry standards," and we confirmed it in stock at both Nordstrom and Albee Baby in the US. That part is genuinely resolved. However: (1) Joolz's <strong>global</strong> recall page (joolz.com/global) still reads "expected end of June" with no shipment confirmation, (2) the CPSC listing (recall #26-568, a US-specific action dated 18 Jun 2026 — later than and distinct from the UK/EMEA notice) still shows remedy as "Refund" only, and (3) the law firm <strong>Johnson &amp; Becker</strong> continues actively soliciting Aer2 recall claimants. Recommend escalating the global-page fix — it has now been open for three consecutive weekly cycles. <a href="#" class="goto-recalls" style="color:#92400e;font-weight:600;">→ Full recall details in Recalls tab</a></div>
+  </div>
+  <div class="info-banner">
+    <span>📋</span>
+    <div><span class="bold">NEW discovery — a second, older Joolz recall found on the record:</span> While verifying the Aer2 status, we found a separate Joolz Hub² (UK) recall notice on joolz.com dated 2 Oct 2025, covering a specific batch of strollers (serial range HUB2CH-016488 to HUB2CH-016687) where front wheels could detach from the chassis. Joolz offered free replacements. This predates our weekly tracking and appears to have been a contained, resolved batch issue — flagging for completeness rather than as an active risk.</div>
   </div>
   <div class="alert-banner" style="background:#fff7ed;border-color:#fed7aa;color:#9a3412;">
     <span>📉</span>
-    <div><span class="bold">Trustpilot CS complaint pattern persists:</span> Of Joolz's ~1,000 Trustpilot reviews, 37% are 1-star (vs 48% 5-star) — a polarised distribution. Recurring themes: unresponsive email/phone support, incorrect or damaged parts sent, customers told to disassemble and reinstall their own frame, warranty registration friction, and a chassis/opening-mechanism failure reported in late January 2026. This is a distinct issue from the recall and should be addressed with its own CS response sprint.</div>
+    <div><span class="bold">Trustpilot CS complaint pattern persists:</span> Joolz's Trustpilot reviews continue to show a polarised distribution — strong praise for the Aer+/Aer2 buggy's handling and fold alongside frequent complaints about customer service and delivery reliability. Recurring themes this week: delayed or non-arriving orders with poor order-status communication, faulty chassis and latch parts, and difficulty obtaining replacement parts. This is a distinct issue from the recall and should be addressed with its own CS response sprint.</div>
   </div>
   <div class="info-banner">
     <span>🏆</span>
@@ -344,28 +354,28 @@
     <div class="card">
       <div class="card-title">Trending Topics</div>
       <div class="topic-tags">
-        <span class="topic-tag trending">NEW: Aer2 adapter S2 confirmed shipping/on sale in UK &amp; Benelux (~$59.99)</span>
-        <span class="topic-tag alert">NEW: Global recall page + CPSC listing not updated to match — comms gap</span>
-        <span class="topic-tag alert">NEW: Johnson &amp; Becker law firm soliciting Aer2 recall claimants</span>
-        <span class="topic-tag alert">Trustpilot: 37% 1-star reviews — unresponsive support, wrong parts, warranty friction</span>
+        <span class="topic-tag trending">Aer2 adapter S2 confirmed in stock at Nordstrom &amp; Albee Baby (US)</span>
+        <span class="topic-tag alert">Global recall page + CPSC listing still not updated — comms gap now 3 weeks old</span>
+        <span class="topic-tag alert">Johnson &amp; Becker law firm continues soliciting Aer2 recall claimants</span>
+        <span class="topic-tag alert">Trustpilot: persistent CS/delivery complaint pattern</span>
         <span class="topic-tag trending">Joolz Aer2 vs Bugaboo Butterfly 2 comparison content continues — favourable to Joolz on weight/fold</span>
         <span class="topic-tag trending">Mother&amp;Baby Silver Award 2026 — Best Lightweight Buggy</span>
-        <span class="topic-tag info">Chassis/opening-mechanism failure report on Trustpilot (late Jan 2026)</span>
+        <span class="topic-tag info">NEW: Joolz Hub² (UK) wheel-detachment recall found on record — Oct 2025, resolved via replacement</span>
         <span class="topic-tag info">Joolz as Bugaboo Group sister brand — Red Dot Award 2025 for design</span>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Top Mentions / Sources</div>
       <a class="post-link" href="https://www.joolz.com/uk/en/product-recalls.html" target="_blank">
-        NEW — Joolz UK Recall Notice: adapter S2 "now available" (Joolz official)
+        Joolz UK/EMEA Recall Notice: adapter S2 "now available" (Joolz official, pub. 21 May 2026)
         <div class="post-platform">🌐 Joolz.com (UK) · Confirms shipment</div>
       </a>
       <a class="post-link" href="https://www.joolz.com/global/en/product-recall-global/product-recall-global.html" target="_blank">
-        NEW — Joolz Global Recall Page (stale — still shows "end of June" pending)
+        Joolz Global Recall Page (still stale — "end of June" pending, 3rd week)
         <div class="post-platform">🌐 Joolz.com (Global) · Comms gap vs regional pages</div>
       </a>
       <a class="post-link" href="https://www.johnsonbecker.com/product-liability/joolz-aer2-car-seat-adapters-recall-lawsuit/" target="_blank">
-        NEW — Joolz Aer2 Car Seat Adapters Recall Lawsuit (Johnson &amp; Becker)
+        Joolz Aer2 Car Seat Adapters Recall Lawsuit (Johnson &amp; Becker)
         <div class="post-platform">⚖️ Law firm · Actively soliciting claimants</div>
       </a>
       <a class="post-link" href="https://strolleria.com/blogs/news/joolz-aer2-vs-bugaboo-butterfly-2-stroller-comparison" target="_blank">
@@ -373,11 +383,11 @@
         <div class="post-platform">🌐 Strolleria · Comparison content</div>
       </a>
       <a class="post-link" href="https://www.cpsc.gov/Recalls/2026/Joolz-Recalls-Aer2-Car-Seat-Adapters-for-Strollers-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard" target="_blank">
-        CPSC: Joolz Recalls Aer2 Car Seat Adapters — Fall Hazard (official)
+        CPSC: Joolz Recalls Aer2 Car Seat Adapters — recall #26-568, dated 18 Jun 2026
         <div class="post-platform">🏛️ CPSC · Listing not yet updated to reflect shipment</div>
       </a>
       <a class="post-link" href="https://www.trustpilot.com/review/www.joolz.com" target="_blank">
-        Joolz on Trustpilot — 999 reviews, 3.1★ (37% 1-star / 48% 5-star)
+        Joolz on Trustpilot — ~1,040 reviews, 3.1★
         <div class="post-platform">⭐ Trustpilot</div>
       </a>
     </div>
@@ -386,7 +396,7 @@
     <div class="card-title">Mumsnet · UK Forum</div>
     <div class="info-banner" style="margin-bottom:10px;">
       <span>🇬🇧</span>
-      <div><span class="bold">UK Sentiment: Positive, recall still not visible</span> — Aer2 remains a favourite for weight, fold speed, and stability vs Bugaboo Butterfly 2 in ongoing comparison threads. The recall has still NOT surfaced on Mumsnet discussions — a good sign given the fix is now shipping, but the global comms gap and law-firm solicitation mean this could still change quickly. UK mums continue to weigh Aer2 vs Butterfly 2 on handle height, included travel bag, and elasticated shoulder strap.</div>
+      <div><span class="bold">UK Sentiment: Positive, recall still not visible</span> — Aer2 remains a favourite for weight, fold speed, and stability vs Bugaboo Butterfly 2 in ongoing comparison threads. The recall has still NOT surfaced on Mumsnet discussions even after three weeks — reassuring given the UK-side fix is genuinely resolved, but the persistent global comms gap and continued law-firm solicitation mean this could still change. UK mums continue to weigh Aer2 vs Butterfly 2 on handle height, included travel bag, and elasticated shoulder strap.</div>
     </div>
     <div class="card-title" style="margin-top:8px;">Top Mumsnet Threads</div>
     <a class="post-link" href="https://www.mumsnet.com/talk/parenting/5356491-joolz-aer2-vs-bugaboo-butterfly-2" target="_blank">"Joolz Aer2 vs Bugaboo Butterfly 2" — active forum comparison thread<div class="post-platform">🌐 Mumsnet Forum · Ongoing</div></a>
@@ -404,11 +414,11 @@
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><strong>THE FIX HAS SHIPPED — but the comms trail hasn't caught up, and legal risk is rising.</strong> The improved Aer2 adapter (S2) is confirmed available for sale in the UK and Benelux, a genuine resolution of last week's overdue status. But Joolz's global recall page and the CPSC listing still show stale "pending"/"refund only" language, and a law firm (Johnson &amp; Becker) is now actively recruiting claimants for a product-liability suit. Priority this week: update the global page and CPSC status to reflect shipment, and brief legal on the claimant solicitation before it escalates further.</div>
+      <div><strong>THE FIX HAS VERIFIABLY SHIPPED — but the comms gap has now stood for three weeks.</strong> We confirmed directly on joolz.com that the UK/EMEA page and US retail listings (Nordstrom, Albee Baby) all show the improved Aer2 adapter (S2) as available. But Joolz's global recall page and the CPSC listing (#26-568) still show stale "pending"/"refund only" language — unchanged since we first flagged this two weeks ago. This is no longer a delay in catching up; it now reads as an unmaintained page, which is a reputational risk in its own right if a journalist or Mumsnet user notices the discrepancy.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>Separately, the <strong>Trustpilot review distribution (37% 1-star, 48% 5-star)</strong> shows a polarised base — happy long-term owners alongside a vocal group with unresolved CS cases, including a newly-reported chassis/opening-mechanism failure. Recurring complaints (unanswered emails/calls, incorrect or damaged parts, disassemble-it-yourself repairs, warranty registration friction) are a distinct, addressable issue from the recall and shouldn't wait for recall resolution to be tackled.</div>
+      <div>Separately, the <strong>Trustpilot review base (~1,040 reviews, 3.1★)</strong> continues to show a polarised pattern — happy long-term owners alongside a vocal group with unresolved CS cases (delayed orders, faulty parts, slow replacement fulfilment). This is a distinct, addressable issue from the recall and shouldn't wait for recall resolution to be tackled.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
@@ -416,11 +426,11 @@
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>The Trustpilot gap vs Bugaboo holds at 0.9★ now that Bugaboo has sustained 4.0★. The gap is driven by CS and fulfilment complaints, not product quality. A focused Trustpilot response campaign (responding to every 1-3★ review within 48 hours) remains the highest-leverage action Joolz can take.</div>
+      <div>We also found a <strong>second, older Joolz recall</strong> on the official recall page — a Joolz Hub² (UK) wheel-detachment issue affecting a specific serial batch, dated 2 Oct 2025, resolved via free replacement. It predates our tracking and shows no signs of being an active issue, but we're logging it here so the recall history is complete.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action:</span> (1) Update the global joolz.com recall page and the CPSC listing to reflect that the S2 adapter has shipped and is on sale — close this comms gap this week. (2) Brief legal on the Johnson &amp; Becker claimant solicitation and prepare a response protocol. (3) Launch a Trustpilot CS response sprint independent of the recall — target every 1-3★ review within 48 hours. (4) Now that the fix has shipped, issue a customer-facing closure update pairing it with the Mother&amp;Baby Silver Award to rebuild momentum.</div>
+      <div><span class="bold">Recommended action:</span> (1) Escalate the global joolz.com recall page and CPSC listing update — three weeks stale is now the story, not the delay itself. (2) Continue monitoring the Johnson &amp; Becker claimant solicitation. (3) Launch a Trustpilot CS response sprint independent of the recall — target every 1-3★ review within 48 hours. (4) Once the global page is fixed, issue a customer-facing closure update pairing it with the Mother&amp;Baby Silver Award to rebuild momentum.</div>
     </div>
   </div>
 </div>
@@ -428,7 +438,7 @@
 <!-- ARTIPOPPE -->
 <div class="page" id="page-artipoppe">
   <div class="section-header">
-    Artipoppe <span class="brand-badge" style="background:#fee2e2;color:#dc2626;">Mixed · +0.17 ↓ · Alternatives trend expanding + new "Negative Review" TikTok hub</span>
+    Artipoppe <span class="brand-badge" style="background:#fee2e2;color:#dc2626;">Mixed · +0.15 ↓ · NEW: named in Ergobaby patent suit alongside Bugaboo</span>
   </div>
   <div class="kpi-row">
     <div class="kpi">
@@ -442,31 +452,35 @@
       <div class="delta">@artipoppe · strong aspirational reach</div>
     </div>
     <div class="kpi">
-      <div class="label">Active Controversies</div>
-      <div class="value neg">5+</div>
-      <div class="delta">Mold · Plus-size · Cultural appropriation · Referral · Smoking</div>
+      <div class="label">Active Controversies / Legal</div>
+      <div class="value neg">5+ · 1 suit</div>
+      <div class="delta">Mold · Plus-size · Cultural appropriation · Referral · Smoking · NEW patent suit</div>
     </div>
     <div class="kpi">
       <div class="label">Sentiment Score</div>
-      <div class="value warn">+0.17</div>
-      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ −0.06</span> · Alternatives trend + new negative-review TikTok hub</div>
+      <div class="value warn">+0.15</div>
+      <div class="delta"><span style="color:#dc2626;font-size:11px;">↓ −0.02</span> · controversy cluster persists, new alternative named</div>
     </div>
   </div>
   <div class="alert-banner">
+    <span>⚖️</span>
+    <div><span class="bold">NEW — Artipoppe named co-defendant with Bugaboo entities in Ergobaby patent suit over the Zeitgeist:</span> The Ergo Baby Carrier, Inc. v. Bugaboo North America, Inc. (Case No. 1:26-cv-00315, SDNY, filed 13 Jan 2026) names <strong>Artipoppe B.V.</strong> alongside Bugaboo North America, Inc. and Bugaboo International B.V. as co-defendants. Ergobaby alleges the Zeitgeist carrier infringes U.S. Patents 10,426,275 and 12,016,470. This had not surfaced in our prior monitoring — it's a separate matter from the Ergobaby v. Mabe fight, and notably it puts Artipoppe's flagship product directly in a patent dispute, not just its "generic dupe" competitors. It also raises a research question worth resolving internally: what is the actual corporate relationship between Bugaboo Group and Artipoppe B.V.? <a href="#" class="goto-recalls" style="color:#9f1239;font-weight:600;">→ Full details in Recalls tab</a></div>
+  </div>
+  <div class="alert-banner" style="background:#fff1f2;border-color:#fecdd3;color:#9f1239;">
     <span>⚠️</span>
-    <div><span class="bold">Ongoing controversies — mold, plus-size, cultural appropriation, referral ethics:</span> All five controversy threads remain active on TikTok with no brand response. Mold reports (growing after correct washing), plus-size sizing exclusion, indigenous imagery concerns, referral program "MLM scheme" framing, and historical smoking imagery continue to circulate. Brand silence amplifies reach. No new major controversy this week, but five simultaneous axes of criticism with no counter-narrative remains a compounding reputational risk — and is now the primary driver of the sentiment decline.</div>
+    <div><span class="bold">Ongoing controversies — mold, plus-size, cultural appropriation, referral ethics, smoking history:</span> All five controversy threads remain active on TikTok with no brand response. No new major controversy story this week, but five simultaneous axes of criticism with no counter-narrative remains a compounding reputational risk.</div>
   </div>
   <div class="alert-banner" style="background:#fff7ed;border-color:#fed7aa;color:#9a3412;">
     <span>📉</span>
-    <div><span class="bold">"Artipoppe Alternatives" trend keeps growing — now naming specific dupes:</span> The TikTok "Artipoppe Alternatives" discovery topic has expanded from general de-influencing to naming specific competitors: Mabē, Portier, Ergobaby Embrace, and WildBird. Framing has shifted from "is it worth it?" to explicit "get 90% of the look for a fraction of the price." NEW this week: a dedicated "Artipoppe Negative Review" TikTok discovery hub has also emerged. Together these indicate price-sensitivity and controversy fatigue are actively converting into lost consideration, not just criticism.</div>
+    <div><span class="bold">"Artipoppe Alternatives" trend gains a new named competitor — "Chekoh":</span> The TikTok "Artipoppe Alternatives" discovery topic continues naming Mabē, Portier, Ergobaby Embrace, and WildBird, and this week a babywearing-educator creator added <strong>Chekoh</strong> as a top pick specifically "if you are looking for an Artipoppe alternative." The framing remains "get 90% of the look for a fraction of the price." Separately, Artipoppe did not appear in Forbes Vetted's 2026 "best baby carriers" roundup — Ergobaby Omni Deluxe (best overall), Baby Tula Explore (most supportive), and Wildbird Aerial (most stylish) took the top spots instead.</div>
   </div>
   <div class="info-banner">
     <span>🍼</span>
-    <div><span class="bold">Category context — unrelated brand safety warning:</span> The CPSC issued a warning this week for Babypark 3-in-1 children's carriers (a different, unrelated brand) over a fall hazard from oversized leg openings, with the seller not agreeing to recall. This isn't an Artipoppe issue, but it keeps baby-carrier safety in the news cycle broadly — a category-level dynamic worth monitoring in case it colours coverage of premium carriers generally.</div>
+    <div><span class="bold">Category context — unrelated brand safety warning:</span> The CPSC issued a warning for Babypark 3-in-1 children's carriers (a different, unrelated brand) over a fall hazard from oversized leg openings, with the seller not agreeing to recall. This isn't an Artipoppe issue, but it keeps baby-carrier safety in the news cycle broadly — a category-level dynamic worth monitoring in case it colours coverage of premium carriers generally.</div>
   </div>
   <div class="info-banner">
     <span>⚖️</span>
-    <div><span class="bold">Ergobaby v. Mabe patent suit escalates — adds carrier industry context:</span> The carrier legal case is actually a two-sided patent fight — Ergobaby sued Mabe (District of Idaho, filed Jan 2026) alleging its "Monarch Buckle Carrier" infringes Ergobaby patents; Mabe is countering that the patents are invalid/generic and has filed its own countersuit against Ergobaby (N.D. Cal, May 2026). It's circulating in baby carrier ethics/TikTok spaces this week (including a "Mabe vs Artipoppe" dupe tag that ironically surfaces the genericness debate). This reinforces the broader "are premium carriers just expensive generics?" narrative that also affects Artipoppe's price justification. Monitor whether this framing migrates further into Artipoppe comparison content.</div>
+    <div><span class="bold">Ergobaby v. Mabe patent suit still ongoing — adds carrier industry context:</span> Ergobaby's separate suit against Mabe (District of Idaho, filed Jan 2026) over its "Monarch Buckle Carrier" continues; Mabe is seeking dismissal or a $16M bond under Idaho's bad-faith IP law and has countersued Ergobaby (N.D. Cal, May 2026). Combined with the new Ergobaby-vs-Artipoppe/Bugaboo suit, Ergobaby is now litigating patent claims against two different "premium alternative" carrier brands simultaneously — reinforcing the "are premium carriers just expensive generics?" narrative that also pressures Artipoppe's price justification.</div>
   </div>
   <div class="alert-banner">
     <span>💰</span>
@@ -481,37 +495,42 @@
         <span class="topic-tag alert">Cultural appropriation concerns (indigenous imagery)</span>
         <span class="topic-tag alert">Referral program ethics — MLM framing on Reddit / TikTok</span>
         <span class="topic-tag alert">Smoking while babywearing — brand history circulating on TikTok</span>
-        <span class="topic-tag alert">NEW: "Artipoppe Negative Review" TikTok discovery hub emerged</span>
-        <span class="topic-tag trending">"Artipoppe Alternatives" trend expands — now names Mabē, Portier, Ergobaby Embrace</span>
+        <span class="topic-tag alert">"Artipoppe Negative Review" TikTok discovery hub remains active</span>
+        <span class="topic-tag alert">NEW: Ergobaby patent suit names Artipoppe + Bugaboo entities as co-defendants</span>
+        <span class="topic-tag trending">NEW: "Chekoh" joins Mabē, Portier, Ergobaby Embrace, WildBird as named alternative</span>
         <span class="topic-tag trending">Zeitgeist limited edition resale (2–3× retail)</span>
         <span class="topic-tag trending">Luxury carrier unboxing + aesthetic content</span>
         <span class="topic-tag trending">Artipoppe vs Wildbird vs Mabe — TikTok triangle active</span>
         <span class="topic-tag alert">Ergonomic debate — no padded waist belt, shoulder fatigue with heavier babies</span>
-        <span class="topic-tag info">Ergobaby v. Mabe patent suit — "generic carrier" narrative circulating</span>
+        <span class="topic-tag alert">NEW: absent from Forbes Vetted 2026 best baby carriers roundup</span>
         <span class="topic-tag info">IHDI hip-healthy certified · M-position maintained · cross-back strap praised</span>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Top Mentions / Sources</div>
+      <a class="post-link" href="https://www.courtlistener.com/docket/72139764/the-ergo-baby-carrier-inc-v-bugaboo-north-america-inc/" target="_blank">
+        NEW — The Ergo Baby Carrier, Inc. v. Bugaboo North America, Inc. (1:26-cv-00315) — names Artipoppe B.V.
+        <div class="post-platform">⚖️ CourtListener · Zeitgeist patent-infringement claim</div>
+      </a>
+      <a class="post-link" href="https://www.forbes.com/sites/forbes-personal-shopper/article/best-baby-carrier/" target="_blank">
+        NEW — The Best Baby Carriers of 2026, After Testing Over A Dozen (Forbes Vetted)
+        <div class="post-platform">🌐 Forbes Vetted · Artipoppe not featured</div>
+      </a>
       <a class="post-link" href="https://www.tiktok.com/discover/artipoppe-negative-review" target="_blank">
-        NEW — "Artipoppe Negative Review" TikTok discovery hub
-        <div class="post-platform">🎵 TikTok · New this week</div>
+        "Artipoppe Negative Review" TikTok discovery hub
+        <div class="post-platform">🎵 TikTok · Still active</div>
       </a>
       <a class="post-link" href="https://www.tiktok.com/discover/artipoppe-alternatives" target="_blank">
-        "Artipoppe Alternatives" TikTok discovery topic — now naming specific dupes
+        "Artipoppe Alternatives" TikTok discovery topic — now includes Chekoh
         <div class="post-platform">🎵 TikTok · Growing de-influencing signal</div>
       </a>
       <a class="post-link" href="https://sweetteal.com/2026/03/artipoppe-vs-wildbird-baby-carrier-review/" target="_blank">
         Artipoppe vs. WildBird Baby Carrier Review (Sweet Teal)
         <div class="post-platform">🌐 Sweet Teal · Comparison content</div>
       </a>
-      <a class="post-link" href="https://thingtesting.com/brands/artipoppe" target="_blank">
-        Artipoppe brand reviews (Thingtesting)
-        <div class="post-platform">🌐 Thingtesting</div>
-      </a>
-      <a class="post-link" href="https://www.babylist.com/hello-baby/artipoppe-vs-wildbird" target="_blank">
-        Artipoppe vs. WildBird — I Tested Both (Babylist)
-        <div class="post-platform">🌐 Babylist · Wildbird positioned as strong alternative</div>
+      <a class="post-link" href="https://www.trustpilot.com/review/artipoppe.com" target="_blank">
+        Artipoppe on Trustpilot — ~70 reviews
+        <div class="post-platform">⭐ Trustpilot · Small but improving review base</div>
       </a>
     </div>
   </div>
@@ -519,7 +538,7 @@
     <div class="card-title">Mumsnet · UK Forum</div>
     <div class="info-banner" style="background:#fffbeb;border-color:#fcd34d;color:#92400e;margin-bottom:10px;">
       <span>🇬🇧</span>
-      <div><span class="bold">UK Sentiment: Mixed</span> — Price shock remains the #1 Mumsnet topic. Multiple simultaneous discount code and referral code threads remain active. "Is it worth it?" threads divided: loyalists cite comfort, resale value, and aesthetics; critics call it "not better than Tula/Ergobaby" and "practically impractical." Wildbird and Mabe mentioned as alternatives. Smoking controversy has not surfaced on Mumsnet. Màbe legal case not yet visible on Mumsnet threads.</div>
+      <div><span class="bold">UK Sentiment: Mixed</span> — Price shock remains the #1 Mumsnet topic. Multiple simultaneous discount code and referral code threads remain active. "Is it worth it?" threads divided: loyalists cite comfort, resale value, and aesthetics; critics call it "not better than Tula/Ergobaby" and "practically impractical." Wildbird and Mabe mentioned as alternatives. Neither the smoking controversy nor the new Ergobaby patent suit has surfaced on Mumsnet yet — worth monitoring since UK forums have previously been slower than TikTok to pick up legal/controversy news.</div>
     </div>
     <div class="card-title" style="margin-top:8px;">Top Mumsnet Threads</div>
     <a class="post-link" href="https://www.mumsnet.com/talk/promo-codes-bargains/5078987-artipoppe-baby-carrier-discount-code-free" target="_blank">Artipoppe baby carrier discount code — active thread (high volume)<div class="post-platform">🌐 Mumsnet Forum · Ongoing demand signal</div></a>
@@ -539,33 +558,37 @@
     <div class="card-title">Key Insights</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div>Sentiment slipped to +0.17 (from +0.23) — no new major controversy this week, but the existing cluster (mold, plus-size, cultural appropriation, referral ethics, smoking history) represents five simultaneous active threads with zero brand response, and a new "Artipoppe Negative Review" TikTok hub has emerged. The Ergobaby v. Mabe patent fight continues to add ambient pressure: the "are luxury carriers just expensive generics?" question keeps circulating in carrier spaces, and Artipoppe is not positioned to answer it.</div>
+      <div><strong>NEW this week — Artipoppe is now a defendant, not just a bystander, in the industry's patent fight.</strong> The Ergobaby v. Bugaboo North America/Artipoppe suit (filed Jan 2026, surfaced in our tracking this week) alleges the flagship Zeitgeist carrier itself infringes Ergobaby patents. This is materially different from the Ergobaby v. Mabe dispute, where Artipoppe was only an indirect beneficiary of "generic dupe" framing — here Artipoppe's own product design is the subject of the claim. Combined with the existing five-thread controversy cluster and zero brand response, sentiment eased further to +0.15.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div>The <strong>"Artipoppe Alternatives" trend has matured from vague de-influencing into a named-competitor referral engine</strong> — TikTok content now explicitly directs viewers to Mabē, Portier, Ergobaby Embrace, and WildBird ("get 90% of the look for a fraction of the price"). This converts sentiment criticism into concrete lost consideration, which is a more actionable risk signal than general negativity.</div>
+      <div>The <strong>"Artipoppe Alternatives" trend gained a new named competitor this week: Chekoh</strong>, cited by a babywearing-educator TikTok creator alongside Wildbird and Tula as a top alternative. The named-competitor referral engine (Mabē, Portier, Ergobaby Embrace, WildBird, now Chekoh) continues converting sentiment criticism into concrete lost consideration.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div>The <strong>carrier-to-stroller transition moment</strong> is the strategic Bugaboo opportunity this week. Parents who find Artipoppe uncomfortable as their baby passes 5–9 months / 15–20 lbs are exactly entering the premium stroller consideration window. Bugaboo's 4.0★ on ~2,600 reviews is a powerful credibility contrast vs Artipoppe's ~62 Trustpilot reviews. Content that names this transition moment explicitly — "when carrying isn't enough" — is high-value, and the growing "Artipoppe Alternatives" trend suggests this audience is increasingly open to switching.</div>
+      <div>Artipoppe was <strong>absent from Forbes Vetted's 2026 "best baby carriers" roundup</strong> (Ergobaby Omni Deluxe, Baby Tula Explore, and Wildbird Aerial took top honors), reinforcing that Artipoppe is being left out of mainstream "best of" buying-guide conversation even as it maintains strong Instagram reach (735K). The <strong>carrier-to-stroller transition moment</strong> remains the strategic Bugaboo opportunity — Bugaboo's steady 4.0★ on ~2,614 reviews is a powerful credibility contrast vs Artipoppe's ~70 Trustpilot reviews.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div>The resale story (rare prints 2–3× retail) remains Artipoppe's strongest loyalist defence. But ergonomic criticism is now functional, not just aesthetic — and it compounds with the Mumsnet price-sensitivity signal (including a new AIBU thread this week). The secondhand buyer pool may begin to shrink as awareness of the functional gaps grows. Monitor secondhand platform pricing on limited-edition Zeitgeist prints over the next 4–6 weeks.</div>
+      <div>The resale story (rare prints 2–3× retail) remains Artipoppe's strongest loyalist defence. But between the ergonomic criticism, the growing named-alternatives list, the Forbes exclusion, and now a direct patent claim against its flagship product, Artipoppe's credibility pressure is compounding on several fronts simultaneously rather than easing.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Recommended action for Bugaboo Group:</span> (1) Create carrier-to-stroller transition content targeting the "my baby is getting too heavy for my carrier" moment — maps directly onto Artipoppe's functional ceiling at 20 lbs. (2) Deploy Bugaboo's 4.0★ on ~2,600 reviews as a credibility counter in "is luxury baby gear worth it?" content spaces. (3) Monitor whether the growing "Artipoppe Alternatives" named-competitor trend and new "Negative Review" TikTok hub continue to compound — sentiment has now declined two weeks running.</div>
+      <div><span class="bold">Recommended action for Bugaboo Group:</span> (1) Confirm internally what Bugaboo Group's relationship to Artipoppe B.V. actually is, given the new patent suit names Bugaboo entities as co-defendants — this affects how the Compare tab should frame ownership going forward. (2) Create carrier-to-stroller transition content targeting the "my baby is getting too heavy for my carrier" moment. (3) Deploy Bugaboo's 4.0★ on ~2,614 reviews as a credibility counter in "is luxury baby gear worth it?" content spaces. (4) Monitor whether the Ergobaby patent suit or the Forbes Vetted exclusion gain traction beyond legal-industry trackers this week.</div>
     </div>
   </div>
 </div>
 
 <!-- COMPARE -->
 <div class="page" id="page-compare">
-  <div class="section-header">Brand Comparison — Week of 13 Jul 2026</div>
+  <div class="section-header">Brand Comparison — Week of 20 Jul 2026</div>
   <div class="info-banner" style="margin-bottom:16px;">
     <span>ℹ️</span>
     <div><span class="bold">Note on Joolz:</span> Joolz is a Bugaboo Group sister brand (acquired July 2025). Scores reflect distinct consumer brand positions, not rival companies. Both operate independently under Mubadala Capital.</div>
+  </div>
+  <div class="alert-banner" style="margin-bottom:16px;">
+    <span>⚖️</span>
+    <div><span class="bold">NEW — Artipoppe's ownership status needs re-confirming:</span> We have tracked Artipoppe as an independent brand with only an "overlapping audience" relationship to Bugaboo. This week's discovery of Ergobaby's patent suit (1:26-cv-00315, SDNY) — which names Artipoppe B.V. as a co-defendant alongside Bugaboo North America, Inc. and Bugaboo International B.V. — suggests a more formal corporate connection (distribution, licensing, or investment) than previously documented. Recommend confirming this internally; it may change how the "Ownership" row below should read.</div>
   </div>
   <div class="card" style="margin-bottom:16px;">
     <div class="card-title">Sentiment &amp; Trustpilot Score</div>
@@ -574,7 +597,7 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-title">Head-to-Head Summary — 13 Jul 2026</div>
+    <div class="card-title">Head-to-Head Summary — 20 Jul 2026</div>
     <div class="table-wrap"><table>
       <thead>
         <tr>
@@ -585,14 +608,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td class="bold">Trustpilot</td><td class="green bold">4.0★ (~2,600) → holding</td><td class="amber">3.1★ (999) stable</td><td class="text-sm">~62 reviews only</td></tr>
-        <tr><td class="bold">Sentiment Score</td><td class="green">+0.65 Positive ↓</td><td class="amber">+0.20 Mixed ↓</td><td class="amber">+0.17 Mixed ↓</td></tr>
+        <tr><td class="bold">Trustpilot</td><td class="green bold">4.0★ (~2,614) → holding</td><td class="amber">3.1★ (~1,040) stable</td><td class="text-sm">~70 reviews only</td></tr>
+        <tr><td class="bold">Sentiment Score</td><td class="green">+0.68 Positive ↑</td><td class="amber">+0.18 Mixed ↓</td><td class="amber">+0.15 Mixed ↓</td></tr>
         <tr><td class="bold">Instagram Followers</td><td class="green">512K (@bugabooglobal)</td><td class="text-sm">~376K (@myjoolz)</td><td class="green">735K · aspirational</td></tr>
-        <tr><td class="bold">Top Product (buzz)</td><td>Donkey 6 · Butterfly 2 vs Cybex Coya · Dragonfly (3-way comparison) · Fox 5 Renew</td><td>Aer2 (travel) · Dot (lightweight) · Hub</td><td>Zeitgeist carrier</td></tr>
-        <tr><td class="bold">Key Strength</td><td>4.0★ Trustpilot holding · Donkey 6 Red Dot 2026 · strong comparison-content footprint · Mumsnet UK dominant</td><td>Aer2 Mother&amp;Baby Silver · adapter fix now shipping · Aer2 vs Butterfly 2 comparison favourable</td><td>735K followers / luxury unboxing / resale value / IHDI certified</td></tr>
-        <tr><td class="bold">Key Weakness</td><td class="amber">CS dip (BBB no-refund complaints) + Giraffe recall class action</td><td class="red">Recall comms gap (global page stale) + new law-firm claimant solicitation · heavy CS complaint volume (37% 1-star)</td><td class="red">5 active controversies · zero brand response · Alternatives trend + new "Negative Review" hub</td></tr>
-        <tr><td class="bold">Ownership</td><td>Mubadala Capital</td><td class="green">Bugaboo Group (Jul 2025)</td><td>Independent</td></tr>
-        <tr><td class="bold">This Week's Risk</td><td class="amber">Medium (CS complaints + recall lawsuit)</td><td class="amber">Medium (recall resolving but new legal-solicitation risk)</td><td class="red">High (5 active controversies + patent-suit context + alternatives trend)</td></tr>
+        <tr><td class="bold">Top Product (buzz)</td><td>Fox 5 Renew vs Cybex Priam 4/Nuna MIXX Next · Donkey 6 · Butterfly 2</td><td>Aer2 (travel) · Dot (lightweight) · Hub</td><td>Zeitgeist carrier</td></tr>
+        <tr><td class="bold">Key Strength</td><td>4.0★ Trustpilot holding · Donkey 6 Red Dot 2026 · strong comparison-content footprint · Mumsnet UK dominant</td><td>Aer2 Mother&amp;Baby Silver · adapter fix confirmed in stock (US+UK) · Aer2 vs Butterfly 2 comparison favourable</td><td>735K followers / luxury unboxing / resale value / IHDI certified</td></tr>
+        <tr><td class="bold">Key Weakness</td><td class="red">NEW: named co-defendant (with Artipoppe) in Ergobaby patent suit + Giraffe recall class action</td><td class="red">Global recall page/CPSC listing stale 3 weeks + law-firm claimant solicitation · persistent CS complaints</td><td class="red">NEW: named in Ergobaby patent suit · 5 active controversies · absent from Forbes Vetted 2026 roundup</td></tr>
+        <tr><td class="bold">Ownership</td><td>Mubadala Capital</td><td class="green">Bugaboo Group (Jul 2025)</td><td class="amber">Independent — but see note above re: patent-suit co-defendant status</td></tr>
+        <tr><td class="bold">This Week's Risk</td><td class="amber">Medium (new patent suit + CS complaints + recall lawsuit)</td><td class="amber">Medium (recall fix confirmed but comms gap persists)</td><td class="red">High (new patent suit + 5 active controversies + alternatives trend)</td></tr>
       </tbody>
     </table>
   </div>
@@ -601,15 +624,19 @@
     <div class="card-title">Strategic Opportunities for Bugaboo Group</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Bugaboo 4.0★ + comparison content:</span> Trustpilot holding at 4.0★ remains the strongest social proof asset in the portfolio, though sentiment softened this week on CS/refund complaints. Pair the 4.0★ stat with Donkey 6 Red Dot Award in all comparison content vs UPPAbaby Vista V3 and Cybex Coya, and get ahead of the BBB refund-policy complaint pattern before it compounds.</div>
+      <div><span class="bold">Bugaboo 4.0★ + comparison content:</span> Trustpilot holding at 4.0★ on ~2,614 reviews remains the strongest social proof asset in the portfolio, and sentiment recovered slightly this week with no fresh CS escalation. Pair the 4.0★ stat with Donkey 6 Red Dot Award and the new Fox 5 Renew vs Cybex Priam 4/Nuna MIXX Next comparison content.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div><span class="bold">Joolz recall — close the comms gap, watch the legal angle:</span> The good news first: the Aer2 adapter fix has shipped and is on sale in the UK/Benelux. But the global recall page and CPSC listing are stale, and a law firm is now soliciting claimants. Closing this comms gap and briefing legal this week can convert a near-miss into a clean resolution story before it becomes a bigger one.</div>
+      <div><span class="bold">Joolz recall — the fix is confirmed, now push the comms gap past whoever owns it:</span> The Aer2 adapter fix is verified in stock in both the US and UK. But the global recall page and CPSC listing have now been stale for three consecutive weeks — this has stopped looking like a delay and started looking like an unmaintained page. Escalating this fix this week can still convert a near-miss into a clean resolution story.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><span class="bold">Artipoppe audience capture:</span> 735K Instagram followers watching a brand at +0.17 sentiment (down two weeks running) with 5 active controversies, no brand response, a growing named-competitor "Alternatives" trend, and a new "Negative Review" TikTok hub are entering a stroller consideration window. Bugaboo's "4.0★ on ~2,600 reviews, premium that's built to last" is the right answer for this cohort — especially as the Ergobaby v. Mabe patent fight adds ambient questioning of luxury carrier value.</div>
+      <div><span class="bold">Artipoppe audience capture — now sharpened by a legal signal:</span> 735K Instagram followers watching a brand at +0.15 sentiment (down three weeks running) with 5 active controversies, a growing named-competitor "Alternatives" trend, exclusion from Forbes Vetted's 2026 best-carriers roundup, and now a direct patent-infringement claim against its flagship Zeitgeist carrier are entering a stroller consideration window. Bugaboo's "4.0★ on ~2,614 reviews, premium that's built to last" is the right answer for this cohort.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot blue"></div>
+      <div><span class="bold">Resolve the Bugaboo–Artipoppe relationship question internally:</span> This week's discovery that Bugaboo North America and Bugaboo International are named co-defendants alongside Artipoppe B.V. in Ergobaby's patent suit is new information that doesn't fit our prior "independent brand" framing for Artipoppe. Recommend legal/corporate confirm the actual relationship so future editions of this dashboard frame it accurately.</div>
     </div>
   </div>
 </div>
@@ -621,10 +648,10 @@
   </div>
   <div class="info-banner">
     <span>ℹ️</span>
-    <div><span class="bold">Context:</span> Bugaboo Group's primary premium stroller competitors. <strong>Bugaboo and Joolz shown as Bugaboo Group brands</strong> for reference. <strong>This week:</strong> UPPAbaby unveiled a new mid-size "Kona" stroller (launching Fall 2026); Cybex refreshed its 2026 Platinum line (Coya/Mios/Priam); Nuna's RAVA class action cleared a motion to dismiss and heads into discovery with no compensation offered; Maxi-Cosi Kindred Tana 360 still holds "Most Trending Stroller of 2026."</div>
+    <div><span class="bold">Context:</span> Bugaboo Group's primary premium stroller competitors. <strong>Bugaboo and Joolz shown as Bugaboo Group brands</strong> for reference. <strong>This week:</strong> UPPAbaby's Kona is now confirmed shipping late September 2026 through boutique retailers only; Cybex Priam 4 is the active face-off partner in new Fox 5 Renew comparison content; Nuna's RAVA litigation continues to escalate (a related SDNY ruling in April let core consumer-fraud claims proceed); Maxi-Cosi Kindred Tana 360 still holds "Most Trending Stroller of 2026."</div>
   </div>
   <div class="card" style="margin-bottom:16px;">
-    <div class="card-title">Scorecard — Bugaboo Group vs Competitors · Week of 13 Jul 2026</div>
+    <div class="card-title">Scorecard — Bugaboo Group vs Competitors · Week of 20 Jul 2026</div>
     <div class="table-wrap"><table>
       <thead>
         <tr><th>Brand</th><th>Group</th><th>Sentiment</th><th>Trustpilot</th><th>Key Product Buzz</th><th>Top Risk</th></tr>
@@ -633,25 +660,25 @@
         <tr style="background:#fef2f2;">
           <td class="bold" style="color:#e63946;">Bugaboo</td>
           <td><span style="background:#fef2f2;color:#e63946;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;border:1px solid #fecaca;">Bugaboo Group</span></td>
-          <td><span class="sentiment-pill s-pos">+0.65</span></td>
-          <td class="green bold">4.0★ (~2,600) →</td>
-          <td>Donkey 6 · Butterfly 2 vs Cybex Coya · Dragonfly 3-way comparison · Fox 5 Renew</td>
-          <td class="amber">CS/refund complaints + Giraffe class action</td>
+          <td><span class="sentiment-pill s-pos">+0.68</span></td>
+          <td class="green bold">4.0★ (~2,614) →</td>
+          <td>Fox 5 Renew vs Cybex Priam 4/Nuna MIXX Next · Donkey 6 · Butterfly 2</td>
+          <td class="red">NEW: Ergobaby patent suit + Giraffe class action</td>
         </tr>
         <tr style="background:#f5f3ff;">
           <td class="bold" style="color:#6366f1;">Joolz</td>
           <td><span style="background:#ede9fe;color:#6366f1;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;border:1px solid #c4b5fd;">Bugaboo Group</span></td>
-          <td><span class="sentiment-pill s-mix">+0.20</span></td>
-          <td class="amber">3.1★ (999)</td>
+          <td><span class="sentiment-pill s-mix">+0.18</span></td>
+          <td class="amber">3.1★ (~1,040)</td>
           <td>Aer2 · Dot · Hub · Mother&amp;Baby Silver Award</td>
-          <td class="red">Recall comms gap + law-firm solicitation</td>
+          <td class="red">Recall comms gap (3 wks) + law-firm solicitation</td>
         </tr>
         <tr>
           <td class="bold" style="color:#0ea5e9;">UPPAbaby</td>
           <td><span style="background:#f0f9ff;color:#0369a1;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid #bae6fd;">Competitor</span></td>
           <td><span class="sentiment-pill s-pos">+0.65</span></td>
           <td class="amber">~51 reviews</td>
-          <td>NEW: Kona mid-size stroller (Fall 2026) · Ada collection · Vista V3 vs Donkey 6</td>
+          <td>Kona (21 lbs, shipping late Sept 2026, boutique-exclusive) · Ada collection · Vista V3 vs Donkey 6</td>
           <td class="red">Car seat class action active</td>
         </tr>
         <tr>
@@ -659,16 +686,16 @@
           <td><span style="background:#f0f9ff;color:#0369a1;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid #bae6fd;">Competitor</span></td>
           <td><span class="sentiment-pill s-mix">+0.45</span></td>
           <td class="amber">Mixed</td>
-          <td>NEW: 2026 Platinum line refresh (Coya/Mios/Priam) · Coya vs Butterfly 2</td>
+          <td>Priam 4 vs Fox 5/Nuna MIXX Next · 2026 Platinum line (Coya/Mios/Priam)</td>
           <td class="amber">CS failures — watch if narrative cools</td>
         </tr>
         <tr>
           <td class="bold" style="color:#059669;">Nuna</td>
           <td><span style="background:#f0f9ff;color:#0369a1;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid #bae6fd;">Competitor</span></td>
-          <td><span class="sentiment-pill s-mix">+0.40</span></td>
+          <td><span class="sentiment-pill s-mix">+0.38</span></td>
           <td class="amber">Mixed</td>
           <td>TRVL · MIXX Next · SWIV Reach</td>
-          <td class="red">RAVA recall 600K units — dismissal motion denied, into discovery</td>
+          <td class="red">RAVA litigation escalating — related SDNY ruling let fraud claims proceed (Apr 2026)</td>
         </tr>
         <tr>
           <td class="bold" style="color:#d97706;">BabyZen / Stokke</td>
@@ -702,11 +729,11 @@
       <div class="table-wrap"><table>
         <thead><tr><th>Topic</th><th>Brand</th><th>Sentiment</th></tr></thead>
         <tbody>
-          <tr><td>NEW: UPPAbaby unveils "Kona" mid-size stroller, launching Fall 2026</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="green">Positive</td></tr>
-          <tr><td>NEW: Cybex 2026 Platinum line refresh (Coya/Mios/Priam) — new stitching, bassinets</td><td class="bold" style="color:#7c3aed;">Cybex</td><td class="green">Positive</td></tr>
+          <tr><td>NEW: UPPAbaby Kona confirmed shipping late Sept 2026, boutique-exclusive, 21 lbs</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="green">Positive</td></tr>
+          <tr><td>NEW: Cybex Priam 4 vs Bugaboo Fox 5 vs Nuna MIXX Next premium face-off content</td><td class="bold" style="color:#7c3aed;">Cybex</td><td class="green">Positive</td></tr>
           <tr><td>Maxi-Cosi Kindred Tana 360 — "Most Trending Stroller of 2026" sustained</td><td class="bold" style="color:#db2777;">Maxi-Cosi</td><td class="green">Positive</td></tr>
           <tr><td>Cybex Coya vs Bugaboo Butterfly 2 — travel battle ongoing, framed as normal trade-offs</td><td class="bold" style="color:#7c3aed;">Cybex</td><td class="green">Positive</td></tr>
-          <tr><td>NEW: Nuna RAVA — federal court denies motion to dismiss, case heads to discovery</td><td class="bold" style="color:#059669;">Nuna</td><td class="red">Negative</td></tr>
+          <tr><td>Nuna RAVA litigation continues escalating — related SDNY ruling allowed fraud claims to proceed (Apr 2026)</td><td class="bold" style="color:#059669;">Nuna</td><td class="red">Negative</td></tr>
           <tr><td>Stokke YOYO3 vs Bugaboo Butterfly TikTok loop — still active, no fresh controversy</td><td class="bold" style="color:#d97706;">Stokke</td><td class="amber">Mixed</td></tr>
           <tr><td>Donkey 6 / Fox 5 Renew vs UPPAbaby Vista V3 comparison content continuing</td><td class="bold" style="color:#0ea5e9;">UPPAbaby</td><td class="amber">Mixed</td></tr>
         </tbody>
@@ -715,14 +742,14 @@
   </div>
 
   <div class="card">
-    <div class="card-title" style="color:#0ea5e9;">UPPAbaby · Sentiment +0.65 · Positive · NEW Kona stroller launch</div>
+    <div class="card-title" style="color:#0ea5e9;">UPPAbaby · Sentiment +0.65 · Positive · Kona launch details confirmed</div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#0ea5e9;"></div>
-      <div>NEW this week: UPPAbaby unveiled the "Kona," a new mid-size stroller debuting at ABC Kids Expo and launching Fall 2026 — a fresh entrant that will likely become part of the Dragonfly/Cruz comparison conversation once it ships. The "Ada" fashion collection (Vista V3/Cruz V3) and a Ridge V2 jogger refresh are also generating favourable coverage. Donkey 6 vs Vista V3 comparison content remains the dominant full-size battleground. <strong>Bugaboo talking points:</strong> Donkey 6's 17% lower CO2 footprint (Red Dot Award 2026), 33 lbs basket capacity vs Vista V3's 30 lbs, narrower single mode (60 cm), water-free dyeing. Bugaboo's 4.0★ on ~2,600 reviews vs UPPAbaby's ~51 reviews remains a scaled credibility advantage.</div>
+      <div>UPPAbaby's "Kona" — unveiled at ABC Kids Expo in May 2026 — is now confirmed shipping late September 2026, weighs 21 lbs, features a one-hand fold with reversible seat, and will launch exclusively through specialty boutique retailers (not Amazon or big-box chains). It's a fresh mid-size entrant that will likely join the Dragonfly/Cruz comparison conversation once it ships. Donkey 6 vs Vista V3 comparison content remains the dominant full-size battleground. <strong>Bugaboo talking points:</strong> Donkey 6's 17% lower CO2 footprint (Red Dot Award 2026), 33 lbs basket capacity vs Vista V3's 30 lbs, narrower single mode (60 cm), water-free dyeing. Bugaboo's 4.0★ on ~2,614 reviews vs UPPAbaby's ~51 reviews remains a scaled credibility advantage.</div>
     </div>
     <div class="action-banner" style="margin-top:8px;">
       <span>💡</span>
-      <div>Prepare a comparison brief for the new Kona launch ahead of its Fall 2026 debut, and keep the Donkey 6 vs Vista V3 brief active with editorial partners.</div>
+      <div>Prepare a comparison brief for the Kona ahead of its confirmed late-September boutique launch, and keep the Donkey 6 vs Vista V3 brief active with editorial partners.</div>
     </div>
   </div>
 
@@ -730,19 +757,19 @@
     <div class="card-title" style="color:#7c3aed;">Cybex · Sentiment +0.45 · Mixed, slightly improving</div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#7c3aed;"></div>
-      <div>NEW: Cybex refreshed its 2026 Platinum line (Coya, Mios, e-Priam) with new handlebar stitching, matched-color baskets, and redesigned bassinets. No new CS-failure controversy surfaced this week, and Coya vs Butterfly 2 comparisons are being framed as normal ride-comfort-vs-compactness trade-offs rather than complaints — worth confirming next cycle whether the CS-failure narrative has genuinely cooled. Bugaboo's sustainability story (17% CO2 reduction, Red Dot Award 2026) remains a meaningful differentiator vs Cybex's design-refresh approach.</div>
+      <div>The Cybex Priam 4 is now the active face-off partner in new "premium stroller showdown" content alongside Bugaboo Fox 5 Renew and Nuna MIXX Next — reviewers frame Priam 4's all-wheel suspension and two-wheel loose-terrain mode as a genuine differentiator vs Fox 5 Renew's puncture-proof wheels. No new CS-failure controversy surfaced this week. Bugaboo's sustainability story (17% CO2 reduction, Red Dot Award 2026) remains a meaningful differentiator vs Cybex's terrain-focused pitch.</div>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title" style="color:#059669;">Nuna · Sentiment +0.40 ↓ · Mixed · RAVA litigation escalates</div>
+    <div class="card-title" style="color:#059669;">Nuna · Sentiment +0.38 ↓ · Mixed · RAVA litigation continues escalating</div>
     <div class="alert-banner" style="margin-bottom:12px;">
       <span>⚠️</span>
-      <div><span class="bold">RAVA car seat recall — litigation escalating:</span> In April 2026 a federal court (SDNY, In re Nuna Baby Essentials RAVA Litigation) denied Nuna's motion to dismiss, allowing consumer-fraud claims over the 600,000+-unit recall to proceed into discovery. Nuna still not offering monetary compensation. This is now a durable, escalating overhang rather than a settled matter. Bugaboo's no-recall stroller range remains a credibility asset in comparison content.</div>
+      <div><span class="bold">RAVA car seat recall — litigation still escalating:</span> The RAVA litigation (In re Nuna Baby Essentials RAVA Litigation, N.D. Cal., Case 25-1284) remains pending, and a related ruling in a parallel SDNY case (Moncada v. Nuna Baby Essentials, April 2026) allowed core consumer-fraud claims to proceed after the court denied Nuna's motion to dismiss. Nuna still not offering monetary compensation. This is now a durable, escalating overhang rather than a settled matter. Bugaboo's no-recall stroller range remains a credibility asset in comparison content — though Bugaboo now carries its own new patent-suit disclosure this week (see Recalls tab).</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#059669;"></div>
-      <div>Nuna MIXX Next continues to earn strong design praise, but the RAVA recall and now-active discovery process continue to dominate brand reputation in search. Nuna's recall volume (600K units) dwarfs Bugaboo Giraffe's highchair recall (20,605 units) and is specifically a car seat issue vs Bugaboo's separate product category (highchair).</div>
+      <div>Nuna MIXX Next continues to earn strong design praise (28.3 lbs, Free-Flex rear suspension), but the RAVA recall and escalating litigation continue to dominate brand reputation in search. Nuna's recall volume (~608,786 units) dwarfs Bugaboo Giraffe's highchair recall (20,605 units) and is specifically a car seat issue vs Bugaboo's separate product category (highchair).</div>
     </div>
   </div>
 
@@ -750,11 +777,11 @@
     <div class="card-title" style="color:#d97706;">BabyZen / Stokke YOYO3 · Sentiment +0.60 · Positive</div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#d97706;"></div>
-      <div>YOYO3 vs Butterfly 2 remains the most active TikTok stroller comparison loop, with no fresh developments this week. <strong>Bugaboo talking points:</strong> (1) Butterfly 2 includes leg rest standard — YOYO3 charges $40 as an add-on (backlash ongoing); (2) Bugaboo 4.0★ on ~2,600 reviews vs Stokke's minimal review presence; (3) larger basket. YOYO3 also continues to appear in "best of 2026" roundups alongside Nuna TRVL and Cybex Gazelle S.</div>
+      <div>YOYO3 vs Butterfly 2 remains the most active TikTok stroller comparison loop, with no fresh developments this week. <strong>Bugaboo talking points:</strong> (1) Butterfly 2 includes leg rest standard — YOYO3 charges $40 as an add-on (backlash ongoing); (2) Bugaboo 4.0★ on ~2,614 reviews vs Stokke's minimal review presence; (3) larger basket. YOYO3 also continues to appear in "best of 2026" roundups alongside Nuna TRVL and Cybex Gazelle S, and is frequently cited for its class-leading 44cm folded width.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div>Continue commissioning Butterfly 2 vs YOYO3 content — TikTok loop is still active. Lead with: (1) leg rest included free; (2) 4.0★ on ~2,600 reviews; (3) larger basket.</div>
+      <div>Continue commissioning Butterfly 2 vs YOYO3 content — TikTok loop is still active. Lead with: (1) leg rest included free; (2) 4.0★ on ~2,614 reviews; (3) larger basket.</div>
     </div>
   </div>
 </div>
@@ -766,10 +793,10 @@
   </div>
   <div class="info-banner">
     <span>ℹ️</span>
-    <div><span class="bold">Context:</span> Artipoppe's direct competitors in the premium/luxury baby carrier space — all overlap with Bugaboo's core customer. <strong>New this week:</strong> The carrier legal fight has escalated — it's actually Ergobaby v. Mabe (patent infringement, Idaho, filed Jan 2026), with Mabe countersuing Ergobaby in May 2026. Both brands are now active litigants, which adds nuance to the "generic luxury" narrative that indirectly pressures Artipoppe.</div>
+    <div><span class="bold">Context:</span> Artipoppe's direct competitors in the premium/luxury baby carrier space — all overlap with Bugaboo's core customer. <strong>New this week:</strong> Ergobaby is now litigating patent claims against <em>two</em> different "premium alternative" carrier brands at once — its existing suit against Mabe (Idaho, filed Jan 2026, Mabe countersued in May 2026) and a previously untracked suit directly against Artipoppe B.V. and Bugaboo entities (SDNY, filed Jan 2026) over the Zeitgeist carrier. Ergobaby's Omni Deluxe was also named best-overall carrier in Forbes Vetted's 2026 roundup, alongside Tula Explore (most supportive) and Wildbird Aerial (most stylish) — Artipoppe did not appear in that list.</div>
   </div>
   <div class="card" style="margin-bottom:16px;">
-    <div class="card-title">Carrier Competitor Scorecard — Week of 13 Jul 2026</div>
+    <div class="card-title">Carrier Competitor Scorecard — Week of 20 Jul 2026</div>
     <div class="table-wrap"><table>
       <thead>
         <tr><th>Brand</th><th>Price Range</th><th>Sentiment</th><th>TikTok Positioning</th><th>Artipoppe Threat Level</th></tr>
@@ -786,29 +813,36 @@
           <td class="bold" style="color:#f43f5e;">Mabe</td>
           <td>$120–$160</td>
           <td><span class="sentiment-pill s-mix">+0.48</span></td>
-          <td>"Viral dupe" — now a two-sided patent fight with Ergobaby, not just defense</td>
+          <td>"Viral dupe" — two-sided patent fight with Ergobaby continues</td>
           <td class="red bold">High — but litigation adds complexity</td>
         </tr>
         <tr>
           <td class="bold" style="color:#8b5cf6;">Sakura Bloom</td>
           <td>$100–$200</td>
           <td><span class="sentiment-pill s-pos">+0.65</span></td>
-          <td>"Softer, wrap-inspired luxury" — quiet this week, low search visibility</td>
+          <td>"Softer, wrap-inspired luxury" — quiet again this week, low search visibility</td>
           <td class="amber">Medium — loyal niche, less viral</td>
         </tr>
         <tr>
           <td class="bold" style="color:#0891b2;">Ergobaby</td>
           <td>$70–$180</td>
-          <td><span class="sentiment-pill s-pos">+0.70</span></td>
-          <td>"Function over form" — now a plaintiff in the Mabe patent suit</td>
-          <td class="text-sm">Low — different positioning</td>
+          <td><span class="sentiment-pill s-pos">+0.72</span></td>
+          <td>Omni Deluxe named best-overall carrier (Forbes Vetted 2026) · now plaintiff in suits vs BOTH Mabe and Artipoppe/Bugaboo</td>
+          <td class="text-sm">Low — different positioning, now the industry's patent enforcer</td>
         </tr>
         <tr>
           <td class="bold" style="color:#ca8a04;">Tula</td>
           <td>$80–$150</td>
           <td><span class="sentiment-pill s-pos">+0.70</span></td>
-          <td>"I bought Tula instead of Artipoppe" — growing + NEW Good Housekeeping 2026 Travel Award</td>
+          <td>Explore named "most supportive" (Forbes Vetted 2026) · "instead of Artipoppe" narrative growing</td>
           <td class="amber">Medium — competes on aesthetics</td>
+        </tr>
+        <tr>
+          <td class="bold" style="color:#16a34a;">Chekoh</td>
+          <td>~$130–$180</td>
+          <td><span class="sentiment-pill s-pos">n/a — new entrant</span></td>
+          <td>NEW: named by a babywearing-educator creator as a top Artipoppe alternative pick this week</td>
+          <td class="amber">Watch — new entrant, small sample</td>
         </tr>
       </tbody>
     </table>
@@ -816,11 +850,11 @@
   </div>
   <div class="alert-banner" style="background:#fdf4ff;border-color:#d8b4fe;color:#6b21a8;">
     <span>⚖️</span>
-    <div><span class="bold">Ergobaby v. Mabe patent suit escalates:</span> This is a two-sided legal fight, not just Mabe on defense — Ergobaby sued Mabe over its "Monarch Buckle Carrier" (District of Idaho, Jan 2026); Mabe is seeking dismissal / a $16M bond under Idaho's bad-faith IP law and has countersued Ergobaby (N.D. Cal, May 2026). This doesn't directly harm Artipoppe but reinforces the broader "are premium baby carriers just expensive generics?" question, and now involves Ergobaby directly too. Wildbird and Tula remain the cleanest beneficiaries of value/function positioning.</div>
+    <div><span class="bold">NEW — Ergobaby's patent enforcement now spans two premium-alternative brands:</span> Ergobaby's existing fight with Mabe (District of Idaho, Jan 2026; Mabe countersued N.D. Cal, May 2026) continues. This week we also found a second, separate Ergobaby suit — <em>The Ergo Baby Carrier, Inc. v. Bugaboo North America, Inc.</em> (SDNY, 1:26-cv-00315, filed Jan 2026) — naming Artipoppe B.V. and Bugaboo entities as co-defendants over the Zeitgeist carrier's design (U.S. Patents 10,426,275 and 12,016,470). Ergobaby is now positioned as the industry's most active patent enforcer against both the "generic dupe" and "luxury original" ends of the premium carrier market. Wildbird and Tula remain the cleanest beneficiaries of value/function positioning, untouched by either suit.</div>
   </div>
   <div class="alert-banner" style="background:#fff7ed;border-color:#fed7aa;color:#9a3412;">
     <span>📉</span>
-    <div><span class="bold">"Artipoppe Alternatives" trend keeps benefiting this whole competitive set:</span> The TikTok "Artipoppe Alternatives" discovery topic has expanded to explicitly name Mabē, Portier, Ergobaby Embrace, and WildBird as dupes. Wildbird and Tula remain best-positioned to capture this traffic given their existing "instead of Artipoppe" narrative momentum — reinforced this week by Tula's Good Housekeeping 2026 Travel Award for the Tula Lite carrier.</div>
+    <div><span class="bold">"Artipoppe Alternatives" trend gains a new name — Chekoh — and Artipoppe misses a major buying-guide roundup:</span> The TikTok "Artipoppe Alternatives" discovery topic now spans Mabē, Portier, Ergobaby Embrace, WildBird, and this week's addition, Chekoh. Separately, Forbes Vetted's 2026 "best baby carriers" roundup named Ergobaby Omni Deluxe best overall, Baby Tula Explore most supportive, and Wildbird Aerial most stylish — Artipoppe did not appear. Wildbird and Tula remain best-positioned to capture this traffic.</div>
   </div>
   <div class="card" style="margin-bottom:16px;">
     <div class="card-title">Sentiment — Carrier Competitors vs Artipoppe</div>
@@ -832,33 +866,37 @@
     <div class="card-title" style="color:#10b981;">Wildbird · Sentiment +0.75 · Positive · HIGH Artipoppe threat</div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#10b981;"></div>
-      <div>Wildbird remains the single most effective challenger to Artipoppe. The Aerial buckle carrier is positioned as a direct Zeitgeist alternative and continues to be named in the expanding "Artipoppe Alternatives" TikTok trend. No new controversy — brand continues publishing active babywearing-education content, reinforcing an "engaged, current" perception.</div>
+      <div>Wildbird remains the single most effective challenger to Artipoppe, reinforced this week by Forbes Vetted naming its Aerial carrier "most stylish" in its 2026 best-carriers roundup — the same list Artipoppe didn't appear on. The Aerial buckle carrier continues to be positioned as a direct Zeitgeist alternative and is named in the expanding "Artipoppe Alternatives" TikTok trend. No new controversy — brand continues publishing active babywearing-education content, reinforcing an "engaged, current" perception.</div>
     </div>
   </div>
   <div class="card">
-    <div class="card-title" style="color:#f43f5e;">Mabe · Sentiment +0.48 ↓ · Mixed · Patent suit escalates both ways</div>
+    <div class="card-title" style="color:#f43f5e;">Mabe · Sentiment +0.48 · Mixed · Patent suit continues, no fresh escalation</div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#f43f5e;"></div>
-      <div>The legal situation is more complex than previously understood: it's Ergobaby v. Mabe (District of Idaho, filed Jan 2026) over Mabe's "Monarch Buckle Carrier" allegedly infringing Ergobaby patents. Mabe is fighting back — seeking dismissal or a $16M bond under Idaho's bad-faith IP law, and has countersued Ergobaby in N.D. Cal (May 2026). This turns a one-sided "villain" narrative into a two-sided legal battle that may fragment sentiment either way. Monitor whether the litigation dents Mabe's TikTok "viral dupe" momentum over the coming weeks.</div>
+      <div>The Ergobaby v. Mabe fight (District of Idaho, filed Jan 2026) over Mabe's "Monarch Buckle Carrier" continues, with Mabe's dismissal/bond motion and its N.D. Cal countersuit both still pending — no new filings found this week. This remains a two-sided legal battle that may fragment sentiment either way. Now that we know Ergobaby is also suing Artipoppe/Bugaboo over similar carrier-design patents, Mabe's "we're being unfairly singled out" framing may lose some force — worth watching whether Mabe's own commentary picks up on the second suit.</div>
     </div>
   </div>
   <div class="card">
-    <div class="card-title">Ergobaby · Tula · Sakura Bloom</div>
+    <div class="card-title">Ergobaby · Tula · Sakura Bloom · Chekoh</div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#0891b2;"></div>
-      <div><span class="bold">Ergobaby</span> — the functional floor of premium carriers, and now directly a plaintiff in the Mabe patent suit (new storyline to track for this brand, not just Mabe's). Omni 360 ($180) reviews remain strongly positive ("won't quit through growth spurts"), only minor price-value grumbling. Consistently cited as the "sensible answer" in Artipoppe comparison reviews and Mumsnet "is it worth it?" threads.</div>
+      <div><span class="bold">Ergobaby</span> — the functional floor of premium carriers, and now the industry's most active patent litigant: plaintiff against both Mabe (Idaho) and Artipoppe/Bugaboo (SDNY). Its Omni Deluxe was named best-overall carrier in Forbes Vetted's 2026 roundup. Consistently cited as the "sensible answer" in Artipoppe comparison reviews and Mumsnet "is it worth it?" threads.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#ca8a04;"></div>
-      <div><span class="bold">Tula</span> — sits between Ergobaby and Artipoppe on aesthetics. "I bought Tula instead of Artipoppe" narratives (Tula Explore, $199) growing on momtok, and the Tula Lite carrier was just named a Good Housekeeping 2026 Travel Award winner — a fresh credibility boost. Both Tula and Ergobaby benefit from every Artipoppe controversy cycle.</div>
+      <div><span class="bold">Tula</span> — sits between Ergobaby and Artipoppe on aesthetics. Its Explore model was named "most supportive" carrier in Forbes Vetted's 2026 roundup, on top of the Tula Lite's existing Good Housekeeping 2026 Travel Award. "I bought Tula instead of Artipoppe" narratives keep growing on momtok. Both Tula and Ergobaby benefit from every Artipoppe controversy cycle.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot" style="background:#8b5cf6;"></div>
-      <div><span class="bold">Sakura Bloom</span> — quiet this week; low search visibility made it hard to confirm any brand-specific news. Holding baseline sentiment with low confidence; recommend a narrower follow-up query next cycle.</div>
+      <div><span class="bold">Sakura Bloom</span> — quiet again this week; low search visibility made it hard to confirm any brand-specific news. Holding baseline sentiment with low confidence; recommend a narrower follow-up query next cycle.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot" style="background:#16a34a;"></div>
+      <div><span class="bold">NEW — Chekoh</span> — a smaller, newer entrant, named this week by a babywearing-educator TikTok creator as a top Artipoppe alternative alongside Tula and Wildbird. Limited data so far; recommend tracking it as a named competitor going forward rather than scoring full sentiment yet.</div>
     </div>
     <div class="action-banner">
       <span>💡</span>
-      <div><span class="bold">Strategic insight for Bugaboo Group:</span> The carrier competitor landscape is fracturing Artipoppe's premium positioning from below and alongside. The Ergobaby-Mabe patent fight adds a new ambient "generic luxury" questioning that benefits brands with genuine functional differentiation. Bugaboo's 4.0★ on ~2,600 reviews — vs Artipoppe's 62 Trustpilot reviews — is a powerful credibility contrast to deploy in the "is premium baby gear worth it?" content space this week.</div>
+      <div><span class="bold">Strategic insight for Bugaboo Group:</span> The carrier competitor landscape is fracturing Artipoppe's premium positioning from multiple directions at once — functional (Ergobaby, Tula), aesthetic (Wildbird, Chekoh), and now legal (the new Ergobaby patent suit against Artipoppe's own flagship design). Bugaboo's steady 4.0★ on ~2,614 reviews — vs Artipoppe's ~70 Trustpilot reviews — is a powerful credibility contrast to deploy in the "is premium baby gear worth it?" content space this week.</div>
     </div>
   </div>
 </div>
@@ -866,7 +904,7 @@
 <!-- RECALLS -->
 <div class="page" id="page-recalls">
   <div class="section-header">
-    Active Recalls <span class="brand-badge" style="background:#fef3c7;color:#92400e;">2 active · Joolz shipping — comms &amp; legal risk gap</span>
+    Active Recalls &amp; Legal Matters <span class="brand-badge" style="background:#fef3c7;color:#92400e;">2 recalls · 3 legal matters · NEW patent suit</span>
   </div>
   <p style="font-size:13px;color:#666;margin-bottom:20px;line-height:1.6;">
     Active product safety recalls and legal actions across the Bugaboo Group portfolio. <strong>Tracked separately from sentiment scores</strong> to avoid skewing overall brand ratings.
@@ -876,8 +914,63 @@
     <div class="recall-header">
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-          <span class="recall-badge imminent">🔧 Fix Shipping — Comms Gap</span>
-          <span style="font-size:12px;color:#888;">Issued May 2026 · UK OPSS + CPSC + Canada · Improved adapter (S2) now on sale regionally — global page &amp; CPSC listing not yet updated</span>
+          <span class="recall-badge">⚖️ NEW — Patent Infringement Suit</span>
+          <span style="font-size:12px;color:#888;">Filed 13 Jan 2026, SDNY · surfaced in our tracking this week · no settlement or ruling yet</span>
+        </div>
+        <div class="recall-title">Ergobaby v. Bugaboo North America / Artipoppe / Bugaboo International</div>
+        <div class="recall-sub">Case No. 1:26-cv-00315 (SDNY) · Judge Katherine Polk Failla · Patents US 10,426,275 &amp; US 12,016,470</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">Affected brands</div>
+        <div style="font-size:16px;font-weight:700;color:#e63946;">Bugaboo <span style="color:#888;font-weight:400;">+</span> <span style="color:#f59e0b;">Artipoppe</span></div>
+        <div style="font-size:12px;color:#888;">Co-defendants</div>
+      </div>
+    </div>
+    <div class="recall-body">
+      <div class="recall-grid">
+        <div class="recall-stat"><div class="rs-label">Product at issue</div><div class="rs-value amber">Artipoppe Zeitgeist carrier</div></div>
+        <div class="recall-stat"><div class="rs-label">Claim type</div><div class="rs-value red">Patent infringement</div></div>
+        <div class="recall-stat"><div class="rs-label">Case status</div><div class="rs-value amber">Active, pre-ruling</div></div>
+      </div>
+      <div class="recall-detail">
+        <strong>What happened:</strong> The Ergo Baby Carrier, Inc. filed suit in the U.S. District Court for the Southern District of New York on 13 Jan 2026, alleging that the Artipoppe Zeitgeist carrier infringes two Ergobaby patents (US 10,426,275 and US 12,016,470) covering carrier design/construction. The complaint includes infringement claim charts specific to the Zeitgeist product.
+      </div>
+      <div class="recall-detail">
+        <strong>Why this is new and notable:</strong> This case was filed in January 2026 but had not previously appeared in our weekly monitoring — we found it this week while researching the separate, already-tracked Ergobaby v. Mabe carrier-patent fight. Critically, the defendants named are <strong>Artipoppe B.V., Bugaboo International B.V., and Bugaboo North America, Inc. together</strong>. This is the first filing we've seen that formally connects Bugaboo Group corporate entities to Artipoppe as co-defendants. Our prior tracking has treated Artipoppe as an independently-owned brand with only an "overlapping audience" relationship to Bugaboo — this filing suggests a closer formal relationship (distribution, licensing, or investment) that hasn't been part of our reporting until now.
+      </div>
+      <div class="recall-detail">
+        <strong>Recommended next step:</strong> Confirm internally with legal/corporate what the actual relationship between Bugaboo Group and Artipoppe B.V. is, and monitor the docket (last showed activity 13 Apr 2026) for motions, rulings, or settlement. This is a distinct matter from both the Bugaboo Giraffe highchair class action and the Joolz Aer2 recall — none of the three should be conflated in external communications.
+      </div>
+      <div class="recall-timeline">
+        <div class="recall-timeline-title">Timeline</div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#dc2626;"></div>
+          <div class="timeline-date">13 Jan 2026</div>
+          <div class="timeline-text">Ergo Baby Carrier, Inc. files suit in SDNY against Bugaboo North America, Inc., Bugaboo International B.V., and Artipoppe B.V., alleging Zeitgeist carrier infringes two Ergobaby patents.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#d97706;"></div>
+          <div class="timeline-date">13 Apr 2026</div>
+          <div class="timeline-text">Docket last showed activity (per CourtListener); no ruling or settlement reported.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#dc2626;"></div>
+          <div class="timeline-date">20 Jul 2026</div>
+          <div class="timeline-text">Case surfaces in our weekly monitoring for the first time, discovered via research into the related Ergobaby v. Mabe carrier-patent fight. Flagging as a new legal-risk item for both the Bugaboo and Artipoppe tabs.</div>
+        </div>
+      </div>
+      <div class="recall-actions">
+        <a class="recall-link" href="https://www.courtlistener.com/docket/72139764/the-ergo-baby-carrier-inc-v-bugaboo-north-america-inc/" target="_blank">⚖️ Case Docket (CourtListener)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="recall-card">
+    <div class="recall-header">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <span class="recall-badge imminent">🔧 Fix Confirmed In Stock — Comms Gap (3 wks)</span>
+          <span style="font-size:12px;color:#888;">UK/EMEA notice pub. 21 May 2026 · US CPSC recall #26-568 dated 18 Jun 2026 · Improved adapter (S2) confirmed in stock — global page &amp; CPSC listing still not updated</span>
         </div>
         <div class="recall-title">Joolz Aer2 Car Seat Adapter Set</div>
         <div class="recall-sub">Product ref: 2605-0189 · Serial numbers starting NL311- · Sold June 2025 – May 2026 · ~3,840 units US · 148 units Canada</div>
@@ -901,24 +994,19 @@
         <strong>Affected products:</strong> All Joolz Aer2 Car Seat Adapter Sets with serial numbers beginning <strong>NL311-</strong>, sold between June 2025 and May 2026 at Bloomingdale's, Nordstrom, and online. The Joolz Aer2 stroller itself is <strong>not affected</strong>.
       </div>
       <div class="recall-detail">
-        <strong>Status update (13 Jul 2026):</strong> Country-specific Joolz recall pages (UK, Benelux) now confirm the improved Car Seat Adapter Set S2 is "tested beyond industry standards" and available for sale (~$59.99) at Nordstrom, Albee Baby, Bambi Baby, Strolleria, and Destination Baby Kids — a genuine resolution of last week's overdue status. However, Joolz's <strong>global</strong> recall page still shows stale "expected end of June" language, and the CPSC listing has not been updated to reflect availability (still shows remedy as "Refund" only). Separately, the law firm <strong>Johnson &amp; Becker</strong> is now actively soliciting Aer2 recall claimants for a product-liability suit. <strong>Recommend immediate action</strong> to update the global page and CPSC status, and to brief legal on the claimant solicitation before it gains further traction.
+        <strong>Status update (20 Jul 2026):</strong> We verified directly on joolz.com this week: the UK/EMEA recall page (publication date 21 May 2026) confirms the improved Car Seat Adapter Set S2 is "now available" and "tested beyond industry standards," and we independently confirmed it in stock at Nordstrom and Albee Baby in the US. However, Joolz's <strong>global</strong> recall page still shows stale "expected end of June" language, and the CPSC listing (recall #26-568, dated 18 Jun 2026 — a separate, later US-specific action) still shows remedy as "Refund" only. The law firm <strong>Johnson &amp; Becker</strong> continues actively soliciting Aer2 recall claimants. <strong>This comms gap has now persisted for three consecutive weekly reporting cycles</strong> — recommend escalating past whoever owns the global page.
       </div>
       <div class="recall-timeline">
         <div class="recall-timeline-title">Timeline</div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#dc2626;"></div>
-          <div class="timeline-date">May 2026</div>
-          <div class="timeline-text">UK OPSS + CPSC + Canada issue official recall (ref 2605-0189). All NL311- serial numbers advised to stop use immediately.</div>
+          <div class="timeline-date">21 May 2026</div>
+          <div class="timeline-text">Joolz UK/EMEA recall notice published (ref 2605-0189). All NL311- serial numbers advised to stop use immediately.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#d97706;"></div>
-          <div class="timeline-date">May–Jun 2026</div>
-          <div class="timeline-text">Recall active. Refund process underway — prepaid return labels issued. Aer2 stroller cleared for continued use without the adapter.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background:#d97706;"></div>
-          <div class="timeline-date">29 Jun 2026</div>
-          <div class="timeline-text">Joolz confirmed revised adapter due "end of June." Closure communications staged and ready to execute within 24 hours of confirmed shipment.</div>
+          <div class="timeline-date">18 Jun 2026</div>
+          <div class="timeline-text">US CPSC issues its own recall notice (#26-568) — a distinct, later action from the UK/EMEA notice, covering ~3,840 US units + 148 Canada units.</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#dc2626;"></div>
@@ -928,12 +1016,17 @@
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#16a34a;"></div>
           <div class="timeline-date">13 Jul 2026</div>
-          <div class="timeline-text">Improved adapter S2 confirmed shipping and on sale via UK/Benelux country recall pages and multiple retailers. Global recall page and CPSC listing not yet updated to match — comms gap flagged for immediate closure. Law firm Johnson &amp; Becker now soliciting recall claimants, a new legal-exposure signal separate from the safety fix itself.</div>
+          <div class="timeline-text">Improved adapter S2 confirmed shipping and on sale via UK/Benelux country recall pages and multiple retailers. Global recall page and CPSC listing not yet updated to match — comms gap flagged. Law firm Johnson &amp; Becker soliciting recall claimants.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:#dc2626;"></div>
+          <div class="timeline-date">20 Jul 2026</div>
+          <div class="timeline-text">Re-verified directly on joolz.com: UK/EMEA page and US retail listings (Nordstrom, Albee Baby) confirm S2 availability, but the global recall page and CPSC listing are unchanged from two weeks ago. This is now a persistent, unaddressed gap rather than a lag. Separately, an older Joolz Hub² (UK) wheel-detachment recall (pub. 2 Oct 2025, specific serial batch, resolved via free replacement) was found on the same recall page — logged here for completeness.</div>
         </div>
       </div>
       <div class="recall-actions">
-        <a class="recall-link" href="https://www.joolz.com/uk/en/product-recalls.html" target="_blank">📋 Joolz UK Recall Notice (confirms S2 availability)</a>
-        <a class="recall-link" href="https://www.cpsc.gov/Recalls/2026/Joolz-Recalls-Aer2-Car-Seat-Adapters-for-Strollers-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard" target="_blank">🏛️ CPSC Recall Notice (stale — needs update)</a>
+        <a class="recall-link" href="https://www.joolz.com/uk/en/product-recalls.html" target="_blank">📋 Joolz UK/EMEA Recall Notice (confirms S2 availability)</a>
+        <a class="recall-link" href="https://www.cpsc.gov/Recalls/2026/Joolz-Recalls-Aer2-Car-Seat-Adapters-for-Strollers-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard" target="_blank">🏛️ CPSC Recall Notice #26-568 (stale — needs update)</a>
         <a class="recall-link" href="https://www.johnsonbecker.com/product-liability/joolz-aer2-car-seat-adapters-recall-lawsuit/" target="_blank">⚖️ Law Firm Claimant Solicitation</a>
         <a class="recall-link" href="https://www.joolz.com/global/en/product-recall-global/product-recall-global.html" target="_blank">📢 Joolz Global Recall Page (stale — needs update)</a>
       </div>
@@ -945,7 +1038,7 @@
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span class="recall-badge">⚖️ Recall + Class Action</span>
-          <span style="font-size:12px;color:#888;">Recall issued Jun 2025 · Class action active · No settlement as of 13 Jul 2026</span>
+          <span style="font-size:12px;color:#888;">Recall issued Jun 2025 · Class action active · No settlement as of 20 Jul 2026</span>
         </div>
         <div class="recall-title">Bugaboo Giraffe Highchair</div>
         <div class="recall-sub">18,280 units affected (US) + 2,325 (Canada) · Sold May 2023 – April 2025 · ~$380 retail price</div>
@@ -966,10 +1059,13 @@
         <strong>What happened:</strong> The screws securing the front legs of the Bugaboo Giraffe highchair can loosen or fall out during normal use, allowing the front legs to fully detach. 22 reports of detachment, 13 minor injuries. Most likely to occur when a child pushes on the footrest.
       </div>
       <div class="recall-detail">
-        <strong>Class action:</strong> Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688, SDNY (filed 10 Jul 2025) — alleges recall notice unfairly blamed consumers ("screws not fully tightened during setup"). Bugaboo offering free repair kit but no refunds. No settlement announced as of 13 Jul 2026; docket last showed movement mid-January 2026.
+        <strong>Class action:</strong> Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688, SDNY (filed 10 Jul 2025) — alleges recall notice unfairly blamed consumers ("screws not fully tightened during setup"). Bugaboo offering free repair kit but no refunds. No settlement announced as of 20 Jul 2026; docket last showed movement mid-January 2026.
       </div>
       <div class="recall-detail">
-        <strong>Stroller range not affected:</strong> This recall is specific to the Giraffe highchair. All Bugaboo strollers — Fox 5 Renew, Donkey 6, Butterfly 2, Dragonfly, Bee, Ant, Kangaroo — are unaffected and clear of any recall or safety action.
+        <strong>Separate minor matter:</strong> Juarez v. Bugaboo North America Inc. (Case No. 2:2026cv04535, C.D. Cal., filed 28 Apr 2026) is a Telephone Consumer Protection Act (robocall/text) claim, unrelated to product safety. Waiver of service was returned 11 May 2026 with an answer due 10 Jul 2026. Low materiality — noted for completeness, not currently a reputational driver.
+      </div>
+      <div class="recall-detail">
+        <strong>Stroller range not affected:</strong> Neither the Giraffe class action nor the Juarez matter affects Bugaboo's stroller range. All Bugaboo strollers — Fox 5 Renew, Donkey 6, Butterfly 2, Dragonfly, Bee, Ant, Kangaroo — remain unaffected. The newly-discovered Ergobaby patent suit (tracked separately above) is a different matter again and also does not touch the stroller range.
       </div>
       <div class="recall-timeline">
         <div class="recall-timeline-title">Timeline</div>
@@ -990,31 +1086,36 @@
         </div>
         <div class="timeline-item">
           <div class="timeline-dot" style="background:#dc2626;"></div>
-          <div class="timeline-date">13 Jul 2026</div>
-          <div class="timeline-text">Class action still active. No settlement announced — docket last showed movement mid-January 2026, no material change this week. "Bugaboo blamed consumers" framing continues to circulate. Maintain clear narrative separation between highchair recall and Donkey 6 / Fox 5 Renew stroller messaging. Monitor weekly.</div>
+          <div class="timeline-date">20 Jul 2026</div>
+          <div class="timeline-text">Class action still active. No settlement announced — docket last showed movement mid-January 2026, no material change this week. Separately, a minor unrelated TCPA matter (Juarez v. Bugaboo North America) is proceeding in C.D. Cal. with an answer due 10 Jul 2026. Maintain clear narrative separation between highchair recall and Donkey 6 / Fox 5 Renew stroller messaging. Monitor weekly.</div>
         </div>
       </div>
       <div class="recall-actions">
         <a class="recall-link" href="https://www.courtlistener.com/docket/70750563/parties/sturtz-v-bugaboo-north-america-inc/" target="_blank">⚖️ Case Docket (CourtListener)</a>
         <a class="recall-link" href="https://cpsc.gov/Recalls/2025/Bugaboo-North-America-Recalls-Giraffe-High-Chairs-Due-to-Risk-of-Serious-Injury-or-Death-from-Fall-Hazard" target="_blank">🏛️ CPSC Official Recall</a>
         <a class="recall-link" href="https://www.classaction.org/news/class-action-claims-dangerous-defect-causes-bugaboo-giraffe-highchairs-to-fall-apart" target="_blank">📋 classaction.org Details</a>
+        <a class="recall-link" href="https://dockets.justia.com/docket/california/cacdce/2:2026cv04535/1017625" target="_blank">📋 Juarez v. Bugaboo (TCPA) Docket</a>
       </div>
     </div>
   </div>
 
   <div class="card" style="border-color:#e8e8e8;">
-    <div class="card-title">Recall Monitoring Notes — 13 Jul 2026</div>
+    <div class="card-title">Recall Monitoring Notes — 20 Jul 2026</div>
     <div class="insight-item">
       <div class="insight-dot"></div>
-      <div><span class="bold">Joolz Aer2 adapter — fix has shipped, close the comms gap and watch the legal angle:</span> The improved adapter S2 is now confirmed on sale in the UK and Benelux — genuine progress from last week's overdue status. But the global recall page and CPSC listing haven't been updated to match, and a law firm (Johnson &amp; Becker) is now actively soliciting recall claimants. Update the global comms this week and brief legal on the claimant solicitation before it surfaces on Mumsnet or press — the recall has still not appeared there.</div>
+      <div><span class="bold">NEW — Ergobaby patent suit against Bugaboo/Artipoppe surfaced this week:</span> A previously untracked SDNY filing (1:26-cv-00315) names Bugaboo North America, Bugaboo International, and Artipoppe B.V. as co-defendants in an Ergobaby patent-infringement claim over the Zeitgeist carrier. This is the top new item this cycle and should be confirmed with legal/corporate — particularly the nature of the Bugaboo-Artipoppe relationship it implies.</div>
+    </div>
+    <div class="insight-item">
+      <div class="insight-dot"></div>
+      <div><span class="bold">Joolz Aer2 adapter — the fix is verified working, but the comms gap is now a 3-week-old open item:</span> We independently confirmed the improved adapter S2 in stock at UK/EMEA and US retailers. The global recall page and CPSC listing still haven't been updated to match — this has been flagged for three consecutive weeks now. Escalate past whoever owns that page. The recall still has not surfaced on Mumsnet or in press coverage.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot blue"></div>
-      <div><span class="bold">Bugaboo Giraffe class action — no change:</span> Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688 (SDNY), remains active with no settlement as of 13 Jul 2026; the docket last showed movement in mid-January 2026. Risk contained to highchair category. Donkey 6 and Fox 5 Renew stroller messaging provides strong positive counter-narrative — maintain the separation at all times. Separately, BBB complaints this week increasingly cite the recall's no-refund, repair-only remedy — this is now bleeding into general Bugaboo CS sentiment and should be tracked alongside the litigation.</div>
+      <div><span class="bold">Bugaboo Giraffe class action — no change:</span> Sturtz v. Bugaboo North America Inc., Case No. 1:25-cv-05688 (SDNY), remains active with no settlement as of 20 Jul 2026; the docket last showed movement in mid-January 2026. Risk contained to highchair category. A separate, minor TCPA matter (Juarez v. Bugaboo North America) is also proceeding with low materiality.</div>
     </div>
     <div class="insight-item">
       <div class="insight-dot amber"></div>
-      <div><span class="bold">Separation from sentiment scores:</span> Neither recall is factored into the main brand sentiment scores on other tabs. Sentiment scores reflect organic social and review conversation; recalls represent a distinct operational risk category requiring separate monitoring protocols.</div>
+      <div><span class="bold">Separation from sentiment scores:</span> None of the recalls or legal matters above are factored into the main brand sentiment scores on other tabs. Sentiment scores reflect organic social and review conversation; recalls and litigation represent a distinct risk category requiring separate monitoring protocols.</div>
     </div>
   </div>
 </div>
@@ -1022,7 +1123,7 @@
 </div><!-- /main -->
 
 <div class="footer">
-  Data sources: Trustpilot · TikTok · Instagram · Strolleria · Pish Posh Baby · Mother&amp;Baby · Baby enRoute · SheKnows · ConsumerAffairs · CPSC · CourtListener · Johnson &amp; Becker · Law360 · PacerMonitor · Joolz.com · classaction.org · Sweet Teal · Thingtesting · Babylist · BBB · Mumsnet &nbsp;·&nbsp; Last updated: 13 Jul 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
+  Data sources: Trustpilot · TikTok · Instagram · Forbes Vetted · Strolleria · Kidobebe · Mother&amp;Baby · Baby enRoute · SheKnows · ConsumerAffairs · CPSC · CourtListener · Justia Dockets · Johnson &amp; Becker · Law360 · PacerMonitor · Joolz.com · classaction.org · Sweet Teal · Thingtesting · Babylist · BBB · Mumsnet &nbsp;·&nbsp; Last updated: 20 Jul 2026 &nbsp;·&nbsp; Bugaboo Group Social Listening
 </div>
 
 <script src="./script.js"></script>

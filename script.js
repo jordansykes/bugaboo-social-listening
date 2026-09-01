@@ -31,15 +31,15 @@ document.addEventListener('DOMContentLoaded', function () {
 function drawWoWChart() {
   const ctx = document.getElementById('wowChart');
   if (!ctx || charts.wow) return;
-  // Prior update (6 Aug 2026) vs this week (10 Aug 2026)
+  // Prior update (10 Aug 2026) vs this update (1 Sept 2026)
   var metrics = [
     { label: 'Bugaboo Trustpilot ★',     prev: 4.00,  curr: 4.00  },
-    { label: 'Bugaboo Reviews (×100)',   prev: 26.14, curr: 26.14 },
-    { label: 'Bugaboo Sentiment',        prev: 0.66,  curr: 0.58  },
-    { label: 'Joolz Trustpilot ★',      prev: 3.10,  curr: 3.10  },
-    { label: 'Joolz Reviews (×100)',     prev: 10.35, curr: 10.35 },
-    { label: 'Joolz Sentiment',          prev: 0.14,  curr: 0.12  },
-    { label: 'Artipoppe Sentiment',      prev: 0.14,  curr: 0.12  },
+    { label: 'Bugaboo Reviews (×100)',   prev: 26.14, curr: 27.06 },
+    { label: 'Bugaboo Sentiment',        prev: 0.58,  curr: 0.58  },
+    { label: 'Joolz Trustpilot ★',      prev: 3.10,  curr: 2.90  },
+    { label: 'Joolz Reviews (×100)',     prev: 10.35, curr: 11.71 },
+    { label: 'Joolz Sentiment',          prev: 0.12,  curr: 0.06  },
+    { label: 'Artipoppe Sentiment',      prev: 0.12,  curr: 0.12  },
   ];
   const labels = metrics.map(m => m.label);
   const deltas = metrics.map(m => parseFloat((m.curr - m.prev).toFixed(3)));
@@ -73,8 +73,8 @@ function drawCompareChart() {
     data: {
       labels: ['Bugaboo', 'Joolz', 'Artipoppe'],
       datasets: [
-        { label: 'Trustpilot (/5)', data: [4.0, 3.1, null], backgroundColor: ['#e6394633', '#6366f133', '#f59e0b33'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y1' },
-        { label: 'Sentiment Score', data: [0.58, 0.12, 0.12], backgroundColor: ['#e63946aa', '#6366f1aa', '#f59e0baa'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y2' }
+        { label: 'Trustpilot (/5)', data: [4.0, 2.9, null], backgroundColor: ['#e6394633', '#6366f133', '#f59e0b33'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y1' },
+        { label: 'Sentiment Score', data: [0.58, 0.06, 0.12], backgroundColor: ['#e63946aa', '#6366f1aa', '#f59e0baa'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y2' }
       ]
     },
     options: {
@@ -98,7 +98,7 @@ function drawCompStrollerChart() {
       labels: ['Bugaboo', 'Wildbird', 'UPPAbaby', 'BabyZen/Stokke', 'Nuna', 'Maxi-Cosi', 'Cybex', 'Joolz'],
       datasets: [{
         label: 'Sentiment Score',
-        data: [0.58, null, 0.65, 0.60, 0.38, 0.57, 0.45, 0.12],
+        data: [0.58, null, 0.65, 0.60, 0.38, 0.57, 0.45, 0.06],
         backgroundColor: ['#e63946cc', '#10b98133', '#0ea5e9cc', '#d97706cc', '#059669cc', '#db2777cc', '#7c3aedcc', '#6366f1cc'],
         borderColor:      ['#e63946',   '#10b981',   '#0ea5e9',   '#d97706',   '#059669',   '#db2777',   '#7c3aed',   '#6366f1'],
         borderWidth: 2, borderRadius: 6

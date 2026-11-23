@@ -31,15 +31,16 @@ document.addEventListener('DOMContentLoaded', function () {
 function drawWoWChart() {
   const ctx = document.getElementById('wowChart');
   if (!ctx || charts.wow) return;
-  // Prior update (21 Sept 2026) vs this update (28 Sept 2026)
+  // Prior update (28 Sept 2026) vs this update (23 Nov 2026) — 8-week gap
   var metrics = [
     { label: 'Bugaboo Trustpilot ★',     prev: 4.00,  curr: 4.00  },
-    { label: 'Bugaboo Reviews (×100)',   prev: 27.12, curr: 27.12 },
-    { label: 'Bugaboo Sentiment',        prev: 0.60,  curr: 0.58  },
-    { label: 'Joolz Trustpilot ★',      prev: 2.90,  curr: 2.80  },
-    { label: 'Joolz Reviews (×100)',     prev: 11.92, curr: 12.35 },
-    { label: 'Joolz Sentiment',          prev: 0.01,  curr: 0.00  },
-    { label: 'Artipoppe Sentiment',      prev: 0.08,  curr: 0.07  },
+    { label: 'Bugaboo Reviews (×100)',   prev: 27.12, curr: 27.45 },
+    { label: 'Bugaboo Sentiment',        prev: 0.58,  curr: 0.55  },
+    { label: 'Joolz Trustpilot ★',      prev: 2.80,  curr: 2.70  },
+    { label: 'Joolz Reviews (×100)',     prev: 12.35, curr: 13.45 },
+    { label: 'Joolz Sentiment',          prev: 0.00,  curr: -0.05 },
+    { label: 'Artipoppe Trustpilot ★*', prev: 4.00,  curr: 4.20  },
+    { label: 'Artipoppe Sentiment',      prev: 0.07,  curr: 0.09  },
   ];
   const labels = metrics.map(m => m.label);
   const deltas = metrics.map(m => parseFloat((m.curr - m.prev).toFixed(3)));
@@ -73,8 +74,8 @@ function drawCompareChart() {
     data: {
       labels: ['Bugaboo', 'Joolz', 'Artipoppe'],
       datasets: [
-        { label: 'Trustpilot (/5)', data: [4.0, 2.8, null], backgroundColor: ['#e6394633', '#6366f133', '#f59e0b33'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y1' },
-        { label: 'Sentiment Score', data: [0.58, 0.00, 0.07], backgroundColor: ['#e63946aa', '#6366f1aa', '#f59e0baa'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y2' }
+        { label: 'Trustpilot (/5)', data: [4.0, 2.7, 4.2], backgroundColor: ['#e6394633', '#6366f133', '#f59e0b33'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y1' },
+        { label: 'Sentiment Score', data: [0.55, -0.05, 0.09], backgroundColor: ['#e63946aa', '#6366f1aa', '#f59e0baa'], borderColor: ['#e63946', '#6366f1', '#f59e0b'], borderWidth: 2, borderRadius: 4, yAxisID: 'y2' }
       ]
     },
     options: {
@@ -82,7 +83,7 @@ function drawCompareChart() {
       plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
       scales: {
         y1: { type: 'linear', position: 'left', min: 0, max: 5, title: { display: true, text: 'Trustpilot ★', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { color: '#f0f0f0' } },
-        y2: { type: 'linear', position: 'right', min: 0, max: 1, title: { display: true, text: 'Sentiment (0–1)', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { display: false } },
+        y2: { type: 'linear', position: 'right', min: -0.2, max: 1, title: { display: true, text: 'Sentiment (−1 to +1)', font: { size: 11 } }, ticks: { font: { size: 11 } }, grid: { display: false } },
         x: { ticks: { font: { size: 12 } }, grid: { display: false } }
       }
     }
@@ -98,7 +99,7 @@ function drawCompStrollerChart() {
       labels: ['Bugaboo', 'Wildbird', 'UPPAbaby', 'BabyZen/Stokke', 'Nuna', 'Maxi-Cosi', 'Cybex', 'Joolz'],
       datasets: [{
         label: 'Sentiment Score',
-        data: [0.58, null, 0.68, 0.60, 0.35, 0.57, 0.45, 0.00],
+        data: [0.55, null, 0.68, 0.60, 0.35, 0.57, 0.47, -0.05],
         backgroundColor: ['#e63946cc', '#10b98133', '#0ea5e9cc', '#d97706cc', '#059669cc', '#db2777cc', '#7c3aedcc', '#6366f1cc'],
         borderColor:      ['#e63946',   '#10b981',   '#0ea5e9',   '#d97706',   '#059669',   '#db2777',   '#7c3aed',   '#6366f1'],
         borderWidth: 2, borderRadius: 6
@@ -108,7 +109,7 @@ function drawCompStrollerChart() {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` Sentiment: ${c.raw !== null ? c.raw.toFixed(2) : 'N/A'}` } } },
       scales: {
-        y: { min: 0, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (0–1)', font: { size: 11 }, color: '#888' } },
+        y: { min: -0.2, max: 1, grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } }, title: { display: true, text: 'Sentiment Score (−1 to +1)', font: { size: 11 }, color: '#888' } },
         x: { ticks: { font: { size: 11 } }, grid: { display: false } }
       }
     }
@@ -124,7 +125,7 @@ function drawCompCarrierChart() {
       labels: ['Wildbird', 'Ergobaby', 'Tula', 'Sakura Bloom', 'Mabe', 'Artipoppe'],
       datasets: [{
         label: 'Sentiment Score',
-        data: [0.75, 0.75, 0.78, 0.65, 0.42, 0.07],
+        data: [0.75, 0.75, 0.78, 0.65, 0.42, 0.09],
         backgroundColor: ['#10b981cc', '#0891b2cc', '#ca8a04cc', '#8b5cf6cc', '#f43f5ecc', '#f59e0bcc'],
         borderColor:      ['#10b981',   '#0891b2',   '#ca8a04',   '#8b5cf6',   '#f43f5e',   '#f59e0b'],
         borderWidth: 2, borderRadius: 6
